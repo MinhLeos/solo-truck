@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Solo Truck brand tokens — kept in sync with landing-page.html */
+  --ink: #15181b;
+  --ink-soft: #3c4247;
+  --steel: #f2f4f5;
+  --steel-deep: #e3e7e9;
+  --card: #ffffff;
+  --flame: #e4572e;
+  --flame-deep: #b83e1d;
+  --pass: #1d9e75;
+  --pass-deep: #0f6e56;
+  --led: #7ff0d4;
+  --warn-bg: #fdeee8;
+  --pass-bg: #e4f5ee;
+  --r-lg: 20px;
+  --r-md: 14px;
+  --r-sm: 9px;
+  --shadow: 0 10px 30px -12px rgba(21, 24, 27, 0.18);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-steel: var(--steel);
+  --color-steel-deep: var(--steel-deep);
+  --color-card: var(--card);
+  --color-flame: var(--flame);
+  --color-flame-deep: var(--flame-deep);
+  --color-pass: var(--pass);
+  --color-pass-deep: var(--pass-deep);
+  --color-led: var(--led);
+  --color-warn-bg: var(--warn-bg);
+  --color-pass-bg: var(--pass-bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
