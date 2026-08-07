@@ -41,19 +41,27 @@ Mọi flow chính phải: xong ≤30 giây · bấm được bằng ngón cái m
 Cố tình KHÔNG dùng: native app, sensor/Bluetooth, backend riêng, Redis/queue, multi-tenant
 phức tạp cho chuỗi.
 
-## 5. Data model (15 bảng — đếm lại ở Phase 1.1: "13" ban đầu đếm nhầm số dòng
-diagram, không phải số bảng; `checklists`+`checklist_runs` và
-`commissaries`+`commissary_referrals` mỗi cặp là 2 bảng riêng trên cùng 1 dòng)
+## 5. Data model (16 bảng — thêm `staff` ở Phase 2.1: SECURITY.md mục 7 tả PIN
+attribution nhưng bản 15-bảng ban đầu chưa có chỗ lưu staff+PIN)
 ```
 businesses ─┬─ trucks (MVP: 1 business = 1 truck; bảng riêng để mở đường Phase 5+)
+            │    └─ pre_shift_reminder_minutes, temp_log_interval_minutes (cột trên
+            │       trucks, cấu hình nhắc — Phase 2.4)
+            ├─ staff (name + PIN 4 số — CHỈ để attribution, KHÔNG phải cơ chế bảo
+            │    mật, SECURITY.md mục 7; PIN lưu plain, không hash)
             ├─ equipment (fridge/freezer/hot-hold: tên, loại, ngưỡng min/max °F)
             ├─ logs                ⚠ APPEND-ONLY (xem SECURITY.md)
-            │    └─ corrective_actions (bắt buộc khi log vượt ngưỡng; ảnh trong Storage)
-            ├─ checklists (12 item mặc định seed + custom) ── checklist_runs (mỗi ca)
+            │    └─ corrective_actions (bắt buộc khi log vượt ngưỡng; ảnh trong
+            │         Storage; FK theo logs.client_id — không phải logs.id — để
+            │         CA tạo offline được cùng lúc với log của nó, xem Phase 2.2)
+            ├─ checklists (12 item mặc định seed + custom) ── checklist_runs (mỗi ca,
+            │    mỗi lần tick = 1 dòng snapshot mới — append-only, không UPDATE draft)
             ├─ shifts (khung giờ hoạt động → sinh reminder)
             ├─ documents (permit, commissary agreement, cert: file + expires_at)
             ├─ inspector_links (token read-only, TTL, revoke được)
-            ├─ streaks (materialized từ logs — hoặc tính runtime, quyết ở step 2.4)
+            ├─ streaks (bảng chừa sẵn, CHƯA dùng — Phase 2.4 quyết định tính RUNTIME
+            │    từ logs/checklist_runs, không materialize; xem BACKLOG.md nếu sau
+            │    này chậm cần materialize)
             ├─ subscriptions (MoR)
             ├─ notifications_log (mọi thứ gửi đi đều log — bài học Solo Sitter)
             └─ commissaries + commissary_referrals (Phase 5; schema chừa sẵn, chưa dùng)
