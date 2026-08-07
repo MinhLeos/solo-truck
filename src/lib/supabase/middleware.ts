@@ -1,11 +1,22 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
-// /api/webhooks/* (billing, Phase 4) has no user session — it authenticates
-// via webhook signature verification instead. /i/[token] (Inspector Mode
-// read-only link, Phase 3) is deliberately public: an inspector never has an
-// account.
-const PUBLIC_PATH_PREFIXES = ['/login', '/auth', '/i', '/api/webhooks', '/serwist', '/~offline'];
+// /api/webhooks/* (billing, Phase 4) and /api/cron/* (Phase 2.4+) have no
+// user session — they authenticate via webhook signature / CRON_SECRET
+// bearer token instead (checked inside each route handler). /i/[token]
+// (Inspector Mode read-only link, Phase 3) is deliberately public: an
+// inspector never has an account. Without this exemption, Vercel's
+// scheduled cron request — which carries no session cookie — gets redirected
+// to /login before ever reaching the route handler's own auth check.
+const PUBLIC_PATH_PREFIXES = [
+  '/login',
+  '/auth',
+  '/i',
+  '/api/webhooks',
+  '/api/cron',
+  '/serwist',
+  '/~offline',
+];
 
 function isPublicPath(pathname: string) {
   return PUBLIC_PATH_PREFIXES.some(
