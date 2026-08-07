@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { InstallPrompt } from '../install-prompt';
 import { SyncStatus } from '../sync-status';
+import { BottomNav } from './bottom-nav';
 
 export default async function AppLayout({
   children,
@@ -26,7 +27,10 @@ export default async function AppLayout({
         <span className="font-semibold text-ink">{truck.name}</span>
       </header>
       <SyncStatus />
-      <main className="flex flex-1 flex-col px-4 py-4">{children}</main>
+      <main className="flex flex-1 flex-col px-4 py-4 pb-20">{children}</main>
+      <div className="fixed inset-x-0 bottom-0">
+        <BottomNav />
+      </div>
     </div>
   );
 }

@@ -23,6 +23,28 @@ export function startSyncEngine() {
   void runSync();
 }
 
+// Any queued payload that carries a `photo` field (corrective actions, per
+// src/lib/corrective-actions/types.ts — checked generically here so this
+// module doesn't need to import entity-specific types) is sent as
+// multipart/form-data instead of JSON, since IndexedDB can hold the actual
+// File/Blob but JSON can't serialize one.
+function buildRequestBody(clientId: string, recordedAt: string, payload: unknown) {
+  if (typeof payload === 'object' && payload !== null && 'photo' in payload) {
+    const { photo, ...rest } = payload as { photo: File | null; [key: string]: unknown };
+    const formData = new FormData();
+    formData.set('clientId', clientId);
+    formData.set('recordedAt', recordedAt);
+    formData.set('payload', JSON.stringify(rest));
+    if (photo) formData.set('photo', photo, 'photo.jpg');
+    return { body: formData, headers: undefined };
+  }
+
+  return {
+    body: JSON.stringify({ clientId, recordedAt, payload }),
+    headers: { 'content-type': 'application/json' },
+  };
+}
+
 export async function runSync(): Promise<void> {
   // Guard only when `navigator.onLine` actually exists (real browsers always
   // have it) — Node's built-in `navigator` global (used under vitest) has no
@@ -44,15 +66,8 @@ export async function runSync(): Promise<void> {
       await markSyncing(item.clientId);
 
       try {
-        const response = await fetch(`/api/sync/${item.entity}`, {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({
-            clientId: item.clientId,
-            recordedAt: item.recordedAt,
-            payload: item.payload,
-          }),
-        });
+        const { body, headers } = buildRequestBody(item.clientId, item.recordedAt, item.payload);
+        const response = await fetch(`/api/sync/${item.entity}`, { method: 'POST', headers, body });
 
         if (response.ok) {
           await markSynced(item.clientId);

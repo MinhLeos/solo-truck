@@ -22,6 +22,11 @@ vào đây, KHÔNG code.)*
 - Payout hoa hồng commissary tự động — mở khi >15 commissary active.
 - AuditBinder partnership (họ setup binder → CTA sang ta vận hành, rev-share) —
   chỉ tiếp cận khi ta có ≥50 khách trả phí (đàm phán từ thế có gì đó).
+- **Web push cho reminder (Phase 2.4)** — phase file cho phép "push (nếu PWA cho
+  phép) HOẶC email"; đã ship EMAIL only (Resend, tái dùng module Solo Sitter).
+  Solo Sitter cũng chưa có hạ tầng push (không VAPID key, không
+  push_subscriptions table, không dep web-push) nên không có gì để copy — mở khi
+  owner phản hồi email bị bỏ lỡ/không đủ nhanh.
 
 ## Marketing
 - Ads trả phí — mở sau 3 tháng launch, khi biết LTV thật.
