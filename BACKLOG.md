@@ -34,6 +34,9 @@ vào đây, KHÔNG code.)*
 - Podcast ngành food truck — tìm và log tên show trong Phase 0.2.
 
 ## Tech debt cho phép
+- Bottom nav 6 mục (Today/Checklist/History/Documents/Inspector/Staff) hơi
+  chật trên màn 390px sau khi thêm Documents + Inspector ở Phase 3 — cân
+  nhắc gộp bớt (vd Documents+Staff vào 1 mục "Settings") khi làm UI polish.
 - OG image động cho tools/SEO pages (tĩnh trước).
 - Materialized streaks nếu chọn runtime ở 2.4 và về sau chậm.
 - `npm audit` hiện có 3 lỗi high nằm trong `sharp`/`postcss` mà `next@16.2.12`

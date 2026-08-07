@@ -41,8 +41,9 @@ Mọi flow chính phải: xong ≤30 giây · bấm được bằng ngón cái m
 Cố tình KHÔNG dùng: native app, sensor/Bluetooth, backend riêng, Redis/queue, multi-tenant
 phức tạp cho chuỗi.
 
-## 5. Data model (16 bảng — thêm `staff` ở Phase 2.1: SECURITY.md mục 7 tả PIN
-attribution nhưng bản 15-bảng ban đầu chưa có chỗ lưu staff+PIN)
+## 5. Data model (17 bảng — thêm `staff` ở Phase 2.1: SECURITY.md mục 7 tả PIN
+attribution nhưng bản 15-bảng ban đầu chưa có chỗ lưu staff+PIN; thêm
+`rate_limit_hits` ở Phase 3.2 cho rate limit IP trên route public `/i/[token]`)
 ```
 businesses ─┬─ trucks (MVP: 1 business = 1 truck; bảng riêng để mở đường Phase 5+)
             │    └─ pre_shift_reminder_minutes, temp_log_interval_minutes (cột trên
@@ -59,6 +60,9 @@ businesses ─┬─ trucks (MVP: 1 business = 1 truck; bảng riêng để mở
             ├─ shifts (khung giờ hoạt động → sinh reminder)
             ├─ documents (permit, commissary agreement, cert: file + expires_at)
             ├─ inspector_links (token read-only, TTL, revoke được)
+            ├─ rate_limit_hits (route+ip+created_at — chặn brute-force token
+            │    trên /i/[token]; không phải dữ liệu business, không RLS
+            │    authenticated, chỉ admin client ghi/đọc)
             ├─ streaks (bảng chừa sẵn, CHƯA dùng — Phase 2.4 quyết định tính RUNTIME
             │    từ logs/checklist_runs, không materialize; xem BACKLOG.md nếu sau
             │    này chậm cần materialize)

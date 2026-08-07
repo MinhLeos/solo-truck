@@ -60,9 +60,9 @@ Tầng vận hành SMB/chuỗi    : FoodDocs, Jolt, Operandio — $169+/mo
 - [x] 2.4 — Nhắc theo ca + streak
 
 ### Phase 3 — Inspector Mode & documents *(file: `phases/phase-3-inspector-mode.md`)*
-- [ ] 3.1 — Document vault (permit, commissary agreement, cert — kèm nhắc hết hạn)
-- [ ] 3.2 — Inspector Mode (đọc SECURITY.md trước): view 30/90 ngày + export PDF tại chỗ
-- [ ] 3.3 — Weekly email digest cho owner
+- [x] 3.1 — Document vault (permit, commissary agreement, cert — kèm nhắc hết hạn)
+- [x] 3.2 — Inspector Mode (đọc SECURITY.md trước): view 30/90 ngày + export PDF tại chỗ
+- [x] 3.3 — Weekly email digest cho owner
 
 ### Phase 4 — Billing & launch *(file: `phases/phase-4-billing-launch.md`)*
 - [ ] 4.1 — MoR billing (copy module Solo Sitter) + trial 14 ngày tự quản
@@ -89,6 +89,49 @@ active, ≥25% chuyển trả phí sau trial (cùng ngưỡng kiểm chứng WTP
 ## 5. Nhật ký quyết định
 *(Ngày + quyết định + lý do, mới nhất trên cùng)*
 
+- 2026-08-07 — **Phase 3 xong (3.1+3.2+3.3 trong 1 phiên, tiếp tục ngoại lệ
+  "mỗi phiên một step" theo yêu cầu founder).** Quyết định kỹ thuật + 3 bug
+  thật tìm được qua test tay (không phải lint/typecheck/unit test tự động):
+  - **`service_role` KHÔNG có quyền bảng nào trên local Docker stack** —
+    phát hiện qua lỗi thật `42501 permission denied for table trucks` khi
+    admin client (dùng cho cron + `/i/[token]`) query. `BYPASSRLS` chỉ bỏ
+    qua RLS, KHÔNG tự cấp SELECT/INSERT/UPDATE/DELETE ở tầng bảng — đó là
+    grant Postgres riêng. Cloud project không bị (platform tự cấp), nhưng
+    dựa vào default ngầm không kiểm chứng cho role bảo mật là rủi ro — đã
+    thêm migration `service_role_grants` cấp tường minh theo đúng bảng
+    admin client thực sự dùng (đọc-only cho 3 bảng append-only, khớp
+    nguyên tắc ở SECURITY.md mục 2).
+  - **`/api/cron/reminders` bị chính middleware auth của app chặn (redirect
+    `/login`) từ Phase 2.4 tới giờ** — `PUBLIC_PATH_PREFIXES` trong
+    `src/lib/supabase/middleware.ts` có `/api/webhooks` nhưng quên
+    `/api/cron`. Nghĩa là cron thật của Vercel (không có session cookie)
+    CHƯA BAO GIỜ chạm được vào route handler kể từ khi build — bug thật
+    trong production, chỉ lộ ra khi gọi route bằng curl thật (test logic
+    thuần túy ở 2.4 không bắt được). Đã thêm `/api/cron` vào danh sách
+    public path — route tự xác thực bằng `CRON_SECRET` bearer token bên
+    trong, không cần session.
+  - **Inspector Mode Checklists tab ban đầu hiện MỌI dòng snapshot** (mỗi
+    lần tick = 1 dòng theo thiết kế append-only 2.3) → 12 dòng gần giống
+    nhau cho 1 ca — ngược "hồ sơ sạch đẹp" mà Inspector Mode hứa. Sửa
+    `getInspectorReport` gộp về 1 dòng/ngày theo giờ truck (dòng mới nhất
+    thắng), cùng nguyên tắc "dòng mới nhất là trạng thái hiện tại" mà trang
+    `/checklist` đã dùng.
+  - **`corrective_actions` hiển thị đúng qua `logs.client_id`** (thiết kế
+    2.2) tái dùng nguyên vẹn cho Inspector report — không cần thêm bảng nối.
+  - Document vault: bucket riêng `documents` (như `ca-photos`), signed URL
+    TTL 60s, badge xanh/vàng/đỏ tính pure function (`documentStatus`).
+  - Inspector link: token random 32 byte base64url, rate limit theo IP qua
+    bảng `rate_limit_hits` (copy pattern Solo Sitter, không dùng Redis —
+    traffic route này cực nhỏ), 404 sạch không phân biệt sai/hết hạn/revoke.
+  - PDF export: `pdf-lib` lazy-load client-side, disclaimer SECURITY.md
+    mục 10 hiện cả màn hình lẫn PDF.
+  - Weekly digest gộp vào CÙNG cron 15 phút của 2.4 (không tạo cron riêng)
+    — kiểm tra "đã gửi tuần này" bằng đúng pattern "đã gửi hôm nay" sẵn có.
+  - Test thật: Playwright full flow (log vượt ngưỡng → CA → checklist →
+    upload document → Inspector Mode 3 tab → export PDF → sinh link →
+    xem ẩn danh → revoke → 404 → token rác → 404) + gọi `/api/cron/reminders`
+    thật bằng curl xác nhận dedup đúng (gọi lần 2 không gửi lại).
+  - 3 migration mới đã push lên cả local Docker lẫn cloud "Solo Truck Dev".
 - 2026-08-07 — **Phase 2 xong (2.1+2.2+2.3+2.4 trong 1 phiên, tiếp tục ngoại lệ "mỗi
   phiên một step" theo yêu cầu founder).** Quyết định kỹ thuật đáng chú ý:
   - **Thêm bảng `staff`** (name + PIN 4 số dạng plain text, KHÔNG hash — SECURITY.md
