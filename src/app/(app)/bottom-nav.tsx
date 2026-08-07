@@ -4,6 +4,8 @@ const LINKS = [
   { href: '/today', label: 'Today' },
   { href: '/checklist', label: 'Checklist' },
   { href: '/history', label: 'History' },
+  { href: '/documents', label: 'Documents' },
+  { href: '/inspector', label: 'Inspector' },
   { href: '/settings/staff', label: 'Staff' },
 ];
 

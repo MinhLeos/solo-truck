@@ -14,12 +14,14 @@ export async function sendEmail({
   subject,
   html,
   template,
+  relatedId,
 }: {
   businessId: string;
   to: string;
   subject: string;
   html: string;
   template: string;
+  relatedId?: string;
 }): Promise<void> {
   const admin = createAdminClient();
   let status: 'sent' | 'failed' = 'failed';
@@ -51,6 +53,7 @@ export async function sendEmail({
     status,
     sent_at: status === 'sent' ? new Date().toISOString() : null,
     error,
+    related_id: relatedId ?? null,
   });
 
   if (status === 'failed') {
