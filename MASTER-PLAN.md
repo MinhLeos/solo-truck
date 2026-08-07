@@ -54,10 +54,10 @@ Tầng vận hành SMB/chuỗi    : FoodDocs, Jolt, Operandio — $169+/mo
 - [x] 1.3 — PWA offline-first shell (Serwist + IndexedDB queue, sync engine)
 
 ### Phase 2 — Core logging (trái tim sản phẩm) *(file: `phases/phase-2-core-logging.md`)*
-- [ ] 2.1 — Temp log 30 giây (đọc SECURITY.md trước) — append-only + timestamp integrity
-- [ ] 2.2 — Corrective action flow (vượt ngưỡng → bắt ghi hành động + ảnh)
-- [ ] 2.3 — Pre-shift checklist 12 điểm + custom items
-- [ ] 2.4 — Nhắc theo ca + streak
+- [x] 2.1 — Temp log 30 giây (đọc SECURITY.md trước) — append-only + timestamp integrity
+- [x] 2.2 — Corrective action flow (vượt ngưỡng → bắt ghi hành động + ảnh)
+- [x] 2.3 — Pre-shift checklist 12 điểm + custom items
+- [x] 2.4 — Nhắc theo ca + streak
 
 ### Phase 3 — Inspector Mode & documents *(file: `phases/phase-3-inspector-mode.md`)*
 - [ ] 3.1 — Document vault (permit, commissary agreement, cert — kèm nhắc hết hạn)
@@ -89,6 +89,31 @@ active, ≥25% chuyển trả phí sau trial (cùng ngưỡng kiểm chứng WTP
 ## 5. Nhật ký quyết định
 *(Ngày + quyết định + lý do, mới nhất trên cùng)*
 
+- 2026-08-07 — **Phase 2 xong (2.1+2.2+2.3+2.4 trong 1 phiên, tiếp tục ngoại lệ "mỗi
+  phiên một step" theo yêu cầu founder).** Quyết định kỹ thuật đáng chú ý:
+  - **Thêm bảng `staff`** (name + PIN 4 số dạng plain text, KHÔNG hash — SECURITY.md
+    mục 7 nói rõ PIN chỉ để attribution, không phải bảo mật) — schema gốc 15 bảng
+    thiếu chỗ này, đã sửa ARCHITECTURE.md trước khi code (16 bảng).
+  - **`corrective_actions` tham chiếu `logs.client_id`, không phải `logs.id`** — thiết
+    kế gốc ở Phase 1 sẽ làm hỏng offline (log server-generated id chưa tồn tại lúc
+    CA được tạo cùng lúc offline). Đổi FK sang `client_id` (đã unique not null từ
+    Phase 1) — log và CA queue cùng lúc, sync engine tự xử lý đúng thứ tự hoặc retry
+    nếu FK chưa thỏa (lỗi 23503/409 → coi là transient, engine đã tự retry sẵn).
+  - **Checklist run: mỗi lần tick = 1 dòng snapshot mới**, không UPDATE draft —
+    giữ triết lý append-only nguyên vẹn thay vì phá lệ cho tính năng này.
+  - **Streak tính RUNTIME, không materialize** (bảng `streaks` từ Phase 1 vẫn để
+    không dùng) — đúng như BACKLOG.md đã dự đoán, materialize để dành khi nào chậm.
+  - **Reminder chỉ dùng EMAIL, chưa làm push** — ghi BACKLOG.md, Solo Sitter cũng
+    chưa có hạ tầng push để tái dùng.
+  - Test thật phát hiện + fix 1 bug thật: `getServerSnapshot` trong
+    `use-sync-status.ts` trả về object literal mới mỗi lần gọi thay vì reference ổn
+    định — React cảnh báo "should be cached to avoid an infinite loop" (chỉ lộ ra khi
+    reload trang thật lúc queue có item, không phải lỗi build/lint/test tự động bắt
+    được). Cũng verify: pipeline log+corrective_action (kèm FK qua client_id) sync
+    đúng 1 lần lên Postgres thật qua toàn bộ luồng UI (numpad → CA sheet chặn hoàn
+    tất → submit → sync).
+  - 6 migration mới đã push lên cả local Docker lẫn cloud "Solo Truck Dev"
+    (`ccyvbrywofxesafkxiqm`), pgTAP 16/16 pass.
 - 2026-08-06 — **Phase 1 xong (1.1+1.2+1.3 trong 1 phiên, ngoại lệ rule "mỗi phiên
   một step" — founder yêu cầu vì có dev khác chờ).** Quyết định kỹ thuật đáng chú ý:
   - **Serwist + Turbopack chạy được thật** (`@serwist/turbopack` 9.5.12) — khác Solo
