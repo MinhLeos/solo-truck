@@ -89,6 +89,12 @@ Test bắt buộc (quy tắc 6 trong CLAUDE.md):
 - Route public (`/i/`): rate limit IP, honeypot, không leak thông tin qua error.
 - Export CSV/PDF toàn bộ dữ liệu từ MVP.
 - Sentry không nhận PII trong breadcrumbs (scrub tên/email/số permit).
+- **Đổi từ magic link sang email+password / Google OAuth (2026-08-10)** — magic
+  link không hoạt động tốt trên PWA đã cài trên điện thoại: link mở ra browser
+  ngoài thay vì trong app đã cài, session có khi không đồng bộ lại vào PWA
+  (giống lý do Solo Sitter đã đổi trước đó). `/login`, `/signup`,
+  `/auth/forgot-password` đều rate limit theo IP (bảng `rate_limit_hits`) và
+  trả response giống hệt nhau dù email có tồn tại hay không (anti-enumeration).
 
 ## 10. Disclaimer pháp lý (bắt buộc, Phase 3.2 + landing)
 App là công cụ ghi chép, KHÔNG phải tư vấn pháp lý/food-safety, không đảm bảo qua

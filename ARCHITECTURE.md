@@ -22,7 +22,7 @@ Mọi flow chính phải: xong ≤30 giây · bấm được bằng ngón cái m
 | Nhân vật | Là ai | Truy cập |
 |---|---|---|
 | Founder | Vận hành app, ở VN | Admin (sau), nhận tiền qua MoR |
-| **Owner** | Chủ food truck — khách trả tiền | Magic link email — tài khoản chính |
+| **Owner** | Chủ food truck — khách trả tiền | Email + password hoặc Google OAuth — tài khoản chính |
 | Staff | Nhân viên xe (nếu có) | PIN 4 số trong app của owner (KHÔNG tài khoản riêng ở MVP — xe 1-3 người) |
 | **Inspector** | Thanh tra y tế | KHÔNG tài khoản. Xem Inspector Mode trên máy của owner, hoặc link read-only có hạn |
 | Commissary (Phase 5) | Chủ bếp trung tâm | Tài khoản riêng, chỉ thấy dữ liệu được owner cho phép |

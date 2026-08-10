@@ -13,6 +13,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 // visitors from search/community, never gated behind auth.
 const PUBLIC_PATH_PREFIXES = [
   '/login',
+  '/signup',
   '/auth',
   '/i',
   '/api/webhooks',

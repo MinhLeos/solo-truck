@@ -26,7 +26,8 @@ theo dõi đối thủ. Claude Code KHÔNG được đề xuất "tiện tay bui
 
 ## Tech stack (đã chốt — tái dùng tối đa playbook Solo Sitter, không tự ý đổi)
 - Next.js (App Router) + TypeScript · Tailwind CSS · zod validate
-- Supabase: Postgres, Auth (magic link), RLS, Storage (ảnh corrective action, documents)
+- Supabase: Postgres, Auth (email+password / Google OAuth — đổi từ magic link
+  2026-08-10, xem SECURITY.md mục 9), RLS, Storage (ảnh corrective action, documents)
 - **PWA offline-first bằng Serwist + IndexedDB — BẮT BUỘC, không phải nice-to-have**
   (food truck = hộp kim loại, sóng yếu; log phải ghi được offline và sync sau)
 - Thanh toán (founder VN, KHÔNG dùng được Stripe trực tiếp):

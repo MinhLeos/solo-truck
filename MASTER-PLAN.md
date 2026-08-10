@@ -95,6 +95,19 @@ active, ≥25% chuyển trả phí sau trial (cùng ngưỡng kiểm chứng WTP
 ## 5. Nhật ký quyết định
 *(Ngày + quyết định + lý do, mới nhất trên cùng)*
 
+- 2026-08-10 — **Đổi auth từ magic link sang email+password + Google OAuth**
+  (revise lại 1.2, không phải phase mới). Lý do: Solo Sitter đã đổi trước đó
+  cùng ngày 2026-08-06 vì magic link vỡ UX trên PWA đã cài (link mở browser
+  ngoài, session không đồng bộ lại vào app đã cài) — Solo Truck coi PWA
+  offline-first là core feature nên vấn đề này áp dụng mạnh hơn. Port nguyên
+  playbook Sitter: `/login` (password + Google OAuth), `/signup`,
+  `/auth/forgot-password`, `/auth/reset-password`, `settings/account`
+  (change/set password), rate limit IP trên cả 3 action ghi (login/signup/
+  forgot-password, dùng lại `rate_limit_hits` có sẵn từ Phase 3.2), whitelist
+  `?next=` ở `/auth/callback` chống open redirect. Google OAuth cần founder tự
+  tạo OAuth client (Google Cloud Console) + bật provider trên Supabase
+  dashboard (cloud + local `config.toml` nếu muốn test local) — nút "Continue
+  with Google" sẽ lỗi cho đến khi làm bước đó, không thiếu code.
 - 2026-08-10 — **Phase 4: 4.1 code xong (chờ Dodo key thật) + phần code của
   4.2/4.3.** Founder chọn làm 4.1 + phần "code được" của 4.2 (`/founding-trucks`)
   và 4.3 (2 free tools + 2 trang `/compare`) trong 1 phiên — outreach/launch

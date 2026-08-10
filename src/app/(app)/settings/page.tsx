@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 const LINKS = [
   { href: '/settings/billing', label: 'Billing', description: 'Trial status, subscribe, manage payment' },
   { href: '/settings/staff', label: 'Staff', description: 'PINs for attribution on logs' },
+  { href: '/settings/account', label: 'Account', description: 'Password, sign-in method' },
 ];
 
 export default function SettingsPage() {
