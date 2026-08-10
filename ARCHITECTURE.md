@@ -152,14 +152,16 @@ src/app/
 │   ├── history/           # logs + CA + filter theo equipment/ngày
 │   ├── documents/         # vault + expiry badges
 │   ├── inspector/         # Inspector Mode (fullscreen, read-only)
-│   └── settings/          # index + billing (trial/subscribe/manage) + staff PIN
+│   └── settings/          # index + billing + staff PIN + account (đổi/set password)
 ├── i/[token]/             # PUBLIC read-only: inspector link (TTL) — server-rendered
 ├── founding-trucks/       # PUBLIC marketing: offer 3 tháng free đổi feedback (Phase 4.2)
 ├── tools/                 # PUBLIC, không DB (4 quy tắc SẮT — MARKETING-PLAN.md §2 kênh B):
 │   ├── temp-danger-zone-checker/
 │   └── inspection-readiness-quiz/
 ├── compare/               # PUBLIC, không DB: /auditbinder, /fooddocs (Phase 4.3)
-├── login/ · auth/callback/ · setup/
+├── login/ · signup/ · setup/
+├── auth/callback/ · auth/forgot-password/ · auth/reset-password/ — email+password
+│   /Google OAuth (đổi từ magic link 2026-08-10, xem SECURITY.md mục 9)
 └── api/webhooks/dodo/     # MoR webhook (verify chữ ký, idempotent, Phase 4.1)
 ```
 

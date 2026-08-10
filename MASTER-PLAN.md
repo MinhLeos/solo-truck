@@ -104,10 +104,23 @@ active, ≥25% chuyển trả phí sau trial (cùng ngưỡng kiểm chứng WTP
   `/auth/forgot-password`, `/auth/reset-password`, `settings/account`
   (change/set password), rate limit IP trên cả 3 action ghi (login/signup/
   forgot-password, dùng lại `rate_limit_hits` có sẵn từ Phase 3.2), whitelist
-  `?next=` ở `/auth/callback` chống open redirect. Google OAuth cần founder tự
-  tạo OAuth client (Google Cloud Console) + bật provider trên Supabase
-  dashboard (cloud + local `config.toml` nếu muốn test local) — nút "Continue
-  with Google" sẽ lỗi cho đến khi làm bước đó, không thiếu code.
+  `?next=` ở `/auth/callback` chống open redirect.
+  - **Google OAuth: DONE, test thật qua Playwright.** Founder tạo OAuth client
+    "Solo Truck Dev" trên Google Cloud Console, đăng ký redirect URI cho cả
+    cloud (`https://ccyvbrywofxesafkxiqm.supabase.co/auth/v1/callback`) và
+    local (`http://127.0.0.1:54321/auth/v1/callback`) + JS origin
+    `localhost:3010`. Bật provider trên Supabase dashboard cloud; local thêm
+    `[auth.external.google]` vào `supabase/config.toml` (client_id plain,
+    secret qua `env(SUPABASE_AUTH_EXTERNAL_GOOGLE_SECRET)`) rồi
+    `supabase stop && supabase start` để nạp — verify bằng Playwright: bấm
+    "Continue with Google" bay đúng tới `accounts.google.com` sign-in thật,
+    đúng `client_id`/`redirect_uri`, không còn `redirect_uri_mismatch`.
+  - **Tác dụng phụ phát hiện được:** container GoTrue local trước đó chạy
+    `GOTRUE_MAILER_AUTOCONFIRM=true`, lệch với `config.toml` ghi
+    `enable_confirmations=true` (drift do khởi tạo cũ chưa từng restart lại
+    theo config mới). Restart để nạp Google config đã tự sửa luôn drift này
+    — signup local từ nay yêu cầu xác nhận email qua Mailpit giống cloud,
+    không tự đăng nhập ngay như hành vi cũ.
 - 2026-08-10 — **Phase 4: 4.1 code xong (chờ Dodo key thật) + phần code của
   4.2/4.3.** Founder chọn làm 4.1 + phần "code được" của 4.2 (`/founding-trucks`)
   và 4.3 (2 free tools + 2 trang `/compare`) trong 1 phiên — outreach/launch
