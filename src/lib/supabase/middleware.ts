@@ -8,6 +8,9 @@ import { NextResponse, type NextRequest } from 'next/server';
 // inspector never has an account. Without this exemption, Vercel's
 // scheduled cron request — which carries no session cookie — gets redirected
 // to /login before ever reaching the route handler's own auth check.
+// /founding-trucks, /tools, /compare (Phase 4.2/4.3) are marketing pages —
+// no login, no DB (see /tools's own 4 iron rules) — meant for anonymous
+// visitors from search/community, never gated behind auth.
 const PUBLIC_PATH_PREFIXES = [
   '/login',
   '/auth',
@@ -16,6 +19,9 @@ const PUBLIC_PATH_PREFIXES = [
   '/api/cron',
   '/serwist',
   '/~offline',
+  '/founding-trucks',
+  '/tools',
+  '/compare',
 ];
 
 function isPublicPath(pathname: string) {
