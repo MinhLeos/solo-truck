@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { enqueue } from '@/lib/offline/queue';
 import { isOutOfThreshold } from '@/lib/thresholds';
 import type { LogPayload, TodayLog } from '@/lib/logs/types';
@@ -29,12 +30,15 @@ export function TodayClient({
   initialLogs,
   staff,
   streak,
+  canWrite,
 }: {
   equipment: Equipment[];
   initialLogs: Record<string, TodayLog>;
   staff: Staff[];
   streak: number;
+  canWrite: boolean;
 }) {
+  const router = useRouter();
   const [logsByEquipment, setLogsByEquipment] = useState(initialLogs);
   const [activeEquipmentId, setActiveEquipmentId] = useState<string | null>(null);
   const [step, setStep] = useState<Step>(null);
@@ -136,6 +140,13 @@ export function TodayClient({
           thresholdMax={item.thresholdMax}
           lastLog={logsByEquipment[item.id]}
           onTap={() => {
+            // SECURITY.md §4: expired/trial-ended trucks keep read/export
+            // access — only NEW writes are blocked, sent to billing instead
+            // of the numpad the moment they'd try to start one.
+            if (!canWrite) {
+              router.push('/settings/billing');
+              return;
+            }
             setActiveEquipmentId(item.id);
             setStep('numpad');
           }}

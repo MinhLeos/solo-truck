@@ -3,6 +3,7 @@
 import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
+import { checkWriteAccess, BILLING_LOCKED_MESSAGE } from '@/lib/billing/guard';
 
 const addStaffSchema = z.object({
   name: z.string().trim().min(1).max(80),
@@ -26,6 +27,10 @@ export async function addStaff(
   const supabase = await createClient();
   const { data: truck } = await supabase.from('trucks').select('business_id').maybeSingle();
   if (!truck) return { status: 'error', message: 'No truck found for this account.' };
+
+  if (!(await checkWriteAccess(truck.business_id))) {
+    return { status: 'error', message: BILLING_LOCKED_MESSAGE };
+  }
 
   const { error } = await supabase
     .from('staff')

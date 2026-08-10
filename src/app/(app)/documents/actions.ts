@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
 import { createClient } from '@/lib/supabase/server';
 import { DOCUMENT_KINDS } from '@/lib/documents/types';
+import { checkWriteAccess, BILLING_LOCKED_MESSAGE } from '@/lib/billing/guard';
 
 const KIND_VALUES = DOCUMENT_KINDS.map((k) => k.value) as [string, ...string[]];
 
@@ -37,6 +38,10 @@ export async function uploadDocument(
   const supabase = await createClient();
   const { data: truck } = await supabase.from('trucks').select('business_id').maybeSingle();
   if (!truck) return { status: 'error', message: 'No truck found for this account.' };
+
+  if (!(await checkWriteAccess(truck.business_id))) {
+    return { status: 'error', message: BILLING_LOCKED_MESSAGE };
+  }
 
   const extension = file.name.match(/\.\w+$/)?.[0] ?? '';
   const path = `${truck.business_id}/documents/${crypto.randomUUID()}${extension}`;

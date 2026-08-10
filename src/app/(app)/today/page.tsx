@@ -1,14 +1,22 @@
 import { createClient } from '@/lib/supabase/server';
 import { businessDayRangeUtc, todayInTimezone } from '@/lib/timezone';
 import { computeCurrentStreak } from '@/lib/streaks';
+import { hasWriteAccess } from '@/lib/billing/access';
+import { getSubscriptionForAccess } from '@/lib/billing/get-subscription';
 import type { TodayLog } from '@/lib/logs/types';
 import { TodayClient } from './today-client';
 
 export default async function TodayPage() {
   const supabase = await createClient();
 
-  const { data: truck } = await supabase.from('trucks').select('id, timezone').maybeSingle();
+  const { data: truck } = await supabase
+    .from('trucks')
+    .select('id, timezone, business_id')
+    .maybeSingle();
   const timezone = truck?.timezone ?? 'UTC';
+
+  const sub = truck ? await getSubscriptionForAccess(supabase, truck.business_id) : null;
+  const canWrite = hasWriteAccess(sub, new Date());
 
   const { data: shiftRows } = await supabase
     .from('shifts')
@@ -72,6 +80,7 @@ export default async function TodayPage() {
       initialLogs={initialLogs}
       staff={staffRows ?? []}
       streak={streak}
+      canWrite={canWrite}
     />
   );
 }

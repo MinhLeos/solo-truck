@@ -1,13 +1,21 @@
 import { createClient } from '@/lib/supabase/server';
 import { businessDayRangeUtc, todayInTimezone } from '@/lib/timezone';
+import { hasWriteAccess } from '@/lib/billing/access';
+import { getSubscriptionForAccess } from '@/lib/billing/get-subscription';
 import type { ChecklistItemState } from '@/lib/checklist/types';
 import { ChecklistClient } from './checklist-client';
 
 export default async function ChecklistPage() {
   const supabase = await createClient();
 
-  const { data: truck } = await supabase.from('trucks').select('id, timezone').maybeSingle();
+  const { data: truck } = await supabase
+    .from('trucks')
+    .select('id, timezone, business_id')
+    .maybeSingle();
   const timezone = truck?.timezone ?? 'UTC';
+
+  const sub = truck ? await getSubscriptionForAccess(supabase, truck.business_id) : null;
+  const canWrite = hasWriteAccess(sub, new Date());
 
   const { data: checklists } = await supabase
     .from('checklists')
@@ -40,5 +48,5 @@ export default async function ChecklistPage() {
     checked: checkedByChecklistId.get(item.id) ?? false,
   }));
 
-  return <ChecklistClient initialItems={initialItems} />;
+  return <ChecklistClient initialItems={initialItems} canWrite={canWrite} />;
 }

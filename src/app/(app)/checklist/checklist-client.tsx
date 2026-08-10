@@ -1,14 +1,29 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Card } from '@/components/ui/card';
 import { enqueue } from '@/lib/offline/queue';
 import type { ChecklistItemState, ChecklistRunPayload } from '@/lib/checklist/types';
 
-export function ChecklistClient({ initialItems }: { initialItems: ChecklistItemState[] }) {
+export function ChecklistClient({
+  initialItems,
+  canWrite,
+}: {
+  initialItems: ChecklistItemState[];
+  canWrite: boolean;
+}) {
+  const router = useRouter();
   const [items, setItems] = useState(initialItems);
 
   async function toggle(checklistId: string) {
+    // SECURITY.md §4: only new writes are blocked once trial/subscription
+    // has lapsed — reading today's already-synced state stays available.
+    if (!canWrite) {
+      router.push('/settings/billing');
+      return;
+    }
+
     const next = items.map((item) =>
       item.checklistId === checklistId ? { ...item, checked: !item.checked } : item,
     );
