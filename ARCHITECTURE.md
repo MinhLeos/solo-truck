@@ -33,7 +33,7 @@ Mọi flow chính phải: xong ≤30 giây · bấm được bằng ngón cái m
 | Framework | Next.js (App Router) + TS | Tái dùng playbook + code Solo Sitter |
 | DB/Auth/Storage | Supabase (Postgres + RLS + Storage) | Như Solo Sitter; Storage cho ảnh CA + documents |
 | **Offline** | Serwist + IndexedDB write-queue | KHÁC Solo Sitter: ở đây offline là tính năng LÕI, không phải cache đọc — xem mục 7 |
-| Billing | MoR (Dodo/Paddle), copy `src/lib/billing/` từ Solo Sitter | Founder VN không dùng được Stripe |
+| Billing | MoR Dodo Payments (chốt Phase 4.1, cùng provider Solo Sitter), `src/lib/billing/` | Founder VN không dùng được Stripe |
 | Email | Resend | Digest, nhắc, receipt |
 | PDF export | Client-side (pdf-lib, lazy-load) | Inspector Mode export tại chỗ, không cần server |
 | Deploy/Errors | Vercel + Sentry | Như Solo Sitter |
@@ -41,9 +41,10 @@ Mọi flow chính phải: xong ≤30 giây · bấm được bằng ngón cái m
 Cố tình KHÔNG dùng: native app, sensor/Bluetooth, backend riêng, Redis/queue, multi-tenant
 phức tạp cho chuỗi.
 
-## 5. Data model (17 bảng — thêm `staff` ở Phase 2.1: SECURITY.md mục 7 tả PIN
+## 5. Data model (18 bảng — thêm `staff` ở Phase 2.1: SECURITY.md mục 7 tả PIN
 attribution nhưng bản 15-bảng ban đầu chưa có chỗ lưu staff+PIN; thêm
-`rate_limit_hits` ở Phase 3.2 cho rate limit IP trên route public `/i/[token]`)
+`rate_limit_hits` ở Phase 3.2 cho rate limit IP trên route public `/i/[token]`;
+thêm `billing_webhook_events` ở Phase 4.1 — ledger idempotency cho webhook Dodo)
 ```
 businesses ─┬─ trucks (MVP: 1 business = 1 truck; bảng riêng để mở đường Phase 5+)
             │    └─ pre_shift_reminder_minutes, temp_log_interval_minutes (cột trên
@@ -66,7 +67,10 @@ businesses ─┬─ trucks (MVP: 1 business = 1 truck; bảng riêng để mở
             ├─ streaks (bảng chừa sẵn, CHƯA dùng — Phase 2.4 quyết định tính RUNTIME
             │    từ logs/checklist_runs, không materialize; xem BACKLOG.md nếu sau
             │    này chậm cần materialize)
-            ├─ subscriptions (MoR)
+            ├─ subscriptions (MoR — status/trial_ends_at/current_period_end,
+            │    1 dòng/business, tạo tự động trong complete_onboarding())
+            ├─ billing_webhook_events (ledger idempotency theo webhook-id của
+            │    Dodo — không phải dữ liệu business, chỉ admin client)
             ├─ notifications_log (mọi thứ gửi đi đều log — bài học Solo Sitter)
             └─ commissaries + commissary_referrals (Phase 5; schema chừa sẵn, chưa dùng)
 ```
@@ -118,6 +122,18 @@ thanh tra; log đẹp giả BỊ soi. Vậy giá trị bán = **tính không th�
   không phá streak. Hiển thị to ở home — vừa động lực, vừa là "bằng chứng thói quen".
 - Weekly digest email: streak, số log, CA đã xử lý, document sắp hết hạn.
 
+### 6.6 Billing & trial (Phase 4.1)
+- Trial 14 ngày mở tự động cho mọi business (trong RPC `complete_onboarding()`,
+  không có code path nào tạo business mà thiếu dòng `subscriptions`).
+- `hasWriteAccess()` tính runtime từ status/trial_ends_at/current_period_end —
+  KHÔNG cron nào cần chạy đúng lúc hết hạn. Hết hạn/hết trial: khóa GHI MỚI
+  (numpad, checklist tick, upload document, thêm staff) — KHÔNG khóa đọc/export/
+  sync hàng đợi cũ (SECURITY.md mục 4, "không bắt dữ liệu làm con tin"). Offline
+  flow (today/checklist) chặn ở client trước khi enqueue; flow online-only
+  (documents, staff) chặn trong server action qua `checkWriteAccess()`.
+- Webhook Dodo verify chữ ký (`standardwebhooks`) + idempotent theo
+  `webhook-id` (bảng `billing_webhook_events`).
+
 ## 7. Offline-first (khác biệt kỹ thuật lớn nhất so với Solo Sitter)
 Solo Sitter: offline = cache ĐỌC (lịch hôm nay). Solo Truck: offline = GHI là chính.
 - Mọi write (log, CA, checklist tick) đi vào IndexedDB queue trước, UI xác nhận ngay
@@ -136,10 +152,15 @@ src/app/
 │   ├── history/           # logs + CA + filter theo equipment/ngày
 │   ├── documents/         # vault + expiry badges
 │   ├── inspector/         # Inspector Mode (fullscreen, read-only)
-│   └── settings/          # truck, equipment, shifts, checklist items, billing, staff PIN
+│   └── settings/          # index + billing (trial/subscribe/manage) + staff PIN
 ├── i/[token]/             # PUBLIC read-only: inspector link (TTL) — server-rendered
+├── founding-trucks/       # PUBLIC marketing: offer 3 tháng free đổi feedback (Phase 4.2)
+├── tools/                 # PUBLIC, không DB (4 quy tắc SẮT — MARKETING-PLAN.md §2 kênh B):
+│   ├── temp-danger-zone-checker/
+│   └── inspection-readiness-quiz/
+├── compare/               # PUBLIC, không DB: /auditbinder, /fooddocs (Phase 4.3)
 ├── login/ · auth/callback/ · setup/
-└── api/billing/webhook/   # MoR webhook (verify chữ ký, idempotent — copy Solo Sitter)
+└── api/webhooks/dodo/     # MoR webhook (verify chữ ký, idempotent, Phase 4.1)
 ```
 
 ## 9. Những gì file này KHÔNG quyết (xem file khác)

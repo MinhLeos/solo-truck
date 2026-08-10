@@ -34,9 +34,14 @@ vào đây, KHÔNG code.)*
 - Podcast ngành food truck — tìm và log tên show trong Phase 0.2.
 
 ## Tech debt cho phép
-- Bottom nav 6 mục (Today/Checklist/History/Documents/Inspector/Staff) hơi
-  chật trên màn 390px sau khi thêm Documents + Inspector ở Phase 3 — cân
-  nhắc gộp bớt (vd Documents+Staff vào 1 mục "Settings") khi làm UI polish.
+- Bottom nav vẫn 6 mục (Today/Checklist/History/Documents/Inspector/Settings)
+  — Phase 4.1 đã gộp Staff+Billing vào `/settings` (giảm 1 mục lẽ ra phải
+  thêm cho Billing) nhưng còn chật trên màn 390px; cân nhắc gộp thêm
+  Documents vào Settings khi làm UI polish.
+- **Funnel analytics chưa có** (waitlist→signup→activated→paid, DoD Phase
+  4.3) — `/tools`, `/compare`, `/founding-trucks` chưa gắn analytics event
+  nào (Solo Sitter's TOOLS-PLAN T1.2 có "analytics events", Solo Truck chưa
+  làm phần đó). Cần trước khi tick DoD 4.3 "funnel đo đủ".
 - OG image động cho tools/SEO pages (tĩnh trước).
 - Materialized streaks nếu chọn runtime ở 2.4 và về sau chậm.
 - `npm audit` hiện có 3 lỗi high nằm trong `sharp`/`postcss` mà `next@16.2.12`

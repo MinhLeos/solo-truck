@@ -66,8 +66,14 @@ Tầng vận hành SMB/chuỗi    : FoodDocs, Jolt, Operandio — $169+/mo
 
 ### Phase 4 — Billing & launch *(file: `phases/phase-4-billing-launch.md`)*
 - [ ] 4.1 — MoR billing (copy module Solo Sitter) + trial 14 ngày tự quản
+      — CODE + WEBHOOK + GATING XONG VÀ ĐÃ TEST THẬT (xem Nhật ký); còn thiếu
+      DUY NHẤT "checkout sandbox end-to-end" vì chưa có Dodo API key thật.
 - [ ] 4.2 — Founding Trucks campaign (20 xe đầu, 3 tháng free đổi feedback)
+      — trang `/founding-trucks` đã code xong; outreach/onboard tay 20 xe là
+      việc founder, chưa làm.
 - [ ] 4.3 — Launch checklist: cộng đồng + Product Hunt + SEO pages đầu tiên
+      — 2 free tools + 2 trang /compare đã code xong; đăng cộng đồng/PH launch
+      thật là việc founder, chưa làm.
 
 ### Phase 5 — Commissary channel *(file: `phases/phase-5-commissary.md`)* — SAU khi có ≥10 xe active
 - [ ] 5.1 — Referral code cho commissary (hoa hồng 20% năm đầu)
@@ -89,6 +95,48 @@ active, ≥25% chuyển trả phí sau trial (cùng ngưỡng kiểm chứng WTP
 ## 5. Nhật ký quyết định
 *(Ngày + quyết định + lý do, mới nhất trên cùng)*
 
+- 2026-08-10 — **Phase 4: 4.1 code xong (chờ Dodo key thật) + phần code của
+  4.2/4.3.** Founder chọn làm 4.1 + phần "code được" của 4.2 (`/founding-trucks`)
+  và 4.3 (2 free tools + 2 trang `/compare`) trong 1 phiên — outreach/launch
+  thật vẫn là việc founder, chưa tick DoD của 4.2/4.3.
+  - **Giá: $24/mo hoặc $190/năm** — dùng đúng mặc định phase file đề xuất
+    (chưa có dữ liệu phỏng vấn giá thật vì Phase 0.3 bị bỏ qua theo gate
+    override) — quyết định tạm, chỉnh lại khi có tín hiệu WTP thật.
+  - **MoR: Dodo Payments** (không phải Paddle) — cùng provider Solo Sitter,
+    copy nguyên `src/lib/billing/` (client/checkout/webhook/webhook-events/
+    access/guard), đổi 1 product thành 2 (`BILLING_PRODUCT_ID_MONTHLY` +
+    `_YEARLY`) vì Solo Truck cần 2 mức giá, Solo Sitter chỉ có 1.
+  - **SECURITY.md mục 4 áp dụng đúng nghĩa "không bắt dữ liệu làm con tin":**
+    hết trial/hết hạn chỉ khóa GHI MỚI. Offline flow (today/checklist) chặn
+    ở CLIENT trước khi enqueue (không chặn ở `/api/sync/[entity]` — route đó
+    chỉ có nhiệm vụ xả hàng đợi cũ, có thể đã tạo lúc còn hạn). Flow
+    online-only (documents, staff) chặn trong server action. Đã verify THẬT:
+    tài khoản hết hạn vẫn mở được `/history` + `/inspector` (200, không
+    redirect), tap equipment card / checklist bị đẩy về `/settings/billing`,
+    upload document bị chặn với message rõ ràng.
+  - **Test webhook THẬT** (không chỉ mock): tự ký request bằng chính
+    `standardwebhooks` lib (không cần Dodo key) → xác nhận verify chữ ký
+    đúng, cập nhật `subscriptions` đúng field, và gọi lại đúng event lần 2
+    trả `duplicate:true` (idempotent qua unique `event_id`).
+  - **Bug thật phát hiện qua test:** `service_role` local Docker thiếu
+    GRANT trên `equipment` (join ẩn qua `equipment(name)` trong Inspector
+    report — lỗi `42501` không lộ ra ở lint/build, chỉ lộ khi query thật) —
+    đã bổ sung vào migration `service_role_grants` (Phase 3, sửa lại ở đây).
+  - **Nav:** thêm `/settings` làm index (trước đây bottom nav trỏ thẳng
+    `/settings/staff`) để chứa Billing mà không cần thêm mục thứ 7 vào bottom
+    nav (đã chật — xem BACKLOG.md).
+  - **/tools + /compare tuân 4 quy tắc SẮT** (không DB, không import từ
+    `(app)/`, 1 CTA → `/founding-trucks`, minh bạch thương hiệu ở footer) —
+    build tối giản (không copy nguyên hạ tầng SEO/OG của Solo Sitter, việc đó
+    chưa được yêu cầu).
+  - **Bug thật phát hiện qua test PDF:** `pdf-lib`'s StandardFonts dùng
+    encoding WinAnsi — không encode được `✓`/`✗`/`≥` (lỗi runtime thật
+    "WinAnsi cannot encode", không phải lỗi type/lint). Sửa Inspection
+    Readiness Quiz PDF dùng "YES"/"NO" + ">=" thay ký tự Unicode.
+  - **Còn lại trước khi 4.1 tick xong:** founder tạo Dodo account (test mode)
+    → điền `BILLING_*` vào `.env.local`/Vercel → verify 1 lần checkout sandbox
+    thật end-to-end (tạo session → thanh toán test card → webhook cập nhật
+    `active`).
 - 2026-08-07 — **Phase 3 xong (3.1+3.2+3.3 trong 1 phiên, tiếp tục ngoại lệ
   "mỗi phiên một step" theo yêu cầu founder).** Quyết định kỹ thuật + 3 bug
   thật tìm được qua test tay (không phải lint/typecheck/unit test tự động):
