@@ -48,3 +48,9 @@ vào đây, KHÔNG code.)*
   tự bundle (không phải dep của mình, chưa có bản Next vá) — CI tạm gate ở
   mức `critical`, nâng lại `high` khi Next ra bản vá. Y hệt tình trạng đã gặp
   ở Solo Sitter.
+- **`/guide` screenshots bị Serwist precache vào service worker** (~1MB thêm
+  vào lượt cài PWA đầu tiên) — `@serwist/turbopack`'s `withSerwist()` trong
+  bản đang dùng không nhận option thứ 2 (`globIgnores`) như `@serwist/next`
+  cũ, nên chưa tìm được cách loại trừ `public/guide/*.png` khỏi precache mà
+  không đổi cách serve ảnh. Không critical (vẫn 1 lần, không lặp lại), nhưng
+  đáng tối ưu nếu thêm nhiều ảnh guide sau này.

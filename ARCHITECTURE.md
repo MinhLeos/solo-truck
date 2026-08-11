@@ -159,6 +159,7 @@ src/app/
 │   ├── temp-danger-zone-checker/
 │   └── inspection-readiness-quiz/
 ├── compare/               # PUBLIC, không DB: /auditbinder, /fooddocs (Phase 4.3)
+├── guide/                 # PUBLIC: cài PWA + walkthrough dùng app, ảnh chụp thật (2026-08-11, ngoài phase files)
 ├── login/ · signup/ · setup/
 ├── auth/callback/ · auth/forgot-password/ · auth/reset-password/ — email+password
 │   /Google OAuth (đổi từ magic link 2026-08-10, xem SECURITY.md mục 9)

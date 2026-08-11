@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { Metadata } from 'next';
 
 // TODO: swap once a real domain + inbox is verified (Phase 0.1).
@@ -56,6 +57,10 @@ export default function FoundingTrucksPage() {
       <p className="text-xs text-ink-soft">
         No spam, no waitlist black hole — every application gets a real reply from the founder.
       </p>
+
+      <Link href="/guide" className="text-sm font-medium text-flame">
+        See how it works first →
+      </Link>
     </main>
   );
 }

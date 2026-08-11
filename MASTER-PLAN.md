@@ -41,7 +41,11 @@ Tầng vận hành SMB/chuỗi    : FoodDocs, Jolt, Operandio — $169+/mo
 ## 2. Tiến độ — PHASE & STEP TRACKER
 
 ### Phase 0 — Validation & chuẩn bị (LÀM ĐƯỢC KHI GATE ĐÓNG) *(file: `phases/phase-0-validation.md`)*
-- [ ] 0.1 — Kiểm tra brand/domain (USPTO, Google, App Store, domain khả dụng)
+- [x] 0.1 — Kiểm tra brand/domain (USPTO, Google, App Store, domain khả dụng)
+      — DIY search 2026-08-11 (xem Nhật ký): không thấy trademark/app trùng
+      tên trong ngành food-safety SaaS. `solotruck.com` đã bị chiếm → chốt
+      domain **`solotruck.app`**. DIY search KHÔNG thay được search chính
+      thức trên tmsearch.uspto.gov/luật sư IP nếu sau này scale lớn.
 - [ ] 0.2 — Nuôi cộng đồng: r/foodtrucks + 3 FB group, log 20 thread pain về inspection
 - [ ] 0.3 — Phỏng vấn 10 food truck owner (câu hỏi trong phase file) → cập nhật EVIDENCE.md
 - [ ] 0.4 — Xây danh sách 50 commissary (3 bang thí điểm) + 5 cuộc gọi thăm dò
@@ -94,6 +98,58 @@ active, ≥25% chuyển trả phí sau trial (cùng ngưỡng kiểm chứng WTP
 
 ## 5. Nhật ký quyết định
 *(Ngày + quyết định + lý do, mới nhất trên cùng)*
+
+- 2026-08-11 — **Thêm `/guide` (PUBLIC, cài PWA + walkthrough dùng app) — NGOÀI
+  phase files, làm theo yêu cầu trực tiếp của founder** (không phải Claude tự
+  đề xuất build trước). Ảnh trong trang là ảnh chụp THẬT từ app (Playwright,
+  production build `next start` để không dính badge dev của Next.js), không
+  phải mockup — onboard 1 truck test ("Rosa's Tacos"), chụp qua toàn bộ flow:
+  numpad, corrective action, today, checklist, history, documents, inspector,
+  billing, banner cài PWA trên iOS (giả UA Safari iPhone). Phần cài Android/
+  desktop dùng text step-by-step, KHÔNG chụp ảnh giả — dialog cài đặt gốc của
+  Android/Chrome desktop không tái tạo trung thực được từ máy Linux dev.
+  Link từ `/founding-trucks` ("See how it works first") và `/settings`
+  ("Getting started guide") cho khách hiện có.
+
+- 2026-08-11 — **Sentry: DSN thật đã wire, verify thật bằng production build
+  (`next build && next start`), KHÔNG chỉ `next dev`.** `next dev` +
+  Turbopack không in log Sentry nào khi gọi `/api/sentry-test-error` — đây là
+  bug đã biết của ecosystem Next 16 (`instrumentation.ts`'s `register()`
+  không được gọi ổn định dưới Turbopack dev, nhất là cho route handler).
+  Build production (giống hệt Vercel deploy) thì SDK init đúng, capture +
+  gửi lỗi test thành công ("Captured error event" → "Flushing events" →
+  outcome gửi OK). Kết luận: KHÔNG phải bug của Solo Truck, chỉ là dev-mode
+  limitation không ảnh hưởng production — không cần fix gì thêm.
+
+- 2026-08-11 — **Vá gap: cài Sentry (chưa từng làm ở phase nào trước, dù
+  ARCHITECTURE.md/CLAUDE.md đã ghi "Lỗi: Sentry" từ đầu).** Phát hiện khi rà
+  lại trước deploy. Port nguyên bộ Solo Sitter: `@sentry/nextjs`,
+  `src/instrumentation.ts` + `instrumentation-client.ts` +
+  `sentry.server.config.ts` + `sentry.edge.config.ts`, wrap
+  `withSentryConfig(withSerwist(nextConfig), ...)` trong `next.config.ts`
+  (Sentry ngoài cùng), thêm `https://*.ingest.us.sentry.io` vào CSP
+  `connect-src`, route `/api/sentry-test-error` (public, throw lỗi test) để
+  verify tay 1 lần sau khi có DSN thật. Build/lint/typecheck/test đều pass.
+  Còn thiếu: founder tạo project Sentry riêng cho Solo Truck (KHÔNG dùng
+  chung DSN với Solo Sitter — sẽ lẫn error 2 app), đưa
+  `NEXT_PUBLIC_SENTRY_DSN` (+ tuỳ chọn `SENTRY_ORG`/`SENTRY_PROJECT`/
+  `SENTRY_AUTH_TOKEN` để upload source map) vào Vercel env.
+
+- 2026-08-11 — **Phase 0.1: brand/domain DIY check, chốt domain
+  `solotruck.app`.** Trước khi deploy + marketing (dùng brand public lần đầu).
+  USPTO (WebSearch, không phải search chính thức): không có trademark "Solo
+  Truck" cho software; có vài mark "SOLO" nhưng thuộc class 012 (vehicles/phụ
+  kiện xe tải) — ngành khác, rủi ro trùng thấp. Domain: `solotruck.com` ĐÃ BỊ
+  CHIẾM (thuộc "George Solotruck", không liên quan) — check DNS (`nslookup`)
+  thấy `solotruck.io/.app/.co/.net`, `getsolotruck.com` đều NXDOMAIN (khả năng
+  còn trống, chưa whois thật). App Store/Play Store: không có app "Solo
+  Truck" nào. Trùng tên/ngành gần (không phải trademark conflict, ảnh hưởng
+  SEO): "Solo Trucking" (logistics content), "Solo Trucks Ltd." (bán xe tải
+  nặng, EU), "SumUp Solo" (POS device bán cho food truck), app "Solo" (theo
+  dõi thu nhập gig worker). Founder chọn **`solotruck.app`** (TLD .app buộc
+  HTTPS, khớp PWA). Việc còn lại trước khi coi 0.1 xong hoàn toàn: founder tự
+  mua domain qua registrar thật (xác nhận whois, không chỉ DNS check) + nếu
+  scale lớn nên search trademark chính thức/luật sư IP.
 
 - 2026-08-10 — **Đổi auth từ magic link sang email+password + Google OAuth**
   (revise lại 1.2, không phải phase mới). Lý do: Solo Sitter đã đổi trước đó
