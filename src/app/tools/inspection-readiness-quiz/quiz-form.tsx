@@ -1,10 +1,13 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { ToolCtaLink } from '@/components/tools/ToolCtaLink';
+import { trackToolEvent } from '@/lib/tools/analytics';
 import { QUIZ_QUESTIONS, QUIZ_BAND_COPY, scoreQuiz } from '@/lib/tools/inspection-quiz';
+
+const TOOL = 'inspection-readiness-quiz';
 
 export function QuizForm() {
   const [answers, setAnswers] = useState<(boolean | null)[]>(
@@ -15,12 +18,18 @@ export function QuizForm() {
   const allAnswered = answers.every((a) => a !== null);
   const result = allAnswered ? scoreQuiz(answers as boolean[]) : null;
 
+  useEffect(() => {
+    if (result) trackToolEvent('tool_result', TOOL, { score: result.score, band: result.band });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [result?.score, result?.band]);
+
   function setAnswer(index: number, value: boolean) {
     setAnswers((prev) => prev.map((a, i) => (i === index ? value : a)));
   }
 
   async function handleExportPdf() {
     if (!result) return;
+    trackToolEvent('tool_cta_click', TOOL, { cta: 'pdf_export' });
     setExporting(true);
     try {
       const { buildQuizResultPdf } = await import('@/lib/tools/inspection-quiz-pdf');
@@ -75,9 +84,9 @@ export function QuizForm() {
             {exporting ? 'Preparing…' : 'Download result as PDF'}
           </Button>
           <p className="text-sm text-ink-soft">
-            <Link href="/founding-trucks" className="font-medium text-flame">
+            <ToolCtaLink tool={TOOL} href="/founding-trucks" className="font-medium text-flame">
               Solo Truck runs this exact checklist every shift
-            </Link>{' '}
+            </ToolCtaLink>{' '}
             — so you already know where you stand before an inspector does.
           </p>
         </Card>

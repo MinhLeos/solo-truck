@@ -1,11 +1,15 @@
-import Link from 'next/link';
 import type { Metadata } from 'next';
+import { CtaLink } from '@/components/analytics/CtaLink';
+import { siteMetadata } from '@/lib/seo/metadata';
+import { SITE_URL } from '@/lib/seo/site';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMetadata({
   title: 'Solo Truck vs. AuditBinder — which one do you actually need?',
   description:
     'AuditBinder sets up your HACCP plan and paperwork once. Solo Truck logs your daily temps and checklists. Most trucks end up needing both.',
-};
+  path: '/compare/auditbinder',
+  image: `${SITE_URL}/og/site/compare-auditbinder.png`,
+});
 
 export default function CompareAuditBinderPage() {
   return (
@@ -54,12 +58,13 @@ export default function CompareAuditBinderPage() {
         &quot;show me today&apos;s log.&quot;
       </p>
 
-      <Link
+      <CtaLink
+        page="compare_auditbinder"
         href="/founding-trucks"
         className="inline-flex w-fit items-center justify-center rounded-md bg-flame px-4 py-3 text-sm font-medium text-white hover:bg-flame-deep"
       >
         Try Solo Truck free →
-      </Link>
+      </CtaLink>
     </article>
   );
 }

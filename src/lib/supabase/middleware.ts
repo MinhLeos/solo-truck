@@ -10,7 +10,10 @@ import { NextResponse, type NextRequest } from 'next/server';
 // to /login before ever reaching the route handler's own auth check.
 // /founding-trucks, /tools, /compare, /guide are marketing/help pages — no
 // login, no DB (see /tools's own 4 iron rules) — meant for anonymous
-// visitors from search/community, never gated behind auth.
+// visitors from search/community, never gated behind auth. `/` is the
+// landing page for signed-out visitors (src/app/page.tsx does its own
+// redirect to /today for signed-in ones) — exact match only, so it doesn't
+// also exempt every other top-level route.
 const PUBLIC_PATH_PREFIXES = [
   '/login',
   '/signup',
@@ -25,9 +28,17 @@ const PUBLIC_PATH_PREFIXES = [
   '/tools',
   '/compare',
   '/guide',
+  '/about',
+  '/privacy',
+  '/terms',
+  '/pricing',
+  '/sitemap.xml',
+  '/robots.txt',
+  '/manifest.webmanifest',
 ];
 
 function isPublicPath(pathname: string) {
+  if (pathname === '/') return true;
   return PUBLIC_PATH_PREFIXES.some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
   );

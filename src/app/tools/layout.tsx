@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import { PublicAnalytics } from '@/components/analytics/public-analytics';
 
 // /tools iron rules (MARKETING-PLAN.md §2 kênh B, ported from Solo Sitter's
 // TOOLS-PLAN.md §2): no DB, no imports from src/app/(app)/ or any product
@@ -11,6 +12,7 @@ import type { ReactNode } from 'react';
 export default function ToolsLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-dvh flex-col bg-steel">
+      <PublicAnalytics />
       <header className="border-b border-steel-deep bg-card">
         <div className="mx-auto flex w-full max-w-2xl items-center justify-between px-4 py-3">
           <span className="font-semibold text-ink">Solo Truck</span>

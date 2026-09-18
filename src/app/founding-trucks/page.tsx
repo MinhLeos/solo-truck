@@ -1,14 +1,20 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { CtaAnchor } from '@/components/analytics/CtaAnchor';
+import { PublicAnalytics } from '@/components/analytics/public-analytics';
+import { siteMetadata } from '@/lib/seo/metadata';
+import { SITE_URL } from '@/lib/seo/site';
 
 // TODO: swap once a real domain + inbox is verified (Phase 0.1).
 const FOUNDER_EMAIL = 'founder@solotruck.app';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMetadata({
   title: 'Founding Trucks — Solo Truck',
   description:
     '3 months free on Solo Truck in exchange for a 15-minute feedback chat each week. 20 spots for the first food trucks on board.',
-};
+  path: '/founding-trucks',
+  image: `${SITE_URL}/og/site/founding-trucks.png`,
+});
 
 const OFFER = [
   '3 months free — no card, no trial countdown',
@@ -26,6 +32,7 @@ export default function FoundingTrucksPage() {
 
   return (
     <main className="mx-auto flex min-h-dvh max-w-xl flex-col justify-center gap-6 px-6 py-16">
+      <PublicAnalytics />
       <div>
         <p className="text-sm font-medium text-flame">Founding Trucks</p>
         <h1 className="mt-1 text-2xl font-semibold text-ink">
@@ -47,12 +54,13 @@ export default function FoundingTrucksPage() {
         ))}
       </ul>
 
-      <a
+      <CtaAnchor
+        page="founding_trucks"
         href={mailtoHref}
         className="inline-flex items-center justify-center rounded-md bg-flame px-4 py-3 text-center text-sm font-medium text-white hover:bg-flame-deep"
       >
         Apply — email us your truck
-      </a>
+      </CtaAnchor>
 
       <p className="text-xs text-ink-soft">
         No spam, no waitlist black hole — every application gets a real reply from the founder.

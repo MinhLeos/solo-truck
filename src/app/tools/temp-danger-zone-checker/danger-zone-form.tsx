@@ -1,9 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { checkDangerZone, type DangerZoneVerdict } from '@/lib/tools/danger-zone';
+import { trackToolEvent } from '@/lib/tools/analytics';
+
+const TOOL = 'temp-danger-zone-checker';
 
 const VERDICT_COPY: Record<DangerZoneVerdict, { headline: string; className: string }> = {
   not_in_danger_zone: { headline: 'Outside the danger zone — no clock running.', className: 'text-pass' },
@@ -21,6 +24,11 @@ export function DangerZoneForm() {
   const minutesNum = Number(minutes);
   const valid = Number.isFinite(temperatureNum) && Number.isFinite(minutesNum) && minutesNum >= 0;
   const result = valid ? checkDangerZone(temperatureNum, minutesNum, hotDay) : null;
+
+  useEffect(() => {
+    if (result) trackToolEvent('tool_result', TOOL, { verdict: result.verdict });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [result?.verdict]);
 
   return (
     <div className="flex flex-col gap-4">

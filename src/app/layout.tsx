@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SerwistProvider } from "@serwist/turbopack/react";
+import { SITE_URL } from "@/lib/seo/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Solo Truck",
   description: "Daily compliance logging for independent food trucks — inspector-ready in 30 seconds a day.",
   appleWebApp: {

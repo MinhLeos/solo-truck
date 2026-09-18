@@ -1,12 +1,16 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Card } from '@/components/ui/card';
+import { siteMetadata } from '@/lib/seo/metadata';
+import { SITE_URL } from '@/lib/seo/site';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMetadata({
   title: 'Free Food Truck Compliance Tools — Solo Truck',
   description:
     'Free tools for food truck owners: check if food is still safe out of the danger zone, and see how ready you are for a health inspection.',
-};
+  path: '/tools',
+  image: `${SITE_URL}/og/site/tools.png`,
+});
 
 const TOOLS = [
   {

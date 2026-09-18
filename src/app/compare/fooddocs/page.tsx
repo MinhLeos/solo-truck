@@ -1,11 +1,15 @@
-import Link from 'next/link';
 import type { Metadata } from 'next';
+import { CtaLink } from '@/components/analytics/CtaLink';
+import { siteMetadata } from '@/lib/seo/metadata';
+import { SITE_URL } from '@/lib/seo/site';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMetadata({
   title: 'Solo Truck vs. FoodDocs — when you have outgrown us',
   description:
     'FoodDocs is built for restaurant chains: sensors, staff training, multi-location dashboards, $169+/month. Solo Truck is built for one truck, one owner.',
-};
+  path: '/compare/fooddocs',
+  image: `${SITE_URL}/og/site/compare-fooddocs.png`,
+});
 
 export default function CompareFoodDocsPage() {
   return (
@@ -54,12 +58,13 @@ export default function CompareFoodDocsPage() {
         built for.
       </p>
 
-      <Link
+      <CtaLink
+        page="compare_fooddocs"
         href="/founding-trucks"
         className="inline-flex w-fit items-center justify-center rounded-md bg-flame px-4 py-3 text-sm font-medium text-white hover:bg-flame-deep"
       >
         Try Solo Truck free →
-      </Link>
+      </CtaLink>
     </article>
   );
 }
