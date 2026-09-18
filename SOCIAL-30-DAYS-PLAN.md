@@ -1,6 +1,66 @@
 # SOCIAL-30-DAYS-PLAN — Solo Truck: Posting schedule + copy
 *(Chạy song song Phase 4, chạy từ khi Founding Trucks campaign khởi động. Tái dùng playbook Solo Sitter về tone + transparency, đổi context sang food truck compliance. Cập nhật: 2026-09-18.)*
 
+**⚠️ Nội dung thật để đăng nằm ở `content/social/day-01.md` → `day-30.md`.**
+Phiên bản dưới đây viết theo format Instagram Carousel/TikTok/Story — giữ
+lại làm tài liệu tham khảo nếu sau này mở kênh Instagram/TikTok. Nội dung
+đã dùng thật nằm ở `content/social/` được viết lại theo đúng "Kênh A —
+Cộng đồng" của MARKETING-PLAN.md (r/foodtrucks + FB group vùng): text
+thuần, không slide/video script, 90% giúp đỡ thuần túy — chỉ nhắc sản phẩm
+khi được hỏi hoặc khi tặng free tool (theo TEMPLATES.md của Solo Sitter),
+luôn khai founder, kiểm tra luật từng group/subreddit trước khi đăng.
+
+---
+
+## 🚀 STRATEGIC ROADMAP — Phasing the 30-day plan
+
+### Phase 1: Association Partnerships (NFTA & NSFVA) — 5 ngày
+**Why:** NFTA (100k+ operators) + NSFVA (compliance education) actively seeking vendor solutions.  
+Partnership = x10 leverage so với 30 organic posts.
+
+**Action:**
+- Outreach email to NFTA & NSFVA (partnership angle, position as "tool supporting compliance education")
+- Mention: Free tools, offline-first for weak signal, educational value
+- Goals: Response + potential integration point
+
+**Timeline:** Outreach trong 5 ngày
+
+**Output:** Outreach templates in `/outreach/nfta-partnership.md` + `/outreach/nsfva-partnership.md`
+
+---
+
+### Phase 2: Map Channels to 30-Day Content — 2-3 giờ
+**Why:** After outreach, update each day-*.md with specific channel recommendations.
+
+**Mapping strategy:**
+- **Days 1-10, 13, 15, 18, 23, 25-26, 28** (pure help, zero pitch)  
+  → r/foodtrucks, Food Truck Network FB, foodtruck.forum
+
+- **Days 11-12** (free tool shares)  
+  → Food Truck Beast FB, Food Truck Network
+
+- **Days 4, 7, 21, 22, 27, 29, 30** (founder recap/build-in-public)  
+  → r/SaaS, r/IndieHackers (NOT r/foodtrucks — self-promo)
+
+- **Days 14, 16, 20, 24** (product pitch/links)  
+  → Direct DM warm contacts, or NFTA/NSFVA partnership (pending phase 1)
+
+**Output:** Updated content/social/day-*.md files with "Where to post" section
+
+---
+
+### Phase 3: Commit & Push — 5 phút
+**Why:** Lock in complete plan with partnership pipeline + channel mapping.
+
+**Action:**
+```bash
+git add content/social/ outreach/ SOCIAL-30-DAYS-PLAN.md
+git commit -m "feat: 30-day social plan + outreach templates + channel mapping"
+git push
+```
+
+**Output:** Committed, ready to execute
+
 ---
 
 ## 🎯 Mục tiêu 30 ngày
@@ -8,6 +68,7 @@
 - Reach + comment: mỗi post hỏi 1 câu thật thà
 - Activate: free tools (Temp Danger Zone Checker, Inspection Readiness Quiz) → email list
 - Convert: Founding Trucks waitlist → 20 ký
+- **NEW:** Build association partnerships (NFTA/NSFVA) → amplify reach beyond organic
 
 ---
 
