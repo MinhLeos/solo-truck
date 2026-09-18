@@ -49,7 +49,13 @@ Tầng vận hành SMB/chuỗi    : FoodDocs, Jolt, Operandio — $169+/mo
 - [ ] 0.2 — Nuôi cộng đồng: r/foodtrucks + 3 FB group, log 20 thread pain về inspection
 - [ ] 0.3 — Phỏng vấn 10 food truck owner (câu hỏi trong phase file) → cập nhật EVIDENCE.md
 - [ ] 0.4 — Xây danh sách 50 commissary (3 bang thí điểm) + 5 cuộc gọi thăm dò
-- [ ] 0.5 — Landing page "coming soon" + waitlist (được phép code MỖI trang này)
+- [ ] 0.5 — ~~Landing page "coming soon" + waitlist~~ → landing page +
+      CTA trial trực tiếp (đổi hướng 2026-09-18, xem Nhật ký: Phase 4.1 đã
+      xong nên bỏ waitlist, CTA đi thẳng `/signup`). Code xong: `/` render
+      landing Tailwind hoá, CTA "Start free trial" (`/signup`) + "Apply for
+      Founding Trucks" (`/founding-trucks`). Còn thiếu để tick: deploy
+      domain đã chốt (`solotruck.app`), founder tạo `NEXT_PUBLIC_GA4_ID`
+      để xác nhận analytics đo funnel chạy thật.
 - [ ] 0.6 — Watchlist đối thủ: review AuditBinder/FoodDocs pricing+changelog mỗi tháng
 
 ### Phase 1 — Nền móng *(file: `phases/phase-1-foundation.md`)* — CẦN GATE MỞ
@@ -98,6 +104,75 @@ active, ≥25% chuyển trả phí sau trial (cùng ngưỡng kiểm chứng WTP
 
 ## 5. Nhật ký quyết định
 *(Ngày + quyết định + lý do, mới nhất trên cùng)*
+
+- 2026-09-18 — **Pricing: thêm card Yearly trên landing + tách trang `/pricing`
+  riêng.** Landing trước đó chỉ có 1 card ($24/mo, dòng phụ "$190/year" không
+  bấm được) — giờ 2 card side-by-side (Monthly/Yearly, đúng số đã có sẵn trên
+  `/settings/billing` — "$190/year (save 34%)", sửa lại text "2 months free"
+  cũ vì sai số: $24×12=$288, $190 tiết kiệm 34% chứ không phải đúng 2 tháng).
+  Trang `/pricing` mới (`src/app/(marketing)/pricing/page.tsx`, dùng chung
+  layout marketing) — full feature list + link `/founding-trucks` — thêm vào
+  sitemap + middleware public path + nav marketing layout. JSON-LD
+  `SoftwareApplication.offers` trên landing cũng thêm Offer Yearly.
+
+- 2026-09-18 — **SEO đầy đủ (canonical/OG/JSON-LD/sitemap/robots/AI SEO) +
+  3 trang mới (`/about`, `/privacy`, `/terms`) + sửa lỗi GA4 chạy lẫn vào
+  `(app)`.** Theo yêu cầu founder. Hạ tầng: `src/lib/seo/site.ts`
+  (`SITE_URL`, `IS_PRODUCTION`), `src/lib/seo/metadata.ts`
+  (`siteMetadata()` — canonical + OG + Twitter card), `src/lib/seo/
+  faq-schema.ts` (`buildFaqSchema()`), `src/app/sitemap.ts`,
+  `src/app/robots.ts` (allowlist tường minh AI bot: GPTBot, ClaudeBot,
+  PerplexityBot, Google-Extended... — "AI SEO"). Toàn bộ port nguyên
+  playbook Solo Sitter, chỉ đổi brand token. OG ảnh tĩnh sinh 1 lần bằng
+  `scripts/generate-site-og-images.mjs` (`next/og`), commit PNG vào
+  `public/og/site/`. Landing page có JSON-LD `SoftwareApplication` +
+  `FAQPage` (từ đúng data FAQ hiển thị, theo guideline Google). `/about`,
+  `/privacy`, `/terms` dùng chung layout mới `src/app/(marketing)/
+  layout.tsx`, thêm vào middleware public path + sitemap.
+  **Bug sửa:** GA4Script/GA4PageView trước đó mount ở root layout.tsx →
+  chạy trên CẢ `(app)` (today/checklist/history/documents/inspector/
+  settings) — dữ liệu compliance của khách trả phí không nên lọt vào
+  product analytics. Chuyển sang component `PublicAnalytics`
+  (`src/components/analytics/public-analytics.tsx`), chỉ mount thủ công ở
+  từng trang/layout public: landing (`page.tsx`), `(marketing)/layout.tsx`,
+  `tools/layout.tsx`, `compare/layout.tsx`, `founding-trucks/page.tsx`.
+  Không có component tracking nào được import trong bất kỳ file dưới
+  `src/app/(app)/`.
+
+- 2026-09-18 — **Bỏ waitlist khỏi landing page, CTA đi thẳng `/signup`
+  (trial 14 ngày) — theo yêu cầu founder, đúng hướng Solo Sitter khi đã
+  launch thật.** Ban đầu build landing kèm waitlist (đúng tinh thần step
+  0.5 lúc viết — "chưa có sản phẩm"), nhưng rà lại thì Phase 4.1 đã xong
+  từ trước: `complete_onboarding()` tự mở trial 14 ngày không cần thẻ ngay
+  khi tạo business (`supabase/migrations/20260807080000_billing_webhook_events.sql`),
+  `/signup` (email+password/Google) đã chạy thật. Waitlist thu email chỉ
+  hợp lý khi CHƯA có gì để dùng — giờ có rồi nên giữ waitlist chỉ thêm ma
+  sát. Solo Sitter cũng bỏ waitlist trên landing khi launch (code cũ còn
+  nằm im, không dùng) — Solo Truck xoá hẳn thay vì để lại code chết:
+  `waitlist-actions.ts`, `signup-form.tsx`, migration `waitlist` (chưa
+  từng apply lên DB thật nên xoá an toàn). Landing page giữ 2 CTA thật:
+  "Start your free trial" → `/signup` (self-serve) và "Apply for Founding
+  Trucks" → `/founding-trucks` (concierge 3 tháng free, onboard tay, vẫn
+  đúng MARKETING-PLAN mục 4.2). `/signup` không cần sửa gì thêm — đã đúng
+  pattern Solo Sitter (form signup thuần, không lặp lại copy trial trên
+  form, trial giải thích ở landing/pricing).
+
+- 2026-09-18 — **GA4 thay PostHog cho analytics (khác Solo Sitter), landing
+  page Tailwind hoá, funnel analytics gắn vào /tools + /compare +
+  /founding-trucks (đóng BACKLOG "Funnel analytics chưa có").** Theo yêu
+  cầu trực tiếp của founder — Solo Sitter dùng PostHog nhưng Solo Truck
+  founder muốn GA4 (ID founder tự tạo, đọc qua `NEXT_PUBLIC_GA4_ID`, log
+  console khi thiếu env ở dev). Giữ nguyên kiến trúc `track()`/
+  `getAttribution()` của Solo Sitter, chỉ đổi lớp gửi sự kiện (`gtag` thay
+  `fetch` tới PostHog capture endpoint). Landing page cũ
+  (`landing-page.html`, static, form `action="#"` chưa nối gì) xoá, thay
+  bằng `src/app/page.tsx` + `src/components/landing/landing-page.tsx`
+  (Tailwind, dùng brand token có sẵn trong `globals.css`, font Barlow/IBM
+  Plex Mono riêng cho route này qua `next/font/google`). Bug phát hiện khi
+  test: middleware (`src/lib/supabase/middleware.ts`) chưa có `/` trong
+  danh sách public path → khách chưa đăng nhập bị redirect thẳng `/login`,
+  không bao giờ thấy được landing page — đã thêm exact-match `/` vào
+  `isPublicPath`.
 
 - 2026-08-11 — **Thêm `/guide` (PUBLIC, cài PWA + walkthrough dùng app) — NGOÀI
   phase files, làm theo yêu cầu trực tiếp của founder** (không phải Claude tự
