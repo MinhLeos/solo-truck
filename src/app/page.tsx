@@ -1,9 +1,32 @@
+import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import { createClient } from '@/lib/supabase/server';
+import { LandingPage } from '@/components/landing/landing-page';
+import { PublicAnalytics } from '@/components/analytics/public-analytics';
+import { siteMetadata } from '@/lib/seo/metadata';
 
-// The marketing site is the standalone landing-page.html (Phase 0 step 0.5),
-// deployed separately. Anyone hitting the app's own root either has a
-// session or doesn't — (app)/layout.tsx and /setup sort out where they
-// actually belong, so this route just hands off to the app entry point.
-export default function RootPage() {
-  redirect('/today');
+export const metadata: Metadata = siteMetadata({
+  title: 'Solo Truck — Your paper temp log, but inspector-proof',
+  description:
+    'Daily temperature logs, pre-shift checklists, and one-tap Inspector Mode for food trucks. 30 seconds a day. Works offline. $24/month.',
+  path: '/',
+});
+
+export default async function RootPage() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  // Signed-in visitors go straight to the app — (app)/layout.tsx and
+  // /setup sort out where exactly they belong from there. Everyone else
+  // sees the marketing landing page (Phase 0 step 0.5).
+  if (user) redirect('/today');
+
+  return (
+    <>
+      <PublicAnalytics />
+      <LandingPage />
+    </>
+  );
 }

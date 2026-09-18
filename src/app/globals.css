@@ -57,6 +57,17 @@ html {
   --color-led: var(--led);
   --color-warn-bg: var(--warn-bg);
   --color-pass-bg: var(--pass-bg);
+
+  /* Landing-page-only fonts (src/components/landing/fonts.ts) */
+  --font-display: var(--font-landing-display);
+  --font-landing-body: var(--font-landing-body);
+  --font-landing-mono: var(--font-landing-mono);
+}
+
+@keyframes landing-ticker {
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
