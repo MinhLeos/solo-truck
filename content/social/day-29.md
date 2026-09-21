@@ -1,20 +1,25 @@
-# Day 29 — The Founding Trucks team so far
+# Day 29 — What should I carry into month two?
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/foodtrucks (if allowed) or r/SaaS / IndieHackers
-**Goal:** Show momentum, publicly thank early adopters — light self-promo.
+**Platform:** Facebook Group
+**Objective:** Close the operator research loop
+**Link:** None
 
-**Check group/subreddit rules first.**
+## Post
 
-## Post (plain text)
-> 28 days ago I genuinely didn't know if anyone would care about this. As of today: [X] founding trucks signed up from [X] cities, [X] people have tried the free tools, [X] are on the waitlist, and a steady stream of people messaging with feature ideas.
->
-> This is the actual "team" right now — not people in an office, but the operators, the commissary owners, and everyone who said "yeah, this problem is real" when I asked.
->
-> Tomorrow's day 30 — recapping the month, saying thank you properly, and sharing what's next.
+After a month of asking about daily records, I want to check the priority before planning the next one.
 
-## Before publishing
-- Use real names only with explicit permission
-- Real numbers only
-- Highlight variety of cities/regions if it's genuinely true
+Which problem deserves more attention?
+
+- Completing records during a busy shift
+- Remembering checks at the right time
+- Documenting what happened after an unusual reading
+- Finding and sharing older records
+- None of these—the bigger problem is [comment]
+
+Thank you to everyone who corrected an assumption or described the real workflow. I’ll publish a recap using only what the conversations and measurements actually support.
+
+## Publish and reply
+
+- Do not attach a last-minute product link.
+- Ask one follow-up about the highest-priority answer.
+- Compare answers with earlier posts; do not count duplicate voices as new users.

@@ -1,19 +1,21 @@
-# Day 02 — The temperature fear
+# Day 02 — What happens after an unusual reading?
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/foodtrucks, or a regional food truck Facebook group
-**Goal:** Validate the stakes without being dramatic — listening only.
+**Platform:** Facebook Group
+**Objective:** Understand corrective-action habits
+**Link:** None
 
-**Check group/subreddit rules first.** No links or self-promo.
+## Post
 
-## Post (plain text, comment or discussion post)
-> Question for anyone running a truck: your walk-in reads 42°F instead of 41°F or below. What's your actual next move — write it down and move on, write it down and flag it, or something else?
->
-> Not trying to be alarmist, genuinely curious how people handle the "technically out of range but not a big deal yet" moment, since that seems to be the gap between a clean log and a scramble at inspection time.
->
-> What's actually the scariest part of an inspection for you — the number itself, or not having proof you caught it?
+When a temperature reading is outside the range your operation expects, what does your real workflow look like?
 
-## Before publishing
-- Keep the tone matter-of-fact, not alarmist
-- Don't mention Solo Truck in this post — pure listening
+Do you record the number first, note what you did next, tell someone, recheck later—or handle the issue and document it after the rush?
+
+I’m especially curious about the documentation step. What makes it easy to capture, and what makes it the first thing to get skipped?
+
+Local requirements vary, so I’m asking about workflow rather than giving food-safety advice.
+
+## Publish and reply
+
+- Do not diagnose a commenter’s food or give discard/serve instructions.
+- Ask: “Where do you record the action today?”
+- Track recurring steps and terms operators use.

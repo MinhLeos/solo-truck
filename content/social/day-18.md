@@ -1,19 +1,21 @@
-# Day 18 — What solo operators get wrong about compliance
+# Day 18 — Invitation to industry reviewers
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/foodtrucks, or a regional food truck Facebook group
-**Goal:** Reframe compliance as a business asset, not a burden — no product mention required.
+**Platform:** LinkedIn founder profile
+**Objective:** Start qualified partner conversations
+**Link:** One verified free-tool URL
 
-**Check group/subreddit rules first.** No links needed.
+## Post
 
-## Post (plain text, comment or discussion post)
-> Been thinking about this after a few conversations: compliance logging gets treated like pure overhead, but it's really the thing that proves you run a safe operation when it counts.
->
-> A log that shows something briefly went wrong AND what you did about it isn't a confession — it's evidence you were paying attention. That's the difference between "ran a truck for 2 years" and "ran a truck for 20 years without a serious incident."
->
-> Curious if anyone has a story where logging (or not logging) actually mattered — good or bad. Not trying to be preachy, genuinely interested.
+I’m looking for a few people who support independent food-truck operators—association staff, commissary managers, educators, consultants, or former inspectors—to review one free Solo Truck resource.
 
-## Before publishing
-- Tone should be encouraging, not preachy
-- Speak in first person, not brand voice
+The ask is deliberately small: 15 minutes, one tool, and a candid answer about what is useful, inaccurate, or poorly framed.
+
+I am not asking for an endorsement or member promotion. If the resource passes review, the possible next step is a small 5–20 operator pilot with 3 months of free product access and no card required.
+
+If this overlaps with your work, comment or message me. I’ll share the review scope before we schedule anything.
+
+## Publish and reply
+
+- Link the chosen tool in the first comment only if that fits the post.
+- Do not tag target organizations to force attention.
+- Track reviewer role, expertise, and next step.

@@ -1,22 +1,24 @@
-# Day 16 — The Founding Trucks offer
+# Day 16 — Founding Trucks invitation
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** Only in groups/subs where self-promo is explicitly welcome, or as a direct reply/DM to people who engaged with earlier posts
-**Goal:** Make the offer clear and low-pressure. This is a direct pitch with a link — the most self-promotional post in the plan, so be selective about where it goes.
+**Platform:** Facebook Group
+**Objective:** Invite qualified operators to the pilot
+**Link:** Only where self-promotion is allowed
 
-**Check group/subreddit rules first.** Most groups will remove this if posted as a fresh thread without history in the community — prefer DMing people who already responded to you, or posting in a "self-promo Saturday" style thread if the group has one.
+## Post
 
-## Post (plain text)
-> Solo Truck (the compliance-logging tool I've been asking questions about here the last couple weeks) is opening 20 "founding truck" spots.
->
-> What it is: 3 months completely free, no card, no trial countdown. In exchange, about 15 minutes a week telling me what's broken, missing, or just annoying about it.
->
-> This is how I want to build it — with real operators, not guesses. If you run a truck and are curious: [link — /founding-trucks]. Worst case, it's not the right fit and no hard feelings. Best case, free software that's actually shaped by what you need.
->
-> Happy to answer any questions here first if that's easier than clicking through.
+Founder disclosure: I’m opening one 20-operator Solo Truck “Founding Trucks” cohort across all referral sources.
 
-## Before publishing
-- Make sure `/founding-trucks` is live and email/application collection works
-- Be honest: "no card required" needs to be literally true
-- Post this where you already have some history/credibility, not cold into a new group
+The product supports daily temperature logs, corrective actions, pre-shift checks, and a 30/90-day record view. Accepted Founding Trucks receive the full product free for 3 months with no card required. In return, I ask for short weekly feedback on what is broken, missing, or too slow. Applications from social, organizations, and direct referrals all count toward the same 20 places.
+
+This is early software and a record-keeping tool—not food-safety or legal advice, and not a promise about inspection outcomes.
+
+Details and eligibility: [VERIFIED FOUNDING-TRUCKS URL WITH DAY-16 UTM]
+
+Questions are welcome here before anyone applies.
+
+## Publish and reply
+
+- Verify the live page, form, terms, limit, and no-card flow.
+- Check `FOUNDING-TRUCKS-TRACKER.md` and update availability wording before posting.
+- If promotion is prohibited, do not post this; use a permitted promo thread.
+- Do not manufacture scarcity beyond the real 20-person cohort.

@@ -1,24 +1,21 @@
-# Day 11 — Introducing the Temp Danger Zone Checker
+# Day 11 — Free temperature reference tool
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/foodtrucks (free-value posts are usually welcome — check rules), regional FB groups
-**Goal:** Drive traffic to the first free tool. This IS a self-promo post — allowed because it's free value with no signup wall, and you disclose you're the founder.
+**Platform:** Facebook Group
+**Objective:** Test interest in a free tool
+**Link:** Add only if group rules allow
 
-**Check group/subreddit rules first.** Even free-tool posts get removed in some groups — check pinned rules, and if in doubt ask a mod first.
+## Post
 
-## Post (Reddit-style: needs a title if posting as a thread; plain text if a comment/FB post)
-**Title (if a new thread):** I made a free tool that tells you if food sitting at X°F for Y minutes is still safe
+Founder disclosure: I’m building Solo Truck, and I made a free temperature reference tool while researching daily record workflows for food trucks.
 
-> Hey everyone — full disclosure, I'm building a small compliance-logging tool for food trucks (founder, being upfront about that), and while researching the FDA danger-zone rules I kept doing this math for myself, so I turned it into a free calculator:
->
-> [link — /tools/temp-danger-zone-checker]
->
-> You put in the temperature, how long it's been sitting out, and whether it's a hot day, and it tells you if it's still safe, use-it-soon, or discard. No signup, no email wall.
->
-> Not a replacement for your local health department's rules — just a quick sanity check. Happy to add anything if it's missing something useful.
+It lets you enter a temperature and time scenario, then shows the relevant reference information and a reminder to check local guidance. No signup or email required.
 
-## Before publishing
-- Test the tool with real scenarios first
-- Always disclose you're the founder in the same post
-- Include the "verify with your local health authority" line
+[VERIFIED TEMP TOOL URL WITH DAY-11 UTM]
+
+It is not a substitute for your local health authority or your own food-safety procedures. If you try it, what is confusing, missing, or too slow?
+
+## Publish and reply
+
+- Test the live tool on mobile immediately before posting.
+- If links are prohibited, remove the URL and offer it only when asked.
+- Do not make a serve/discard decision for commenters.

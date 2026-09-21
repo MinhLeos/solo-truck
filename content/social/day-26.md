@@ -1,24 +1,23 @@
-# Day 26 — What we are NOT building (and why)
+# Day 26 — What Solo Truck does not do
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/foodtrucks, or a regional food truck Facebook group
-**Goal:** Set expectations, earn trust through honesty — light self-promo, mostly informational.
+**Platform:** Facebook Group
+**Objective:** Earn trust by defining boundaries
+**Link:** None
 
-**Check group/subreddit rules first.**
+## Post
 
-## Post (plain text)
-> Figured it's worth being upfront about what Solo Truck isn't, since I've been talking about it here on and off.
->
-> It's not an HACCP consultant — you still need a real one for your plan. It's not a replacement for your health department's own judgment, or for a real thermometer (it logs numbers, it doesn't measure them for you). It's not built for chains or multiple locations.
->
-> What it actually does: makes the daily logging part — the boring, easy-to-skip part — harder to skip, and keeps it ready for inspection time. That's it, and I'd rather be clear about the limits than oversell it.
->
-> Standard disclaimer since it matters here: it's a record-keeping tool, not legal or food-safety advice, and using it doesn't guarantee you pass an inspection — always verify specifics with your local health authority.
->
-> What's one thing you wish other compliance tools understood about what you actually need?
+Founder disclosure, because product boundaries matter:
 
-## Before publishing
-- Include the disclaimer every time you make a claim like this (SECURITY.md §10)
-- Be specific about what the tool does NOT do
-- Tone: humble, not defensive
+Solo Truck is a record-keeping tool. It does not replace a thermometer, a HACCP professional, an inspector, your health department, or your own judgment. It does not guarantee an inspection result.
+
+It is designed for daily temperature logs, corrective actions, pre-shift checks, reminders, and retrieving recent records. It is focused on independent mobile-food operations, not chains.
+
+I would rather make the narrow job useful than imply software can solve every compliance need.
+
+What is one boundary you wish software vendors stated more clearly?
+
+## Publish and reply
+
+- Confirm every positive feature named is currently supported.
+- Do not become defensive if someone says the scope is too narrow.
+- Record missing expectations separately from committed roadmap items.

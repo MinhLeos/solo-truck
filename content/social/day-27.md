@@ -1,19 +1,27 @@
-# Day 27 — Founders build with feedback, not guesses
+# Day 27 — Building with users means changing course
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/foodtrucks (if allowed) or r/SaaS / IndieHackers
-**Goal:** Explain the founding-truck process, invite final applications — light self-promo.
+**Platform:** LinkedIn founder profile
+**Objective:** Show one traceable feedback loop
+**Link:** None
 
-**Check group/subreddit rules first.**
+## Post
 
-## Post (plain text)
-> 27 days into building Solo Truck in the open, and the biggest lesson (repeating one from my first product) is that the features that actually matter come from people using the thing, not from me predicting what they'll want.
->
-> That's why I don't think of founding trucks as "beta testers" — they're closer to co-designers. Feedback this week turns into shipped code this week, not a backlog item for next quarter.
->
-> If you run a truck, applying isn't really risking an unfinished product — it's being part of deciding what it becomes. A few spots left before day 30: [link — /founding-trucks].
+“Building with users” only means something when feedback changes a decision.
 
-## Before publishing
-- Share one concrete example of feedback → shipped code from this week
-- Tone: "I need your input," not "here's an offer for you"
+This month, an operator/reviewer told me: [REAL FEEDBACK, PARAPHRASED OR QUOTED WITH PERMISSION].
+
+My original assumption was: [REAL ORIGINAL ASSUMPTION].
+
+The decision changed to: [REAL PRODUCT OR MESSAGING CHANGE].
+
+The open question is whether that change improves [REAL BEHAVIOR TO MEASURE].
+
+That is the feedback loop I want for Solo Truck: specific observation, explicit decision, measurable next test—not a collection of compliments.
+
+What is the best product decision a customer ever changed for you?
+
+## Publish and reply
+
+- Replace all brackets with a real example or skip the post.
+- Get permission for identifiable quotes; otherwise paraphrase anonymously.
+- Do not promise the change is successful before measuring it.

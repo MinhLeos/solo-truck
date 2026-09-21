@@ -1,22 +1,19 @@
-# Day 13 — How do you track temperature logs right now?
+# Day 13 — Local rules are the product constraint
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/foodtrucks, or a regional food truck Facebook group
-**Goal:** Get real data on current behavior — listening only, no link.
+**Platform:** Facebook Group
+**Objective:** Learn how operators find local guidance
+**Link:** None
 
-**Check group/subreddit rules first.** No links or self-promo. (If the platform supports a poll — Facebook groups do — use one; on Reddit, just ask as a plain question.)
+## Post
 
-## Post (plain text or poll)
-> Quick, no-judgment question: how do you actually track temperature logs day to day?
->
-> - Paper notebook
-> - Phone notes / loose photos
-> - Another app or spreadsheet
-> - Honestly? I skip some days
->
-> Not trying to shame anyone with that last option — just trying to get a real sense of how common each one is before I go build anything.
+Food-truck rules can change by state, county, and operating setup. When you need an authoritative answer, where do you actually go first?
 
-## Before publishing
-- Keep the question neutral — not leading toward any answer
-- Save all responses as research notes
+Your local health department website? An inspector you already know? A commissary manager? An association? Another operator?
+
+I’m building a record-keeping tool, and one design constraint is clear: software should never pretend one generic rule replaces local guidance. What source has been most reliable in your area—and what is hardest to find?
+
+## Publish and reply
+
+- Do not answer local-rule questions unless linking the relevant authority.
+- Ask respondents to name the jurisdiction only if they are comfortable.
+- Track trusted sources and information gaps.

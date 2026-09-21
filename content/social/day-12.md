@@ -1,24 +1,23 @@
-# Day 12 — Behind the Inspection Readiness Quiz
+# Day 12 — Why build free tools first?
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/foodtrucks (free-value posts usually welcome — check rules), regional FB groups
-**Goal:** Drive traffic to the second free tool. Self-promo allowed — free value, no signup wall, founder disclosed.
+**Platform:** LinkedIn founder profile
+**Objective:** Explain the trust and validation model
+**Link:** Optional verified tool URL
 
-**Check group/subreddit rules first.**
+## Post
 
-## Post (Reddit-style: needs a title if posting as a thread; plain text if a comment/FB post)
-**Title (if a new thread):** Made a free 12-question quiz that mirrors what inspectors actually check
+I’m building two parts of Solo Truck in public: a paid daily record-keeping product and small reference tools that remain free.
 
-> Same disclosure as always — I'm building a compliance tool for food trucks and this is a free side-tool, not the main product.
->
-> [link — /tools/inspection-readiness-quiz]
->
-> 12 yes/no questions covering the same pre-shift checks inspectors ask about first — hand sink stocked, thermometer calibrated, date labels, that kind of thing. At the end you get a score and a downloadable PDF of what to fix, no email required.
->
-> I ran it myself and it caught something I'd have missed. Curious what gap surprises people most, if anyone tries it.
+Why start with the free tools?
 
-## Before publishing
-- Verify all 12 questions are real FDA/health department items
-- Confirm the PDF export actually works
-- Test on mobile — people will take it from inside a truck
+They create a lower-risk way for operators and industry organizations to inspect the framing, correct mistakes, and decide whether the work is useful—before anyone is asked to adopt software or endorse it.
+
+The first partnership ask is therefore not “promote my product.” It is: review one tool and tell me what is inaccurate, unclear, or unsuitable for members.
+
+For organizations that publish member resources, what makes an external tool worth reviewing?
+
+## Publish and reply
+
+- Link one tool only if it is verified that day.
+- Do not tag an organization without a relevant, welcome reason.
+- Track resource-review criteria mentioned in replies.

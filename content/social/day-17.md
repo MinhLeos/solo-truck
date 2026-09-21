@@ -1,20 +1,19 @@
-# Day 17 — A real food truck operator talks about logs
+# Day 17 — Document-expiry habits
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/foodtrucks (if allowed) or a regional FB group where you already have some history
-**Goal:** Share a real testimonial from an actual founding-truck operator (only if you have one by day 17 — skip or delay this post otherwise).
+**Platform:** Facebook Group
+**Objective:** Learn adjacent record workflows
+**Link:** None
 
-**Check group/subreddit rules first.**
+## Post
 
-## Post (plain text)
-> Asked one of the trucks trying Solo Truck this week what's actually different about logging on a phone versus paper for them. Their answer, unedited:
->
-> "Paper gets wet, ink runs, I lose it. On the phone, if I forget, I get a reminder. And the logs don't disappear when I'm not looking."
->
-> Not my words — a real operator, quoted with permission. Figured it was worth sharing since it's more useful than anything I'd say myself.
+How do you keep track of documents that expire or need renewal—permits, certifications, agreements, or anything else relevant to your operation?
 
-## Before publishing
-- Only use a real testimonial — never write one yourself and attribute it
-- Get explicit permission to use their name/truck name (or keep it anonymous if they prefer)
-- Keep their quote exactly as said — don't polish it into marketing-speak
+Calendar reminders, spreadsheet, binder tab, commissary reminder, or “I remember when I see it”?
+
+I’m researching the boundary between useful record reminders and feature bloat. Which reminder is genuinely valuable, and which one would just become more notification noise?
+
+## Publish and reply
+
+- Do not provide a universal list of required documents.
+- Ask what lead time makes a reminder useful.
+- Treat feature requests as hypotheses, not commitments.

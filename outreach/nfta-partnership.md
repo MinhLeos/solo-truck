@@ -1,91 +1,83 @@
-# NFTA Partnership Outreach Template
+# NFTA outreach — request a review before a pilot
 
-**Send to:** partnerships@nationalfoodtrucks.org (or main contact from nfta.org)
+**Contact to verify before sending:** `info@nationalfoodtrucks.org`
+**Official sources:** `https://nationalfoodtrucks.org/` and
+`https://nationalfoodtrucks.org/tutorials`
+**First ask:** review one free tool; do not ask for an endorsement
 
----
+## Subject
 
-## Subject Line (Choose one)
-- Partnership opportunity: Free compliance tools for NFTA members
-- Solo Truck + NFTA: Supporting operator readiness
-- Tool integration proposal: Daily compliance logging for food truck owners
+Could NFTA review a free record-readiness tool for operators?
 
----
+## Initial email
 
-## Email Body
+Hi [FIRST NAME],
 
-Hi [Name],
+I’m [FOUNDER NAME], the founder of Solo Truck. I’m building a lightweight daily
+record-keeping tool for independent food trucks: temperature logs, corrective
+actions, pre-shift checklists, and a 30/90-day record view.
 
-I'm building **Solo Truck** — a free, offline-first compliance logging tool specifically designed for solo food truck operators in the US.
+I found NFTA’s operator tutorials and community resources while researching how
+owners currently prepare for inspections. Before asking NFTA to share anything,
+would someone on your team be willing to review one free, no-signup resource?
 
-**The problem we're solving:**
-Food truck operators spend time piecing together temperature logs, corrective actions, and inspection readiness across paper, notebooks, and random apps. NFTA members know this friction better than anyone — your organization has been advocating for practical solutions that actually fit how operators work.
+- Temp Danger Zone Checker: [VERIFIED TOOL URL]
+- Inspection Readiness Quiz: [VERIFIED QUIZ URL]
 
-**What Solo Truck offers (free):**
-- **Daily compliance logging:** Temperature + corrective actions, encrypted locally, synced when connectivity returns (critical for food trucks with weak signals)
-- **Free public tools** (no signup required):
-  - Temp Danger Zone Checker (FDA Food Code reference)
-  - Inspection Readiness Quiz (12 questions → actionable PDF)
-- **Founding Trucks program:** 14-day free trial for operators who want to test the full platform
-- **Built for compliance, not corporate:** Every feature is grounded in actual operator feedback
+The useful feedback is simple: is either tool practical and appropriately framed
+for independent operators? They are reference tools, not a replacement for local
+health authority guidance.
 
-**Why we think this matters for NFTA:**
-Your members are already struggling with inspection preparation and daily logging consistency. Solo Truck removes friction from that process without adding corporate overhead. We're not selling a POS system or inventory app — just compliance done right for solo operators.
+If the review is positive, eligible NFTA members may apply for reserved places in
+our single 20-operator Founding Trucks cohort, subject to availability and review.
+Accepted operators receive the full product free for 3 months, no card required,
+in exchange for short weekly feedback.
 
-**What we're proposing:**
-1. Feature your free tools in NFTA communications (if they're useful to members)
-2. Explore co-educational content: guides to inspection readiness, regional compliance differences, etc.
-3. Potential integration: NFTA member discount or featured positioning in our Founding Trucks program
-4. No exclusivity required — we're genuinely interested in serving your membership better
+Would a 15-minute review next week be reasonable, or is there a better contact?
 
-**Next step:**
-If this resonates, I'd love a 20-minute call to walk through the free tools and discuss how we might support NFTA's mission of helping operators succeed. No pressure — just exploring if this is useful to your community.
+Best,
+[FOUNDER NAME]
+Founder, Solo Truck
+[EMAIL] · [PHONE, optional]
+[VERIFIED PRODUCT URL]
 
-The tools are live now: **www.solotruck.app/tools**  
-Free trial signup: **www.solotruck.app**
+## Follow-up — 5 business days later
 
-Looking forward to hearing from you.
+Hi [FIRST NAME],
 
-Best,  
-[Your Name]  
-Solo Truck  
-[Your email]  
-[Your phone] (optional)
+Following up on the Solo Truck resources below. I’m not asking NFTA to endorse an
+unreviewed product—only for a candid check on whether one free tool is useful to
+operators and responsibly framed.
 
----
+If another person handles tutorials or member resources, would you point me in the
+right direction? A quick “not a fit” is useful too.
 
-## Before Sending
+Best,
+[FOUNDER NAME]
 
-**Checklist:**
-- [ ] Personalize [Name] if you have a specific contact
-- [ ] Update www.solotruck.app URLs to match live domain/path
-- [ ] Verify partnerships@nationalfoodtrucks.org is correct contact (check nfta.org "Contact Us")
-- [ ] Add your actual name, email, phone
-- [ ] Send from a professional email (not generic)
-- [ ] Keep tone: helpful peer, not vendor pitch
-- [ ] Expect 5-7 day response time (associations are slow)
+## Final note — 7 business days after follow-up
 
----
+Hi [FIRST NAME],
 
-## Follow-up Strategy (if no response after 7 days)
+I’ll close the loop after this note. If a resource review is not a priority now, no
+action is needed. I’d still appreciate the right contact if this belongs elsewhere
+at NFTA.
 
-**Email 2 (7 days later):**
-> Hi [Name],
->
-> Following up on my note about Solo Truck — wanted to make sure it didn't get lost.
-> 
-> No pressure either way, but if you'd like to see the free tools in action or chat about how this might help NFTA members, I'm here.
->
-> Best,  
-> [Your Name]
+Thank you,
+[FOUNDER NAME]
 
-**After 14 days:** Consider moving to next contact or pivoting to LinkedIn relationship-building.
+## Before sending
 
----
+- [ ] Re-check the contact address on NFTA’s official site.
+- [ ] Replace every bracketed field and remove unused lines.
+- [ ] Open both tool links on mobile and confirm the promised output works.
+- [ ] Add one true sentence about a current NFTA tutorial or initiative.
+- [ ] Keep the email under 170 words after personalization.
+- [ ] Do not cite an audience size unless NFTA publishes and confirms it.
+- [ ] Do not call the full product free or imply NFTA endorsement.
+- [ ] Check the shared cohort tracker before describing place availability.
 
-## Success Metrics (if partnership moves forward)
+## If they reply positively
 
-- NFTA features free tools in member newsletter or communications
-- NFTA members get featured access to Founding Trucks program
-- Co-authored compliance guide (NFTA + Solo Truck)
-- Potential: NFTA affiliate or member discount
-- Minimum: NFTA name-drop in Solo Truck marketing (with permission)
+Use the 15-minute agenda in `ORGANIZATION-PARTNERSHIP-PLAN.md`. End the call with
+one small next step: revise the resource, schedule a small member pilot, or stop.

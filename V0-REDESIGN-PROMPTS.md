@@ -184,9 +184,9 @@ Section (flame background) "Ready when you are" / "Start logging in 5
 minutes" / "14 days free, no credit card. Set up your truck, log your
 first temp, and see for yourself whether it fits your shift." Two
 buttons: "Start your free trial" and "Or apply for Founding Trucks — 3
-months free". Line below: "Founding Trucks: first 20 trucks get 3 months
-free + a direct line to the founder, in exchange for 15 minutes of
-feedback a week."
+months free". Line below: "Founding Trucks: one cohort of up to 20
+accepted trucks gets 3 months free + a direct line to the founder, in
+exchange for 15 minutes of feedback a week."
 
 Section "Questions" / "Fair questions, straight answers" — FAQ accordion,
 6 items:
@@ -259,7 +259,7 @@ can export everything, whether or not you're still subscribed."
 
 Closing line: "Already talked to us and want a hand getting set up? See
 what Founding Trucks get — 3 months free in exchange for weekly feedback,
-first 20 trucks only."
+limited to one 20-truck cohort across all referral sources."
 
 --- CẦN REDESIGN ---
 Layout, color palette, typography, spacing, card styling for the two
@@ -298,11 +298,10 @@ locations, sensor fleets, a compliance manager. A one-truck owner running
 the line themselves doesn't need any of that, and shouldn't have to pay
 for it."
 
-H2 "How I'm building it" — "Solo Truck is built with the first 20 trucks
-who sign up for the Founding Trucks program — talking to them directly,
-shipping what they actually hit friction on, skipping what sounds nice but
-nobody asked for. I share real numbers and real mistakes, not a highlight
-reel."
+H2 "How I'm building it" — "Solo Truck is built with up to 20 accepted
+trucks in the Founding Trucks program — talking to them directly, shipping
+what they actually hit friction on, skipping what sounds nice but nobody
+asked for. I share real numbers and real mistakes, not a highlight reel."
 
 H2 "Want to help shape it?" — "Start your free trial or apply for
 Founding Trucks — either way, feedback goes straight to me, not a support
@@ -321,11 +320,11 @@ CSS belonging to any other page or component in the project. Do NOT
 change, add, remove, or paraphrase any text below.
 
 --- ACTUAL CONTENT ON THIS PAGE (keep verbatim) ---
-Eyebrow: "Founding Trucks". H1: "Be one of the first 20 trucks on Solo
-Truck — free for 3 months." Subtext: "We're looking for 20 independent
-food trucks to use Solo Truck daily and tell us, weekly, what actually
-helps and what gets in the way. In exchange: 3 months free and a direct
-line to the person building it."
+Eyebrow: "Founding Trucks". H1: "Apply for one of 20 Founding Trucks spots
+— free for 3 months." Subtext: "We're selecting up to 20 independent food
+trucks across all referral sources to use Solo Truck daily and tell us,
+weekly, what actually helps and what gets in the way. In exchange: 3
+months free and a direct line to the person building it."
 
 Offer checklist: "3 months free — no card, no trial countdown", "Direct
 line to the founder — real answers, not a support queue", "15 minutes/week
@@ -334,10 +333,13 @@ early Solo Truck customer".
 
 CTA button: "Apply — email us your truck" (opens a pre-filled email with
 subject "Founding Truck application" and body prompting for truck/business
-name, city/state, and how they log temps today).
+name, city/state, how they log temps today, and how they heard about
+Founding Trucks).
 
-Line below: "No spam, no waitlist black hole — every application gets a
-real reply from the founder."
+Line below: "Applying does not reserve a spot. If the relevant
+social/direct or partner allocation is full, qualified applicants may be
+waitlisted. Every application is reviewed and gets a real reply from the
+founder."
 
 Secondary link: "See how it works first →" (to /guide).
 

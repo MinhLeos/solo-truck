@@ -1,22 +1,25 @@
-# Day 28 — Three things to fix before your next inspection
+# Day 28 — A short record-readiness reset
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/foodtrucks, or a regional food truck Facebook group
-**Goal:** Practical, actionable value — no product mention needed, stands on its own.
+**Platform:** Facebook Group
+**Objective:** Offer a safe, practical records exercise
+**Link:** None
 
-**Check group/subreddit rules first.** No links needed unless pointing to your own source article.
+## Post
 
-## Post (plain text, comment or discussion post)
-> Not trying to sell anything here, just sharing three things that take about 2 hours total but save a lot of stress at inspection time, based on what I've read and heard from owners:
->
-> 1. Check that your thermometer is actually calibrated — inspectors ask about this more often than people expect.
-> 2. Walk your own truck like an inspector would: date labels visible, raw stored below ready-to-eat, hand sink stocked.
-> 3. Write down what you find today, the honest version, good and bad. Gaps plus a documented fix beat a hidden gap every time.
->
-> None of this requires new equipment, just an hour of honesty. When did everyone last actually calibrate their thermometer — genuinely curious if that's something people forget about.
+A short records reset for anyone whose paperwork has spread across too many places:
 
-## Before publishing
-- Make sure the calibration advice is accurate
-- Keep the checklist realistic, not overwhelming
-- Tone: helpful, not preachy
+1. Choose one home for completed records.
+2. Gather one recent week into that place.
+3. Mark gaps without backfilling or inventing information.
+4. Note where corrective actions are stored.
+5. Set one realistic time for the next record check.
+
+This does not determine inspection readiness and it does not replace local requirements. It is simply a way to make the current state visible.
+
+Which step would take the most effort in your operation?
+
+## Publish and reply
+
+- Never suggest recreating historical records as if they were contemporaneous.
+- Keep advice about organization, not regulatory sufficiency.
+- Save obstacles that indicate onboarding needs.

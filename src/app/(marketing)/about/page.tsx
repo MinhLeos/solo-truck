@@ -5,7 +5,7 @@ import { siteMetadata } from '@/lib/seo/metadata';
 export const metadata: Metadata = siteMetadata({
   title: 'About — Solo Truck',
   description:
-    'Why an independent developer is building daily compliance logging and Inspector Mode for solo food trucks, built in public with the first 20 Founding Trucks.',
+    'Why an independent developer is building daily compliance logging and Inspector Mode for solo food trucks, built in public with a 20-operator Founding Trucks cohort.',
   path: '/about',
 });
 
@@ -47,7 +47,7 @@ export default function AboutPage() {
 
       <h2>How I&apos;m building it</h2>
       <p>
-        Solo Truck is built with the first 20 trucks who sign up for the{' '}
+        Solo Truck is built with up to 20 accepted trucks in the{' '}
         <CtaLink page="about" href="/founding-trucks">Founding Trucks program</CtaLink> — talking to them directly,
         shipping what they actually hit friction on, skipping what sounds nice but nobody asked
         for. I share real numbers and real mistakes, not a highlight reel.

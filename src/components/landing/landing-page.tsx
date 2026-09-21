@@ -528,8 +528,8 @@ export function LandingPage() {
               </CtaLink>
             </div>
             <p className="mt-3.5 font-mono text-sm text-[#FFE3D7]">
-              Founding Trucks: first 20 trucks get 3 months free + a direct line to the founder, in
-              exchange for 15 minutes of feedback a week.
+              Founding Trucks: one cohort of up to 20 accepted trucks gets 3 months free + a direct
+              line to the founder, in exchange for 15 minutes of feedback a week.
             </p>
           </div>
         </section>

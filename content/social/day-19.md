@@ -1,20 +1,21 @@
-# Day 19 — Behind the scenes: Building with your feedback
+# Day 19 — When should a reminder arrive?
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** Wherever your Founding Trucks / earlier engaged people are (r/foodtrucks if allowed, regional FB group, or direct reply to founding trucks)
-**Goal:** Show iteration and honesty — light self-promo, only relevant to people already aware of the product.
+**Platform:** Facebook Group
+**Objective:** Learn reminder timing and fatigue
+**Link:** None
 
-**Check group/subreddit rules first.**
+## Post
 
-## Post (plain text)
-> One of the founding trucks told me this week the reminder timing was wrong — they're open 10am to midnight, not the 9-to-9 I'd assumed. Fixed it in about a day.
->
-> That's basically the whole point of doing this with real operators instead of guessing: every "this doesn't work for me" becomes a fix or a feature, not a ticket that sits in a backlog for months.
->
-> If you're one of the founding trucks (or thinking about it): what you tell me this week is genuinely shaping what gets built next.
+If a phone reminder helped you complete a daily record, when would it need to appear?
 
-## Before publishing
-- Be honest about which fixes were easy vs. hard
-- Show the actual feedback (hide names if the person prefers)
-- Thank people by name when you have permission
+At a fixed clock time, relative to opening/closing, after a missed check, or only when you choose to be reminded?
+
+And just as important: what would make you mute it after three days?
+
+I’m trying to design around real shifts rather than assume everyone works a standard schedule.
+
+## Publish and reply
+
+- Ask about different service days and split shifts.
+- Do not say a requested reminder already exists unless verified.
+- Track timing preference and notification-fatigue triggers.

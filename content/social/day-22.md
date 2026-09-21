@@ -1,19 +1,23 @@
-# Day 22 — Solo Sitter launched, Solo Truck is next
+# Day 22 — Free inspection-readiness quiz
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/SaaS / IndieHackers / your own network — NOT food-truck groups (irrelevant to that audience, mentions an unrelated product)
-**Goal:** Borrow credibility from a working first product, share the build-in-public lesson.
+**Platform:** Facebook Group
+**Objective:** Test the second free tool
+**Link:** Add only if group rules allow
 
-**Check group/subreddit rules first.** Skip food-truck communities for this one entirely.
+## Post
 
-## Post (plain text)
-> Building my first product (Solo Sitter — booking software for solo pet sitters) taught me one real lesson: the problems that seem small to build ("how do I message a client?") are often exactly what people will actually pay to solve.
->
-> With Solo Truck, I'm trying not to repeat the mistake of guessing. I'm asking every food truck owner I can find one question: what's the one admin task that eats your week? The answers have been pretty consistent, and I'm building toward those, not my own assumptions.
->
-> Happy to talk shop if anyone's building in an unrelated niche and wants to compare notes on the "talk to users before building" process.
+Founder disclosure: I built a free inspection-readiness self-check for mobile-food operators.
 
-## Before publishing
-- Only mention Solo Sitter if it's actually doing well — don't lean on a struggling product for credibility
-- Tone: "here's what I learned," not "trust me, I've done this before"
+It walks through a short set of operational questions and summarizes areas to review. There is no signup or email wall.
+
+[VERIFIED QUIZ URL WITH DAY-22 UTM]
+
+It is an educational self-check—not an official inspection, a legal checklist, or a guarantee of any result. Local requirements still come from your health authority.
+
+If you try it, which question is unclear or missing context?
+
+## Publish and reply
+
+- Test every question and the result/export flow on mobile.
+- If the output promised here is not live, revise the copy before posting.
+- Remove the link where group rules prohibit it.

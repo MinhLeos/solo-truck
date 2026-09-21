@@ -18,14 +18,25 @@ Chủ food truck / trailer / cart Mỹ, 1-3 người, đang log giấy (hoặc k
 sợ), đã từng bị/nghe chuyện rớt thanh tra. Phân khúc phụ tự đến: caterer nhỏ, meal
 prep tại nhà, ghost kitchen 1 người.
 
-## 2. Ba kênh, thứ tự ưu tiên
+## 2. Hai plan acquisition đang hoạt động
 
-### Kênh A — Cộng đồng (chạy từ Phase 0, giống playbook sitter)
-r/foodtrucks + FB groups theo vùng. Nuôi tài khoản → giúp thuần túy → chỉ nhắc sản
-phẩm khi được hỏi hoặc khi tặng free tool. Template giọng điệu: tái dùng TEMPLATES.md
-của Solo Sitter, đổi ngữ cảnh.
+### Plan A — Social validation
+Facebook Groups là kênh chính để tiếp cận operator; LinkedIn cá nhân của founder là
+kênh phụ để công khai bằng chứng và tạo ngữ cảnh cho đối tác. Không chạy Reddit,
+Instagram, TikTok, YouTube hoặc X trong thử nghiệm 30 ngày đầu. Chi tiết và nội dung
+từng ngày nằm trong `SOCIAL-MEDIA-STRATEGY.md`, `SOCIAL-CONTENT-CALENDAR.md` và
+`content/social/day-*.md`.
 
-### Kênh B — SEO + free tools (chạy từ Phase 4, tái dùng kiến trúc /tools của Solo Sitter)
+### Plan B — Organization-assisted free pilot
+Tiếp cận NSFVA, NFTA, sau đó các tổ chức vùng/commissary theo ba bước: expert review
+→ giới thiệu ứng viên vào cohort chung → distribution nếu có bằng chứng. Hai public
+tools miễn phí; operator được nhận vào Founding Trucks dùng full product 3 tháng
+miễn phí, không cần card, đổi lấy feedback tuần. Đây là một cohort 20 operator cho
+mọi nguồn, trong đó tạm giữ 5 chỗ cho referral từ tổ chức. Không gọi toàn bộ sản
+phẩm là “free”. Chi tiết trong
+`ORGANIZATION-PARTNERSHIP-PLAN.md` và `outreach/`.
+
+### Hạ tầng hỗ trợ — SEO + free tools (chạy từ Phase 4, tái dùng kiến trúc /tools của Solo Sitter)
 AuditBinder đã chiếm keyword "inspection checklist/binder" → ta KHÔNG húc trực diện,
 đánh keyword vận hành còn mở:
 - "digital temperature log for food truck" / "food truck temp log app"
@@ -37,7 +48,7 @@ AuditBinder đã chiếm keyword "inspection checklist/binder" → ta KHÔNG hú
   cần daily log; dùng cả hai là tốt nhất") và "/compare/fooddocs" ("khi nào bạn đã lớn
   vượt chúng tôi"). Trung thực = vũ khí vào sau.
 
-### Kênh C — Commissary (kênh khác biệt, Phase 5, chi tiết dưới)
+### Kênh mở rộng sau validation — Commissary (Phase 5, chi tiết dưới)
 
 ## 3. Playbook kênh Commissary (⭐ tài sản chiến lược)
 
@@ -72,9 +83,9 @@ mọi đầu tư vào Bước 3.
 | Giai đoạn | Việc marketing chạy song song |
 |---|---|
 | Phase 0 | Nuôi cộng đồng (30-60p/ngày) · phỏng vấn 10 owner · 5 call commissary · landing + waitlist |
-| Phase 1-2 (build) | 1 post build-in-public/tuần (IndieHackers + r/foodtrucks nếu rule cho) · tiếp tục cộng đồng · viết sẵn 4 bài SEO đầu |
+| Phase 1-2 (build) | Chạy lịch Facebook Groups + LinkedIn đã chọn · tiếp tục phỏng vấn operator · viết sẵn 4 bài SEO đầu |
 | Phase 3 | Demo video Inspector Mode 60s (asset bán hàng số 1 — khoảnh khắc thanh tra gõ cửa) |
-| Phase 4 | Founding Trucks (20 xe, 3 tháng free đổi feedback tuần) từ waitlist + cộng đồng · launch: 2 free tools + Product Hunt · trang /compare |
+| Phase 4 | Founding Trucks (một cohort tối đa 20 xe từ mọi nguồn, 3 tháng free đổi feedback tuần) · launch: 2 free tools + Product Hunt · trang /compare |
 | Phase 5 | Kích hoạt commissary program với case study từ Founding Trucks ("12 xe tại [commissary X] dùng, 0 xe rớt thanh tra mùa này") |
 
 ## 5. Chỉ số

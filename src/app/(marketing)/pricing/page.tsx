@@ -91,7 +91,8 @@ export default function PricingPage() {
         <CtaLink page="pricing" href="/founding-trucks" className="font-medium text-flame">
           See what Founding Trucks get
         </CtaLink>{' '}
-        — 3 months free in exchange for weekly feedback, first 20 trucks only.
+        — 3 months free in exchange for weekly feedback, limited to one 20-truck cohort across all
+        referral sources.
       </p>
     </article>
   );

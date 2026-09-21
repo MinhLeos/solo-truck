@@ -1,23 +1,24 @@
-# Day 25 — A question for food truck owners
+# Day 25 — Why would you change systems?
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/foodtrucks, or a regional food truck Facebook group (poll if the platform supports it)
-**Goal:** Final listening round — no link, pure research.
+**Platform:** Facebook Group poll
+**Objective:** Identify the strongest switching trigger
+**Link:** None
 
-**Check group/subreddit rules first.**
+## Post
 
-## Post (plain text or poll)
-> Last listening question for a while — if you've thought about trying something like Solo Truck (or a tool like it), what would actually be the ONE reason?
->
-> - Inspection anxiety
-> - Paper logs are a mess
-> - Wanting to look more buttoned-up to an inspector
-> - Just curious after seeing the free tools
-> - Something else — genuinely want to hear it
->
-> No wrong answers, trying to understand what actually matters most before I finalize anything.
+If you ever switched from paper or phone notes to a dedicated record-keeping tool, what would be the main reason?
 
-## Before publishing
-- Keep the options specific, not a generic "interested/not interested"
-- Save results — this shapes messaging going forward
+- Faster daily entry
+- Easier retrieval of older records
+- Reminders for the routine
+- Easier handoff/export
+- I would not switch; my current system works
+- Something else in the comments
+
+“I would not switch” is a useful answer. I’m trying to understand the actual threshold for changing a habit, not manufacture interest in an app.
+
+## Publish and reply
+
+- Use the native poll if allowed.
+- Do not interpret votes alone as purchase intent.
+- Ask commenters what would have to be true for their choice to matter.

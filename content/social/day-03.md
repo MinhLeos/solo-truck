@@ -1,19 +1,23 @@
-# Day 03 — The paperwork blackhole
+# Day 03 — The thesis behind Solo Truck
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/foodtrucks, or a regional food truck Facebook group
-**Goal:** Relatability, light humor, still listening only.
+**Platform:** LinkedIn founder profile
+**Objective:** Explain the problem being tested
+**Link:** None
 
-**Check group/subreddit rules first.** No links or self-promo.
+## Post
 
-## Post (plain text, comment or discussion post)
-> Anyone else's temp logs basically live in a pocket, a random notebook, or "somewhere in the truck"? Not judging — just noticed a pattern talking to a few owners this week. Log it on paper, paper gets folded into a pocket, shift ends, paper disappears. Inspector asks for 90 days, you find 23.
->
-> Not because anyone stopped logging — paper just isn't a filing system.
->
-> What's the one thing about tracking logs you wish would just... stay in one place?
+I’m testing a narrow product thesis:
 
-## Before publishing
-- Keep it lighthearted, not shaming
-- No product mention — just the conversation
+Independent food-truck operators do not need another enterprise operations suite. They need a fast way to capture the daily records they already create—and retrieve them without searching through paper, photos, and notes.
+
+I’m building Solo Truck around four jobs: temperature logs, corrective actions, pre-shift checks, and a clean 30/90-day record view.
+
+The uncertain part is not whether software can store a log. It is whether the workflow fits a one-to-three-person operation during a real shift.
+
+If you work with mobile food vendors, what part of that assumption would you challenge first?
+
+## Publish and reply
+
+- Use first person; do not describe unverified demand as fact.
+- Reply to relevant operators, educators, commissaries, and consultants.
+- Track relevant profile visits, comments, and conversations.

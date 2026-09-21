@@ -1,19 +1,21 @@
-# Day 08 — The midnight fridge failure
+# Day 08 — The useful part of a corrective-action note
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/foodtrucks, or a regional food truck Facebook group
-**Goal:** Empathy for a real crisis moment — collect stories, no product mention.
+**Platform:** Facebook Group
+**Objective:** Learn what an actionable note contains
+**Link:** None
 
-**Check group/subreddit rules first.** No links or self-promo.
+## Post
 
-## Post (plain text, comment or discussion post)
-> For anyone who's had it happen: 2am, fridge alarm goes off, temp's climbing, and you've got a few hours before service. What did you actually do in that moment — and just as important, what did you write down afterward (if anything)?
->
-> I ask because it seems like the difference between "we handled it" and "we look careless" to an inspector later is entirely about whether that moment got documented, not just fixed.
->
-> Anyone have a midnight equipment scare story? Genuinely want to hear how it played out.
+When something needs attention during a shift, what makes the note useful a week later?
 
-## Before publishing
-- Keep it realistic, not dramatized
-- No product mention — just collecting real stories for later
+Is it the time, the reading, what was done, who handled it, the recheck—or something else?
+
+I’m working on a corrective-action flow and want to avoid a form that collects fields nobody needs. If you could keep only three pieces of information, which three would they be?
+
+This is a workflow question, not food-safety or legal guidance; local requirements still control.
+
+## Publish and reply
+
+- Ask why a field matters before assuming it belongs in the product.
+- Do not claim a suggested format satisfies inspection requirements.
+- Track the top three fields and dissenting answers.

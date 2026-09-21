@@ -1,261 +1,98 @@
-# Outreach Execution Checklist
+# Outreach execution checklist
 
-**Start date:** 2026-09-18  
-**Target completion:** Week of 2026-09-22  
-**Updated:** (fill in)
+**Campaign start:** [YYYY-MM-DD]
+**Owner:** [FOUNDER NAME]
+**Canonical site URL:** [VERIFIED URL]
 
----
+## Global preflight
 
-## 📋 PHASE 1: Association Partnership Outreach
+- [ ] Confirm the two free tools work on mobile without signup.
+- [ ] Confirm `/founding-trucks` explains the 3-month pilot, feedback expectation,
+      eligibility, 20-operator limit, and no-card condition.
+- [ ] Confirm product facts, standard trial, and pricing in the live app.
+- [ ] Decide how partner attribution will be recorded without sharing user data.
+- [ ] Reconcile available organization-reserved places in
+      `../FOUNDING-TRUCKS-TRACKER.md`; never promise a place from a separate pool.
+- [ ] Prepare a 15-minute demo; do not attach a deck to the first email.
+- [ ] Set reminders for 5 and 12 business days after each send.
 
-### Day 1-2: NSFVA Research & Personalization
+## Per-organization preflight
 
-- [ ] Verify NSFVA contact email (check nsfva.org "Contact Us" page)
-  - **Found email:** `________________`
-  - **Contact name:** `________________`
-  - **Date verified:** `________________`
+- [ ] Verify organization name, mission, contact, role, and email from an official
+      source on the day of sending.
+- [ ] Save the source URL and verification date below.
+- [ ] Read one current program, tutorial, or member resource.
+- [ ] Add one specific, true sentence; remove generic praise.
+- [ ] Pick one primary tool for the review ask.
+- [ ] Replace all bracketed placeholders.
+- [ ] Keep the initial email to 120–170 words and one CTA.
+- [ ] Confirm there are no endorsement, audience-size, safety, or inspection-result
+      claims that are not supported.
+- [ ] Send a test to yourself and open every link.
 
-- [ ] Find specific contact name (LinkedIn or organization page)
-  - **Name:** `________________`
-  - **Title:** `________________`
-  - **LinkedIn:** `________________`
+## Cadence
 
-- [ ] Personalize nsfva-partnership.md
-  - [ ] Replace [Your Name] with actual name
-  - [ ] Replace [Your email] with actual email
-  - [ ] Replace [Your phone] with actual phone (optional)
-  - [ ] Update www.solotruck.app URLs to match live domain
-  - [ ] Add 1-2 sentences referencing specific NSFVA content
-    - Example: "Loved your 2026 state compliance guide on..."
-    - **Added:** `________________`
-  - [ ] Proofread for typos
+- [ ] Initial email sent.
+- [ ] First follow-up sent after 5 business days if no reply.
+- [ ] Final close-the-loop note sent 7 business days later if no reply.
+- [ ] At Day 30, mark a lead with no reply after its final note as
+      `Closed — No response`; it holds zero cohort places.
+- [ ] If referred, start a fresh personalized thread with the referred contact.
+- [ ] If positive, schedule the 15-minute review agenda from the main plan.
+- [ ] Create a partner hold only after a positive reply; record `Reserved count`
+      and `Hold until` in `../FOUNDING-TRUCKS-TRACKER.md`.
+- [ ] If negative, record the reason and do not argue or keep chasing.
 
-- [ ] Send NSFVA email
-  - **Date sent:** `________________`
-  - **Subject line used:** `________________`
-  - **Email address sent to:** `________________`
-  - **Screenshot/confirmation saved:** Yes / No
+## Lead tracker
 
----
+| Organization | Contact/source | Verified | Initial sent | Follow-up 1 | Final note | Stage | Reserved / hold until | Next step |
+|---|---|---|---|---|---|---|---|---|
+| NSFVA |  |  |  |  |  | Research | 0 / — |  |
+| NFTA |  |  |  |  |  | Research | 0 / — |  |
+| Regional 1 |  |  |  |  |  | Research | 0 / — |  |
+| Regional 2 |  |  |  |  |  | Research | 0 / — |  |
+| Regional 3 |  |  |  |  |  | Research | 0 / — |  |
+| Regional 4 |  |  |  |  |  | Research | 0 / — |  |
+| Regional 5 |  |  |  |  |  | Research | 0 / — |  |
 
-### Day 3-5: NFTA Research & Personalization
+Allowed stages: `Research`, `Sent`, `Replied`, `Review booked`, `Pilot proposed`,
+`Pilot active`, `Distributed`, `Closed`, `Closed — No response`.
 
-- [ ] Verify NFTA contact email (check nfta.org)
-  - **Found email:** `________________`
-  - **Contact name:** `________________`
-  - **Date verified:** `________________`
+## Review-call record
 
-- [ ] Find specific contact name (LinkedIn or organization page)
-  - **Name:** `________________`
-  - **Title:** `________________`
-  - **LinkedIn:** `________________`
+| Field | Notes |
+|---|---|
+| Organization / date |  |
+| Reviewer and role |  |
+| Tool reviewed |  |
+| What was useful |  |
+| What was inaccurate/risky |  |
+| Requested changes |  |
+| Pilot fit and size |  |
+| Evidence needed before distribution |  |
+| Agreed next step / owner / date |  |
 
-- [ ] Personalize nfta-partnership.md
-  - [ ] Replace [Your Name] with actual name
-  - [ ] Replace [Your email] with actual email
-  - [ ] Replace [Your phone] with actual phone (optional)
-  - [ ] Update www.solotruck.app URLs to match live domain
-  - [ ] Add 1-2 sentences referencing specific NFTA content
-    - **Added:** `________________`
-  - [ ] Proofread for typos
+## Weekly scorecard
 
-- [ ] Send NFTA email
-  - **Date sent:** `________________`
-  - **Subject line used:** `________________`
-  - **Email address sent to:** `________________`
-  - **Screenshot/confirmation saved:** Yes / No
+| Metric | Week 1 | Week 2 | Week 3 | Week 4 |
+|---|---:|---:|---:|---:|
+| Qualified contacts sent |  |  |  |  |
+| Human replies |  |  |  |  |
+| Review calls |  |  |  |  |
+| Pilot conversations |  |  |  |  |
+| Partner-sourced applicants |  |  |  |  |
+| Partner-sourced activated operators |  |  |  |  |
 
----
+Application capacity and acceptance status live only in
+`../FOUNDING-TRUCKS-TRACKER.md`. This checklist tracks organization relationships,
+not a separate set of Founding Trucks places.
 
-### Optional: Day 3-5 Regional Associations
+## Closeout
 
-**Recommended:** Do at least ONE of these in addition to NFTA/NSFVA
-
-- [ ] **Washington State Food Truck Association** (wafoodtrucks.org)
-  - **Contact:** `________________`
-  - **Email:** `________________`
-  - **Date sent:** `________________`
-
-- [ ] **New York Food Truck Association** (nyfta.org)
-  - **Contact:** `________________`
-  - **Email:** `________________`
-  - **Date sent:** `________________`
-
-- [ ] **SoCal Mobile Food Vendors Association** (socalmfva.com)
-  - **Contact:** `________________`
-  - **Email:** `________________`
-  - **Date sent:** `________________`
-
-- [ ] **Philadelphia Mobile Food Association**
-  - **Contact:** `________________`
-  - **Email:** `________________`
-  - **Date sent:** `________________`
-
----
-
-### Day 7: First Follow-up
-
-- [ ] Follow up NSFVA if no response
-  - **Status:** No response / Response received / Pending
-  - **If no response:** 
-    - [ ] Send follow-up email (use template in nsfva-partnership.md)
-    - **Date sent:** `________________`
-  - **If response:** 
-    - **Response:** `________________`
-    - **Next action:** `________________`
-
-- [ ] Note responses in outreach/README.md
-  - [ ] Updated tracking with responses
-  - **Date updated:** `________________`
-
-- [ ] Follow up NFTA if no response
-  - **Status:** No response / Response received / Pending
-  - **If no response:**
-    - [ ] Send follow-up email (use template in nfta-partnership.md)
-    - **Date sent:** `________________`
-  - **If response:**
-    - **Response:** `________________`
-    - **Next action:** `________________`
-
----
-
-## 📊 Response Tracking
-
-### NSFVA Status
-| Item | Value |
-|------|-------|
-| **Email sent** | 2026-__ -__ |
-| **Contact person** | _____________ |
-| **Contact email** | _____________ |
-| **Response status** | [ ] No response [ ] Positive [ ] Neutral [ ] Negative [ ] Pending |
-| **Response date** | 2026-__-__ |
-| **Key takeaway** | _____________ |
-| **Next action** | _____________ |
-| **Partnership potential** | Low / Medium / High |
-
-### NFTA Status
-| Item | Value |
-|------|-------|
-| **Email sent** | 2026-__-__ |
-| **Contact person** | _____________ |
-| **Contact email** | _____________ |
-| **Response status** | [ ] No response [ ] Positive [ ] Neutral [ ] Negative [ ] Pending |
-| **Response date** | 2026-__-__ |
-| **Key takeaway** | _____________ |
-| **Next action** | _____________ |
-| **Partnership potential** | Low / Medium / High |
-
-### Regional Associations (Optional)
-| Org | Email sent | Contact | Response | Date | Notes |
-|-----|-----------|---------|----------|------|-------|
-| WA | 2026-__-__ | ______ | [ ] | 2026-__-__ | _______ |
-| NY | 2026-__-__ | ______ | [ ] | 2026-__-__ | _______ |
-| SoCal | 2026-__-__ | ______ | [ ] | 2026-__-__ | _______ |
-| Philly | 2026-__-__ | ______ | [ ] | 2026-__-__ | _______ |
-
----
-
-## 🚀 PHASE 2: Map Channels to 30-Day Content (After Week 1)
-
-**Estimated start:** 2026-09-25 (after NSFVA/NFTA responses arrive)
-
-- [ ] Review outreach responses (or lack thereof)
-- [ ] Update each `content/social/day-*.md` with specific channels
-  - [ ] Days 1-10, 13, 15, 18, 23, 25-26, 28 → r/foodtrucks, FB groups
-  - [ ] Days 11-12 → Food Truck Beast, Food Truck Network
-  - [ ] Days 4, 7, 21, 22, 27, 29, 30 → r/SaaS, r/IndieHackers
-  - [ ] Days 14, 16, 20, 24 → Direct DM or NFTA/NSFVA (pending responses)
-- [ ] Proofread all 30 files for consistency
-- [ ] **Date completed:** `________________`
-
----
-
-## 📤 PHASE 3: Commit & Push (Final)
-
-**Estimated:** After Phase 2 complete
-
-- [ ] Verify all outreach files present
-  - [ ] outreach/nfta-partnership.md
-  - [ ] outreach/nsfva-partnership.md
-  - [ ] outreach/README.md
-  - [ ] outreach/CHECKLIST.md (this file)
-
-- [ ] Review updated SOCIAL-30-DAYS-PLAN.md
-  - [ ] Strategic Roadmap section present
-  - [ ] Phase 1-3 clearly described
-
-- [ ] Review updated content/social/day-*.md files
-  - [ ] All 30 files have channel mapping
-  - [ ] No broken links
-
-- [ ] Commit all changes
-  ```bash
-  git add content/social/ outreach/ SOCIAL-30-DAYS-PLAN.md
-  git commit -m "feat: 30-day social plan + outreach templates + channel mapping"
-  ```
-  - [ ] **Commit hash:** `________________`
-  - [ ] **Date committed:** `________________`
-
-- [ ] Push to remote
-  ```bash
-  git push origin develop
-  ```
-  - [ ] **Date pushed:** `________________`
-
----
-
-## 💡 Pro Tips Checklist
-
-### Personalization
-- [ ] Mentioned specific NSFVA/NFTA content in emails
-- [ ] Added personal details (not generic "I'm building X")
-- [ ] Subject lines are clear and specific
-
-### Tracking
-- [ ] Creating/maintaining response tracking table
-- [ ] Noting dates, contacts, outcomes
-- [ ] Saving email screenshots or confirmations
-
-### Follow-up
-- [ ] Set calendar reminders for follow-ups (Day 7, Day 14)
-- [ ] Have follow-up email templates ready (in partnership .md files)
-- [ ] Not expecting immediate response (5-7 day baseline for associations)
-
----
-
-## 📝 Notes & Learnings
-
-**What went well:**
-```
-(Fill in as you progress)
-```
-
-**Challenges encountered:**
-```
-(Fill in as you progress)
-```
-
-**Adjustments needed:**
-```
-(Fill in as you progress)
-```
-
-**Partnership wins:**
-```
-(Fill in as you progress)
-```
-
----
-
-## Timeline Summary
-
-| Phase | Task | Start | End | Status |
-|-------|------|-------|-----|--------|
-| 1 | NSFVA research & send | 2026-09-18 | 2026-09-19 | [ ] |
-| 1 | NFTA research & send | 2026-09-20 | 2026-09-22 | [ ] |
-| 1 | Optional: Regional assocs | 2026-09-20 | 2026-09-22 | [ ] |
-| 1 | First follow-ups | 2026-09-25 | 2026-09-26 | [ ] |
-| 2 | Map channels to 30 days | 2026-09-25 | 2026-09-27 | [ ] |
-| 3 | Commit & push | 2026-09-28 | 2026-09-28 | [ ] |
-
-**Overall Status:** [ ] Not started [ ] In progress [ ] Complete
+- [ ] Every lead has a next action or is explicitly closed.
+- [ ] Quotes, logos, names, and case-study data have written permissions.
+- [ ] Learnings are reflected in copy/product before broader distribution.
+- [ ] Continue, narrow, or pause the channel using the decision rule in
+      `ORGANIZATION-PARTNERSHIP-PLAN.md`.
+- [ ] Reconcile partner referrals and released reserve in
+      `../FOUNDING-TRUCKS-TRACKER.md`.

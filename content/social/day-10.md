@@ -1,19 +1,24 @@
-# Day 10 — Why logging matters (the legal angle)
+# Day 10 — A five-minute records self-check
 
-**Status:** [ ] Not posted yet
-**Scheduled date:** _(fill in)_
-**Where to post:** r/foodtrucks, or a regional food truck Facebook group
-**Goal:** Reframe compliance from "fear" to "proof" — listening only.
+**Platform:** Facebook Group
+**Objective:** Provide value and expose retrieval friction
+**Link:** None
 
-**Check group/subreddit rules first.** No links or self-promo.
+## Post
 
-## Post (plain text, comment or discussion post)
-> Something that came up in a few conversations this week: a lot of owners avoid logging because they're worried an honest log with a mistake on it looks worse than no log at all.
->
-> From what I've read, it's actually the opposite — inspectors have seen faked "perfect" logs a thousand times and know what they look like. A log that shows something went briefly out of range AND what you did about it reads as more credible, not less.
->
-> Not legal advice, just what I keep hearing repeated — always worth checking with your own local health department on specifics. Does that match what you've experienced, or is it different where you are?
+A quick records self-check for the end of the week:
 
-## Before publishing
-- Mention this isn't legal advice, verify with local health authority
-- Tone: encouraging, not shaming
+1. Pick one day from last week.
+2. Find the temperature records and opening checks from that day.
+3. Find any note about an issue and what happened next.
+4. Notice how long retrieval took and what was missing.
+
+This is not an inspection checklist and local requirements vary. It is simply a test of whether your current filing system gives you back what you put into it.
+
+How long did the retrieval take: under a minute, a few minutes, or “I’ll finish looking tomorrow”?
+
+## Publish and reply
+
+- Keep the tone useful and nonjudgmental.
+- Do not imply these four steps prove inspection readiness.
+- Day-10 review: if replies are weak, change groups before adding platforms.
