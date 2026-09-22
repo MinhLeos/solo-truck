@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowLeft, Flame } from 'lucide-react';
 import { QuizForm } from './quiz-form';
 import { ToolViewTracker } from '@/components/tools/ToolViewTracker';
 import { siteMetadata } from '@/lib/seo/metadata';
@@ -14,16 +16,26 @@ export const metadata: Metadata = siteMetadata({
 
 export default function InspectionReadinessQuizPage() {
   return (
-    <div className="flex flex-col gap-4">
+    <main className="quiz-page">
       <ToolViewTracker tool="inspection-readiness-quiz" />
-      <div>
-        <h1 className="text-xl font-semibold text-ink">Inspection Readiness Quiz</h1>
-        <p className="mt-1 text-sm text-ink-soft">
-          Answer honestly — these are the same 12 checks a pre-shift routine should cover, and the
-          ones inspectors ask about first.
-        </p>
-      </div>
-      <QuizForm />
-    </div>
+      <header className="quiz-header">
+        <Link className="quiz-brand" href="/"><span><Flame size={16} fill="currentColor" /></span>Solo Truck</Link>
+        <Link className="quiz-back" href="/tools"><ArrowLeft size={15} />All tools</Link>
+      </header>
+      <section className="quiz-shell" aria-labelledby="quiz-title">
+        <div className="quiz-intro">
+          <h1 id="quiz-title">Inspection Readiness Quiz</h1>
+          <p>
+            Answer honestly — these are the same 12 checks a pre-shift routine should cover, and the
+            ones inspectors ask about first.
+          </p>
+        </div>
+        <QuizForm />
+      </section>
+      <footer className="quiz-footer">
+        <span>Free tool by Solo Truck — the 30-second daily compliance log for food trucks.</span>
+        <Link href="/founding-trucks">Try Solo Truck free →</Link>
+      </footer>
+    </main>
   );
 }

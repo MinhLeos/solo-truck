@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Download } from 'lucide-react';
 import { ToolCtaLink } from '@/components/tools/ToolCtaLink';
 import { trackToolEvent } from '@/lib/tools/analytics';
 import { QUIZ_QUESTIONS, QUIZ_BAND_COPY, scoreQuiz } from '@/lib/tools/inspection-quiz';
@@ -46,51 +45,64 @@ export function QuizForm() {
     }
   }
 
+  const answered = answers.filter((a) => a !== null).length;
+  const bandClass = result ? (result.band === 'ready' ? 'ready' : result.band === 'almost_there' ? 'nearly' : 'attention') : '';
+
   return (
-    <div className="flex flex-col gap-3">
-      {QUIZ_QUESTIONS.map((question, i) => (
-        <Card key={question} className="flex items-center justify-between gap-3">
-          <span className="text-sm text-ink">{question}</span>
-          <div className="flex shrink-0 gap-2">
-            <button
-              type="button"
-              onClick={() => setAnswer(i, true)}
-              className={`rounded-md border px-3 py-1.5 text-sm ${
-                answers[i] === true ? 'border-pass bg-pass-bg text-pass-deep' : 'border-steel-deep text-ink-soft'
-              }`}
-            >
-              Yes
-            </button>
-            <button
-              type="button"
-              onClick={() => setAnswer(i, false)}
-              className={`rounded-md border px-3 py-1.5 text-sm ${
-                answers[i] === false ? 'border-flame-deep bg-warn-bg text-flame-deep' : 'border-steel-deep text-ink-soft'
-              }`}
-            >
-              No
-            </button>
-          </div>
-        </Card>
-      ))}
+    <>
+      <div className="quiz-progress">
+        <div>
+          <span>Pre-shift scan</span>
+          <strong>{answered} of {QUIZ_QUESTIONS.length} answered</strong>
+        </div>
+        <div className="quiz-progress-track"><span style={{ width: `${(answered / QUIZ_QUESTIONS.length) * 100}%` }} /></div>
+      </div>
+
+      <div className="quiz-list">
+        {QUIZ_QUESTIONS.map((question, i) => (
+          <article className={`quiz-row ${answers[i] !== null ? 'answered' : ''}`} key={question}>
+            <div className="quiz-row-number">{String(i + 1).padStart(2, '0')}</div>
+            <p>{question}</p>
+            <div className="quiz-options">
+              <button
+                type="button"
+                className={answers[i] === true ? 'selected yes' : ''}
+                aria-pressed={answers[i] === true}
+                onClick={() => setAnswer(i, true)}
+              >
+                Yes
+              </button>
+              <button
+                type="button"
+                className={answers[i] === false ? 'selected no' : ''}
+                aria-pressed={answers[i] === false}
+                onClick={() => setAnswer(i, false)}
+              >
+                No
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
 
       {result && (
-        <Card className="flex flex-col gap-2">
-          <p className="text-lg font-semibold text-ink">
-            {result.score} / {result.total} — {QUIZ_BAND_COPY[result.band].headline}
-          </p>
-          <p className="text-sm text-ink-soft">{QUIZ_BAND_COPY[result.band].detail}</p>
-          <Button type="button" onClick={handleExportPdf} disabled={exporting}>
-            {exporting ? 'Preparing…' : 'Download result as PDF'}
-          </Button>
-          <p className="text-sm text-ink-soft">
-            <ToolCtaLink tool={TOOL} href="/founding-trucks" className="font-medium text-flame">
+        <section className={`quiz-result ${bandClass}`}>
+          <div className="result-score">
+            <strong>{result.score} / {result.total}</strong>
+            <span>{QUIZ_BAND_COPY[result.band].headline}</span>
+          </div>
+          <p>{QUIZ_BAND_COPY[result.band].detail}</p>
+          <button type="button" className="quiz-download" onClick={handleExportPdf} disabled={exporting}>
+            {exporting ? 'Preparing…' : 'Download result as PDF'} <Download size={16} />
+          </button>
+          <p className="quiz-closing">
+            <ToolCtaLink tool={TOOL} href="/founding-trucks" style={{ color: 'var(--quiz-orange)', fontWeight: 700 }}>
               Solo Truck runs this exact checklist every shift
             </ToolCtaLink>{' '}
             — so you already know where you stand before an inspector does.
           </p>
-        </Card>
+        </section>
       )}
-    </div>
+    </>
   );
 }

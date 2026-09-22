@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowLeft, Flame, TriangleAlert } from 'lucide-react';
 import { DangerZoneForm } from './danger-zone-form';
 import { ToolCtaLink } from '@/components/tools/ToolCtaLink';
 import { ToolViewTracker } from '@/components/tools/ToolViewTracker';
@@ -17,26 +19,37 @@ export const metadata: Metadata = siteMetadata({
 
 export default function TempDangerZoneCheckerPage() {
   return (
-    <div className="flex flex-col gap-4">
+    <main className="checker-page">
       <ToolViewTracker tool={TOOL} />
-      <div>
-        <h1 className="text-xl font-semibold text-ink">Temp Danger Zone Checker</h1>
-        <p className="mt-1 text-sm text-ink-soft">
-          Food between 40°F and 140°F is in the &quot;danger zone&quot; — bacteria grow fastest
-          here. The FDA Food Code gives you 2 hours (1 on a hot day) before it&apos;s no longer
-          safe to serve.
-        </p>
-      </div>
+      <header className="checker-header">
+        <Link href="/" className="checker-brand"><span><Flame size={17} fill="currentColor" /></span>Solo Truck</Link>
+        <Link href="/tools" className="checker-back"><ArrowLeft size={14} /> All tools</Link>
+      </header>
 
       <DangerZoneForm />
 
-      <p className="mt-4 text-sm text-ink-soft">
-        Tracking this by memory during a rush is how honest mistakes turn into failed inspections.{' '}
-        <ToolCtaLink tool={TOOL} href="/founding-trucks" className="font-medium text-flame">
-          Solo Truck logs every reading in 30 seconds
-        </ToolCtaLink>
-        , with a timestamp that holds up when an inspector asks.
-      </p>
-    </div>
+      <section className="checker-note">
+        <TriangleAlert size={18} />
+        <p>
+          This is a general FDA Food Code guideline, not a substitute for your local health
+          department&apos;s rules — verify with your local health authority.
+        </p>
+      </section>
+
+      <section className="checker-closing">
+        <p>
+          Tracking this by memory during a rush is how honest mistakes turn into failed inspections.{' '}
+          <ToolCtaLink tool={TOOL} href="/founding-trucks" style={{ color: 'var(--checker-orange)', fontWeight: 700 }}>
+            Solo Truck logs every reading in 30 seconds
+          </ToolCtaLink>
+          , with a timestamp that holds up when an inspector asks.
+        </p>
+      </section>
+
+      <footer className="checker-footer">
+        <span>Free tool by Solo Truck — the 30-second daily compliance log for food trucks.</span>
+        <Link href="/founding-trucks">Try Solo Truck free →</Link>
+      </footer>
+    </main>
   );
 }

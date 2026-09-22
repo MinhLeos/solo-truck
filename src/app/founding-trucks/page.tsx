@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ArrowRight, Check, Flame, Mail } from 'lucide-react';
 import type { Metadata } from 'next';
 import { CtaAnchor } from '@/components/analytics/CtaAnchor';
 import { PublicAnalytics } from '@/components/analytics/public-analytics';
@@ -31,46 +32,49 @@ export default function FoundingTrucksPage() {
   )}`;
 
   return (
-    <main className="mx-auto flex min-h-dvh max-w-xl flex-col justify-center gap-6 px-6 py-16">
+    <main className="founding-page">
       <PublicAnalytics />
-      <div>
-        <p className="text-sm font-medium text-flame">Founding Trucks</p>
-        <h1 className="mt-1 text-2xl font-semibold text-ink">
-          Apply for one of 20 Founding Trucks spots — free for 3 months.
+      <div className="founding-grid" aria-hidden="true" />
+      <header className="founding-header">
+        <Link className="founding-brand" href="/">
+          <span><Flame size={16} fill="currentColor" /></span>
+          Solo Truck
+        </Link>
+        <span className="founding-status"><i />20 spots only</span>
+      </header>
+
+      <section className="founding-hero">
+        <p className="founding-eyebrow"><span />Founding Trucks</p>
+        <h1>
+          Apply for one of 20 Founding Trucks spots — <em>free for 3 months.</em>
         </h1>
-        <p className="mt-3 text-ink-soft">
+        <p className="founding-subtext">
           We&apos;re selecting up to 20 independent food trucks across all referral sources to use
           Solo Truck daily and tell us, weekly, what actually helps and what gets in the way. In
           exchange: 3 months free and a direct line to the person building it.
         </p>
-      </div>
 
-      <ul className="flex flex-col gap-2">
-        {OFFER.map((item) => (
-          <li key={item} className="flex items-start gap-2 text-sm text-ink">
-            <span className="text-pass">✓</span>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+        <div className="founding-card">
+          <div className="founding-card-top"><span>What you get</span><b>01 — 04</b></div>
+          <ul>
+            {OFFER.map((item) => (
+              <li key={item}><span><Check size={15} strokeWidth={3} /></span>{item}</li>
+            ))}
+          </ul>
+          <CtaAnchor page="founding_trucks" href={mailtoHref} className="founding-cta">
+            <Mail size={18} />Apply — email us your truck<ArrowRight size={17} />
+          </CtaAnchor>
+          <p className="founding-note">
+            Applying does not reserve a spot. If the relevant social/direct or partner allocation is
+            full, qualified applicants may be waitlisted. Every application is reviewed and gets a
+            real reply from the founder.
+          </p>
+        </div>
 
-      <CtaAnchor
-        page="founding_trucks"
-        href={mailtoHref}
-        className="inline-flex items-center justify-center rounded-md bg-flame px-4 py-3 text-center text-sm font-medium text-white hover:bg-flame-deep"
-      >
-        Apply — email us your truck
-      </CtaAnchor>
+        <Link href="/guide" className="founding-secondary">See how it works first <span>→</span></Link>
+      </section>
 
-      <p className="text-xs text-ink-soft">
-        Applying does not reserve a spot. If the relevant social/direct or partner allocation is
-        full, qualified applicants may be waitlisted. Every application is reviewed and gets a
-        real reply from the founder.
-      </p>
-
-      <Link href="/guide" className="text-sm font-medium text-flame">
-        See how it works first →
-      </Link>
+      <footer className="founding-footer"><span>SOLO TRUCK / 2026</span><span>Built for the people on the line.</span></footer>
     </main>
   );
 }
