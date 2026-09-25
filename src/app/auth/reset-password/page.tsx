@@ -1,6 +1,12 @@
+import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { ResetPasswordForm } from './reset-password-form';
+
+export const metadata: Metadata = {
+  title: 'Set a new password — Solo Truck',
+  robots: { index: false, follow: false },
+};
 
 export default async function ResetPasswordPage() {
   const supabase = await createClient();

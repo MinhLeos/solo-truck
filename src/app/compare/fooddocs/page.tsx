@@ -14,6 +14,7 @@ export const metadata: Metadata = siteMetadata({
 export default function CompareFoodDocsPage() {
   return (
     <CompareView
+      className="fooddocs-page"
       page='compare_fooddocs'
       eyebrow='Solo Truck vs. FoodDocs'
       headline='Built for one truck,'

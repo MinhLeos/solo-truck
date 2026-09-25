@@ -4,7 +4,10 @@ import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { Button } from '@/components/ui/button';
 
-export function GoogleSignInButton() {
+export function GoogleSignInButton({
+  className,
+  iconClassName,
+}: { className?: string; iconClassName?: string } = {}) {
   const [pending, setPending] = useState(false);
 
   async function handleClick() {
@@ -15,6 +18,15 @@ export function GoogleSignInButton() {
       options: { redirectTo: `${window.location.origin}/auth/callback` },
     });
     setPending(false);
+  }
+
+  if (className) {
+    return (
+      <button type="button" onClick={handleClick} disabled={pending} className={className}>
+        <span className={iconClassName} aria-hidden="true">G</span>
+        <span>{pending ? 'Redirecting…' : 'Continue with Google'}</span>
+      </button>
+    );
   }
 
   return (

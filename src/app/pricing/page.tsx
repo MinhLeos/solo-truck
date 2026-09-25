@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, Check, Flame, ShieldCheck } from 'lucide-react';
 import { NavMenu } from '@/components/paper/nav-menu';
 import { CtaLink } from '@/components/analytics/CtaLink';
+import { PublicAnalytics } from '@/components/analytics/public-analytics';
 import { siteMetadata } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = siteMetadata({
@@ -30,6 +31,7 @@ const FEATURES = [
 export default function PricingPage() {
   return (
     <main className="pricing-page">
+      <PublicAnalytics />
       <header className="pricing-nav">
         <Link href="/" className="pricing-brand"><span><Flame size={17} fill="currentColor" /></span>Solo Truck</Link>
         <nav className="pricing-links">

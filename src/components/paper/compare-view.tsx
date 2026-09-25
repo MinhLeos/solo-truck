@@ -39,6 +39,7 @@ export function CompareView({
   other,
   solo,
   closing,
+  className = '',
 }: {
   page: string;
   eyebrow: string;
@@ -48,9 +49,10 @@ export function CompareView({
   other: Column;
   solo: Column;
   closing: string;
+  className?: string;
 }) {
   return (
-    <main className="compare-page">
+    <main className={`compare-page ${className}`}>
       <header className="compare-header">
         <Link href="/" className="compare-brand"><span><Flame size={17} fill="currentColor" /></span>Solo Truck</Link>
         <Link href="/tools" className="compare-back"><ArrowLeft size={15} /> All tools</Link>

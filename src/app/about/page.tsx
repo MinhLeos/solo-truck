@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, Flame } from 'lucide-react';
 import { NavMenu } from '@/components/paper/nav-menu';
 import { CtaLink } from '@/components/analytics/CtaLink';
+import { PublicAnalytics } from '@/components/analytics/public-analytics';
 import { siteMetadata } from '@/lib/seo/metadata';
 
 export const metadata: Metadata = siteMetadata({
@@ -15,6 +16,7 @@ export const metadata: Metadata = siteMetadata({
 export default function AboutPage() {
   return (
     <main className="about-page">
+      <PublicAnalytics />
       <header className="about-nav">
         <Link href="/" className="about-brand"><span><Flame size={18} fill="currentColor" /></span>Solo Truck</Link>
         <nav>

@@ -1,0 +1,125 @@
+.page {
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 32px 20px 24px;
+  color: var(--ink-deep);
+  background: #eeeae1;
+  font-family: var(--font-landing-body), sans-serif;
+}
+
+.glow {
+  position: absolute;
+  top: -180px;
+  left: 50%;
+  width: 520px;
+  height: 420px;
+  border-radius: 50%;
+  background: #dcece3;
+  filter: blur(2px);
+  opacity: .7;
+  transform: translateX(-50%);
+}
+
+.brand {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--ink-deep);
+  font-family: var(--font-landing-display), sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.04em;
+  text-decoration: none;
+}
+
+.brandMark {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  place-items: center;
+  color: #fffaf2;
+  background: var(--orange);
+  border-radius: 50%;
+  font-family: var(--font-landing-mono), monospace;
+  font-size: 9px;
+  letter-spacing: -.08em;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 430px);
+  padding: 42px 44px 36px;
+  border: 1px solid #d2cbbf;
+  background: rgba(255, 253, 248, .9);
+  box-shadow: 10px 10px 0 #d9d2c5;
+}
+
+.cardIntro { margin-bottom: 28px; }
+.eyebrow {
+  margin: 0 0 16px;
+  color: var(--orange-dark);
+  font-family: var(--font-landing-mono), monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.card h1 {
+  margin: 0;
+  font-family: var(--font-landing-display), sans-serif;
+  font-size: 60px;
+  line-height: .88;
+  letter-spacing: -.055em;
+}
+.subtext { margin: 16px 0 0; color: #686b65; font-size: 16px; }
+.googleButton,
+.submitButton {
+  display: flex;
+  width: 100%;
+  min-height: 49px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #bcb5a9;
+  font-family: var(--font-landing-mono), monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  cursor: pointer;
+}
+.googleButton { color: var(--ink-deep); background: #fffdf8; }
+.googleButton:hover { border-color: var(--ink-deep); }
+.googleIcon { color: #4285f4; font-family: Arial, sans-serif; font-size: 18px; font-weight: 700; }
+.divider { display: flex; align-items: center; gap: 14px; margin: 24px 0; color: #8b8c86; font-family: var(--font-landing-mono), monospace; font-size: 10px; }
+.divider::before, .divider::after { height: 1px; flex: 1; background: #d7d0c4; content: ''; }
+.form { display: grid; gap: 9px; }
+.form label { margin-top: 6px; color: #484b46; font-family: var(--font-landing-mono), monospace; font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.form input { width: 100%; min-height: 48px; padding: 0 13px; border: 1px solid #c9c2b6; outline: none; color: var(--ink-deep); background: #fffdf8; font-family: var(--font-landing-body), sans-serif; font-size: 15px; }
+.form input::placeholder { color: #9a9b95; }
+.form input:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(238,90,43,.12); }
+.submitButton { margin-top: 14px; justify-content: space-between; padding: 0 16px; color: #fffaf2; background: var(--ink-deep); border-color: var(--ink-deep); }
+.submitButton:hover:not(:disabled) { background: var(--orange); border-color: var(--orange); }
+.submitButton:disabled { cursor: wait; opacity: .7; }
+.links { display: flex; justify-content: space-between; gap: 16px; margin-top: 25px; }
+.links a { color: var(--orange-dark); font-family: var(--font-landing-mono), monospace; font-size: 10px; text-decoration: none; }
+.links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.footerNote { position: absolute; bottom: 24px; margin: 0; color: #888a84; font-family: var(--font-landing-mono), monospace; font-size: 10px; letter-spacing: .04em; }
+
+@media (max-width: 560px) {
+  .page { justify-content: center; padding: 82px 16px 70px; }
+  .brand { top: 24px; left: 20px; }
+  .card { padding: 34px 24px 29px; box-shadow: 6px 6px 0 #d9d2c5; }
+  .card h1 { font-size: 53px; }
+  .links { flex-wrap: wrap; }
+  .footerNote { bottom: 20px; }
+}

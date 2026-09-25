@@ -2,11 +2,9 @@
 
 import Link from 'next/link';
 import { useActionState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card } from '@/components/ui/card';
 import { FormMessage } from '@/components/ui/form-message';
 import { GoogleSignInButton } from '@/components/auth/google-signin-button';
+import styles from './signup.module.css';
 import { signUpWithPassword, type SignupState } from './actions';
 
 const initialState: SignupState = { status: 'idle' };
@@ -18,39 +16,35 @@ export default function SignupPage() {
   );
 
   return (
-    <div className="flex flex-1 flex-col items-center justify-center bg-steel px-6">
-      <div className="w-full max-w-sm">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">
-          Create an account
-        </h1>
-        <p className="mt-2 text-ink-soft">Set up your food truck.</p>
+    <main className={styles.page}>
+      <div className={styles.glow} aria-hidden="true" />
+      <Link className={styles.brand} href="/" aria-label="Solo Truck home">
+        <span className={styles.brandMark}>ST</span>
+        <span>Solo Truck</span>
+      </Link>
 
-        <div className="mt-6">
-          <GoogleSignInButton />
+      <section className={styles.card} aria-labelledby="signup-title">
+        <div className={styles.cardIntro}>
+          <h1 id="signup-title">Create an account</h1>
+          <p className={styles.subtext}>Set up your food truck.</p>
         </div>
 
-        <div className="my-5 flex items-center gap-3 text-xs text-ink-soft">
-          <span className="h-px flex-1 bg-steel-deep" />
-          or
-          <span className="h-px flex-1 bg-steel-deep" />
-        </div>
+        <GoogleSignInButton className={styles.googleButton} iconClassName={styles.googleIcon} />
+
+        <div className={styles.divider} role="separator"><span>or</span></div>
 
         {state.status === 'sent' ? (
-          <Card className="text-sm">
-            Check your email to confirm your account, then sign in.
-          </Card>
+          <div className={styles.success} role="status">
+            <p className={styles.successMark} aria-hidden="true">✓</p>
+            <p className={styles.successText}>Check your email to confirm your account, then sign in.</p>
+          </div>
         ) : (
-          <form action={formAction} className="flex flex-col gap-3">
-            <Input
-              label="Email"
-              type="email"
-              name="email"
-              required
-              placeholder="you@example.com"
-              autoComplete="email"
-            />
-            <Input
-              label="Password"
+          <form action={formAction} className={styles.form}>
+            <label htmlFor="email">Email</label>
+            <input id="email" type="email" name="email" required placeholder="you@example.com" autoComplete="email" />
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
               type="password"
               name="password"
               required
@@ -61,19 +55,19 @@ export default function SignupPage() {
             {state.status === 'error' && (
               <FormMessage status="error">{state.message}</FormMessage>
             )}
-            <Button type="submit" disabled={pending}>
+            <button className={styles.submitButton} type="submit" disabled={pending}>
               {pending ? 'Creating account…' : 'Create account'}
-            </Button>
+              {!pending && <span aria-hidden="true">→</span>}
+            </button>
           </form>
         )}
 
-        <p className="mt-4 text-sm">
-          Already have an account?{' '}
-          <Link href="/login" className="font-medium text-flame">
-            Sign in
-          </Link>
+        <p className={styles.successLink}>
+          Already have an account? <Link href="/login">Sign in</Link>
         </p>
-      </div>
-    </div>
+      </section>
+
+      <p className={styles.footerNote}>Your shift starts here.</p>
+    </main>
   );
 }
