@@ -29,25 +29,27 @@ export function EquipmentCard({
 
   return (
     <button type="button" onClick={onTap} className="w-full text-left">
-      <Card className="flex items-center justify-between">
-        <div>
-          <p className="font-medium text-ink">{name}</p>
-          <p className="text-xs text-ink-soft">{range}</p>
+      <Card
+        className={`data-row border-l-[6px] ${
+          lastLog ? (lastLog.isOutOfThreshold ? 'border-l-[#c9523f]' : 'border-l-[#2f8a59]') : 'border-l-[#dce4de]'
+        }`}
+      >
+        <div className="min-w-0">
+          <h3>{name}</h3>
+          <p>{range}</p>
         </div>
         {lastLog ? (
           <div className="text-right">
-            <p
-              className={`font-semibold ${lastLog.isOutOfThreshold ? 'text-flame-deep' : 'text-pass'}`}
-            >
+            <p className={`big-value ${lastLog.isOutOfThreshold ? 'bad' : 'good'}`}>
               {lastLog.isOutOfThreshold ? '⚠' : '✓'} {lastLog.temperature}°F
             </p>
-            <p className="text-xs text-ink-soft">
+            <p className="mt-1.5">
               {time}
               {lastLog.loggedBy ? ` · ${lastLog.loggedBy}` : ''}
             </p>
           </div>
         ) : (
-          <span className="text-xs text-ink-soft">No log yet today</span>
+          <span className="status-pill neutral shrink-0">No log yet today</span>
         )}
       </Card>
     </button>

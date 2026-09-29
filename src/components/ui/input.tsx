@@ -18,7 +18,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     <input
       ref={ref}
       id={inputId}
-      className={`w-full rounded-md border border-steel-deep bg-card px-3 py-2 text-sm text-ink placeholder:text-ink-soft focus:border-flame focus:ring-2 focus:ring-flame/20 focus:outline-none ${className}`}
+      className={`w-full rounded-[10px] border border-[#cad7cf] bg-[#fbfcfb] px-[13px] py-3 text-sm text-[#18231f] placeholder:text-[#93a098] focus:border-[#52936e] focus:ring-3 focus:ring-[#52936e]/15 focus:outline-none ${className}`}
       {...props}
     />
   );
@@ -26,7 +26,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   if (!label) return input;
 
   return (
-    <label htmlFor={inputId} className="flex flex-col gap-1 text-sm text-ink">
+    <label htmlFor={inputId} className="flex flex-col gap-[7px] text-xs font-extrabold text-[#53645b]">
       {label}
       {input}
     </label>

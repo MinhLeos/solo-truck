@@ -22,20 +22,22 @@ export function HistoryClient({ groups }: { groups: [string, HistoryEntry[]][] }
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-lg font-semibold text-ink">History</h1>
+      <div className="page-intro">
+        <h1>History</h1>
+      </div>
       {groups.map(([day, entries]) => (
         <div key={day}>
-          <p className="mb-2 text-xs font-medium text-ink-soft">{day}</p>
+          <p className="app-eyebrow mb-2.5">{day}</p>
           <div className="flex flex-col gap-2">
             {entries.map((entry) => (
               <Card key={entry.id}>
-                <div className="flex items-center justify-between">
+                <div className="data-row stack-mobile">
                   <div className={entry.isSuperseded ? 'opacity-50 line-through' : ''}>
-                    <p className="font-medium text-ink">
+                    <h3>
                       {entry.equipmentName} — {entry.temperature}°F{' '}
-                      {entry.isOutOfThreshold && <span className="text-flame-deep">⚠</span>}
-                    </p>
-                    <p className="text-xs text-ink-soft">
+                      {entry.isOutOfThreshold && <span className="text-[#a94435]">⚠</span>}
+                    </h3>
+                    <p>
                       {new Date(entry.recordedAt).toLocaleTimeString([], {
                         hour: 'numeric',
                         minute: '2-digit',
@@ -54,7 +56,7 @@ export function HistoryClient({ groups }: { groups: [string, HistoryEntry[]][] }
                   )}
                 </div>
                 {entry.supersedeReason && (
-                  <p className="mt-1 text-xs text-ink-soft">Corrected: {entry.supersedeReason}</p>
+                  <p className="mt-2 inline-block rounded-md bg-[#edf1ee] px-2 py-1 text-xs text-[#557164]">Corrected: {entry.supersedeReason}</p>
                 )}
                 {openFormId === entry.id && (
                   <SupersedeForm
@@ -68,7 +70,7 @@ export function HistoryClient({ groups }: { groups: [string, HistoryEntry[]][] }
           </div>
         </div>
       ))}
-      {groups.length === 0 && <p className="text-sm text-ink-soft">No logs yet.</p>}
+      {groups.length === 0 && <p className="text-sm text-[#6b7972]">No logs yet.</p>}
     </div>
   );
 }

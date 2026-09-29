@@ -47,22 +47,22 @@ export function PinSheet({
     <div
       role="dialog"
       aria-label="Enter your PIN"
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 sm:items-center"
+      className="app-sheet-backdrop"
     >
-      <div className="w-full max-w-sm rounded-t-2xl bg-card p-4 sm:rounded-2xl">
-        <p className="text-center text-sm text-ink-soft">Who&apos;s logging this?</p>
+      <div className="app-sheet">
+        <p className="text-center text-base font-bold">Who&apos;s logging this?</p>
         <div className="my-4 flex justify-center gap-3">
           {[0, 1, 2, 3].map((i) => (
             <span
               key={i}
               className={`h-4 w-4 rounded-full border-2 ${
-                i < value.length ? 'border-flame bg-flame' : 'border-steel-deep'
+                i < value.length ? 'border-[#1d6b45] bg-[#1d6b45]' : 'border-[#cad7cf]'
               }`}
             />
           ))}
         </div>
         {error && (
-          <p role="alert" className="mb-2 text-center text-sm text-flame-deep">
+          <p role="alert" className="mb-2 text-center text-sm font-semibold text-[#a94435]">
             PIN not recognized
           </p>
         )}
@@ -73,7 +73,7 @@ export function PinSheet({
               type="button"
               disabled={!key}
               onClick={() => pressKey(key)}
-              className="rounded-lg bg-steel py-4 text-xl font-medium text-ink active:bg-steel-deep disabled:opacity-0"
+              className="app-key disabled:opacity-0"
             >
               {key}
             </button>

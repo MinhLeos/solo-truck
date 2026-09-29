@@ -40,29 +40,35 @@ export function ChecklistClient({
 
   if (allChecked) {
     return (
-      <div className="flex flex-1 flex-col items-center justify-center gap-2 text-center">
-        <p className="text-3xl">✓</p>
-        <h1 className="text-xl font-semibold text-pass">Ready to open</h1>
-        <p className="text-sm text-ink-soft">All {items.length} checks done for today.</p>
+      <div className="flex flex-1 flex-col items-center justify-center gap-3 py-16 text-center">
+        <p className="grid h-20 w-20 place-items-center rounded-full bg-[#e1f2e6] text-4xl font-bold text-[#287144] shadow-[0_0_0_10px_#edf6ef]">
+          ✓
+        </p>
+        <h1 className="mt-4 text-[clamp(2rem,4vw,3rem)] font-extrabold leading-none tracking-[-.055em]">
+          Ready to open
+        </h1>
+        <p className="text-[#6b7972]">All {items.length} checks done for today.</p>
       </div>
     );
   }
 
   return (
     <div className="flex flex-col gap-3">
-      <h1 className="text-lg font-semibold text-ink">Pre-shift checklist</h1>
-      <div className="flex flex-col gap-2">
+      <div className="page-intro">
+        <h1>Pre-shift checklist</h1>
+      </div>
+      <div className="flex flex-col gap-3">
         {items.map((item) => (
           <button key={item.checklistId} type="button" onClick={() => toggle(item.checklistId)}>
-            <Card className="flex items-center gap-3 text-left">
+            <Card className="flex min-h-[64px] items-center gap-4 text-left">
               <span
-                className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 ${
-                  item.checked ? 'border-pass bg-pass text-white' : 'border-steel-deep'
+                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 font-bold ${
+                  item.checked ? 'border-[#2f8a59] bg-[#2f8a59] text-white' : 'border-[#b9c9bf] bg-white'
                 }`}
               >
                 {item.checked ? '✓' : ''}
               </span>
-              <span className={item.checked ? 'text-ink-soft line-through' : 'text-ink'}>
+              <span className={`font-semibold ${item.checked ? 'text-[#93a098] line-through' : 'text-[#18231f]'}`}>
                 {item.label}
               </span>
             </Card>

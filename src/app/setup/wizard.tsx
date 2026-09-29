@@ -1,11 +1,11 @@
 'use client';
 
 import { startTransition, useActionState, useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { FormMessage } from '@/components/ui/form-message';
 import { TruckStep } from './steps/truck-step';
 import { EquipmentStep } from './steps/equipment-step';
 import { ShiftsStep } from './steps/shifts-step';
+import styles from './setup.module.css';
 import { completeOnboarding, type OnboardingState } from './actions';
 import {
   EMPTY_WIZARD_DATA,
@@ -51,58 +51,86 @@ export function Wizard() {
   const truckValid = Boolean(data.truck.name && data.truck.city && data.truck.state);
   const equipmentValid = data.equipment.length >= 1;
 
+  const canAdvance = !((step === 0 && !truckValid) || (step === 1 && !equipmentValid));
+
   return (
-    <div className="mt-6 flex flex-col gap-4">
-      <div className="flex gap-3 text-xs font-medium text-ink-soft">
+    <>
+      <nav className={styles.steps} aria-label="Setup progress">
         {STEP_LABELS.map((label, i) => (
-          <span key={label} className={i === step ? 'text-flame' : ''}>
-            {i + 1}. {label}
-          </span>
+          <div
+            key={label}
+            className={`${styles.step} ${i === step ? styles.active : ''} ${i < step ? styles.complete : ''}`}
+            aria-current={i === step ? 'step' : undefined}
+          >
+            <span className={styles.stepNumber}>{i < step ? '✓' : i + 1}</span>
+            <span>{label}</span>
+          </div>
         ))}
+      </nav>
+      <div className={styles.progressTrack}>
+        <span style={{ width: `${((step + 1) / STEP_LABELS.length) * 100}%` }} />
       </div>
 
-      {step === 0 && (
-        <TruckStep data={data.truck} onChange={(truck) => setData({ ...data, truck })} />
-      )}
-      {step === 1 && (
-        <EquipmentStep
-          items={data.equipment}
-          onChange={(equipment) => setData({ ...data, equipment })}
-        />
-      )}
-      {step === 2 && (
-        <ShiftsStep shifts={data.shifts} onChange={(shifts) => setData({ ...data, shifts })} />
-      )}
+      <section className={styles.card}>
+        <div className={styles.panel}>
+          <div className={styles.panelHeading}>
+            <span className={styles.panelIcon}>0{step + 1}</span>
+            <div>
+              <h2>{STEP_LABELS[step]}</h2>
+            </div>
+          </div>
 
-      {state.status === 'error' && <FormMessage status="error">{state.message}</FormMessage>}
+          {step === 0 && (
+            <TruckStep data={data.truck} onChange={(truck) => setData({ ...data, truck })} />
+          )}
+          {step === 1 && (
+            <EquipmentStep
+              items={data.equipment}
+              onChange={(equipment) => setData({ ...data, equipment })}
+            />
+          )}
+          {step === 2 && (
+            <ShiftsStep shifts={data.shifts} onChange={(shifts) => setData({ ...data, shifts })} />
+          )}
 
-      <div className="flex justify-between">
-        <Button
-          type="button"
-          variant="secondary"
-          disabled={step === 0}
-          onClick={() => setStep((s) => Math.max(0, s - 1))}
-        >
-          Back
-        </Button>
-        {step < 2 ? (
-          <Button
+          {state.status === 'error' && (
+            <div className="mt-4">
+              <FormMessage status="error">{state.message}</FormMessage>
+            </div>
+          )}
+        </div>
+
+        <div className={styles.actions}>
+          <button
             type="button"
-            disabled={(step === 0 && !truckValid) || (step === 1 && !equipmentValid)}
-            onClick={() => setStep((s) => Math.min(2, s + 1))}
+            className={styles.back}
+            disabled={step === 0}
+            onClick={() => setStep((s) => Math.max(0, s - 1))}
           >
-            Next
-          </Button>
-        ) : (
-          <Button
-            type="button"
-            disabled={pending}
-            onClick={() => startTransition(() => dispatch(data))}
-          >
-            {pending ? 'Finishing…' : 'Finish'}
-          </Button>
-        )}
-      </div>
-    </div>
+            Back
+          </button>
+          {step < 2 ? (
+            <button
+              type="button"
+              className={styles.next}
+              disabled={!canAdvance}
+              onClick={() => setStep((s) => Math.min(2, s + 1))}
+            >
+              Next<span aria-hidden="true">→</span>
+            </button>
+          ) : (
+            <button
+              type="button"
+              className={styles.next}
+              disabled={pending}
+              onClick={() => startTransition(() => dispatch(data))}
+            >
+              {pending ? 'Finishing…' : 'Finish'}
+              {!pending && <span aria-hidden="true">→</span>}
+            </button>
+          )}
+        </div>
+      </section>
+    </>
   );
 }

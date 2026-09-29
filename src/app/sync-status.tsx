@@ -16,13 +16,13 @@ export function SyncStatus() {
 
   if (pendingCount === 0) {
     return isOffline ? (
-      <p className="bg-steel px-4 py-1.5 text-center text-xs text-ink-soft">You&apos;re offline</p>
+      <p className="sync-strip offline">You&apos;re offline</p>
     ) : null;
   }
 
   if (hasBlocked) {
     return (
-      <p className="bg-warn-bg px-4 py-1.5 text-center text-xs text-flame-deep">
+      <p className="sync-strip blocked">
         ⚠ {pendingCount} {pendingCount === 1 ? 'item' : 'items'} can&apos;t sync — check your
         subscription
       </p>
@@ -30,7 +30,7 @@ export function SyncStatus() {
   }
 
   return (
-    <p className="bg-steel px-4 py-1.5 text-center text-xs text-ink-soft">
+    <p className="sync-strip">
       {pendingCount} {pendingCount === 1 ? 'item' : 'items'} waiting to sync
     </p>
   );

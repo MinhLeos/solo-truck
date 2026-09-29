@@ -45,11 +45,11 @@ export function CorrectiveActionSheet({
     <div
       role="dialog"
       aria-label="Corrective action required"
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 sm:items-center"
+      className="app-sheet-backdrop"
     >
-      <div className="w-full max-w-sm rounded-t-2xl bg-card p-4 sm:rounded-2xl">
-        <p className="text-sm font-medium text-flame-deep">⚠ {temperature}°F is out of range</p>
-        <p className="mt-1 text-sm text-ink-soft">
+      <div className="app-sheet">
+        <p className="status-pill bad text-sm">⚠ {temperature}°F is out of range</p>
+        <p className="mt-3 text-sm leading-relaxed text-[#6b7972]">
           Good catch. Inspectors respect honest logs with corrective actions.
         </p>
         <div className="mt-3 flex flex-col gap-2">
@@ -58,10 +58,10 @@ export function CorrectiveActionSheet({
               key={preset.value}
               type="button"
               onClick={() => setActionType(preset.value)}
-              className={`rounded-lg border px-3 py-2 text-left text-sm ${
+              className={`rounded-[10px] border px-3.5 py-3 text-left text-sm font-semibold ${
                 actionType === preset.value
-                  ? 'border-flame bg-flame/10 text-ink'
-                  : 'border-steel-deep text-ink'
+                  ? 'border-[#2f8a59] bg-[#edf6ef] text-[#1e6b46]'
+                  : 'border-[#dce4de] bg-[#fbfcfb] text-[#18231f]'
               }`}
             >
               {preset.label}
@@ -75,9 +75,9 @@ export function CorrectiveActionSheet({
             actionType === 'other' ? 'Describe what you did (required)' : 'Add a note (optional)'
           }
           rows={2}
-          className="mt-2 w-full rounded-md border border-steel-deep bg-card px-3 py-2 text-sm text-ink"
+          className="mt-3 w-full rounded-[10px] border border-[#cad7cf] bg-[#fbfcfb] px-[13px] py-3 text-sm text-[#18231f]"
         />
-        <label className="mt-2 block text-sm text-ink-soft">
+        <label className="mt-3 block text-sm font-semibold text-[#557164]">
           <input
             type="file"
             accept="image/*"
@@ -85,7 +85,7 @@ export function CorrectiveActionSheet({
             onChange={handlePhotoChange}
             className="hidden"
           />
-          <span className="inline-block rounded-md border border-steel-deep px-3 py-2">
+          <span className="inline-block cursor-pointer rounded-[10px] border border-dashed border-[#b9c9bf] px-3.5 py-2.5">
             {processingPhoto ? 'Processing…' : photo ? 'Photo attached ✓' : '+ Add photo (optional)'}
           </span>
         </label>

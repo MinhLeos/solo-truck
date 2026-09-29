@@ -1,5 +1,6 @@
 'use client';
 
+import styles from '../setup.module.css';
 import type { ShiftDraft } from '@/lib/onboarding/types';
 
 const DAYS = [
@@ -43,21 +44,18 @@ export function ShiftsStep({
   }
 
   return (
-    <div className="flex flex-col gap-3">
-      <p className="text-sm text-ink-soft">
+    <div className="flex flex-col gap-4">
+      <p className="text-sm text-[#748079]">
         Which days do you sell? Optional — you can skip this and add shifts later.
       </p>
-      <div className="flex flex-wrap gap-2">
+      <div className={styles.days}>
         {DAYS.map((day) => (
           <button
             key={day.value}
             type="button"
             onClick={() => toggleDay(day.value)}
-            className={`rounded-md border px-3 py-2 text-sm ${
-              selectedDays.has(day.value)
-                ? 'border-flame bg-flame text-white'
-                : 'border-steel-deep bg-card text-ink'
-            }`}
+            aria-pressed={selectedDays.has(day.value)}
+            className={selectedDays.has(day.value) ? styles.daySelected : ''}
           >
             {day.label}
           </button>
@@ -65,23 +63,22 @@ export function ShiftsStep({
       </div>
 
       {shifts.length > 0 && (
-        <div className="flex gap-3">
-          <label className="flex flex-col gap-1 text-sm text-ink">
+        <div className={styles.times}>
+          <label>
             Open
             <input
               type="time"
               value={startTime}
               onChange={(e) => updateTimes(e.target.value, endTime)}
-              className="rounded-md border border-steel-deep bg-card px-3 py-2 text-sm text-ink"
             />
           </label>
-          <label className="flex flex-col gap-1 text-sm text-ink">
+          <span>to</span>
+          <label>
             Close
             <input
               type="time"
               value={endTime}
               onChange={(e) => updateTimes(startTime, e.target.value)}
-              className="rounded-md border border-steel-deep bg-card px-3 py-2 text-sm text-ink"
             />
           </label>
         </div>

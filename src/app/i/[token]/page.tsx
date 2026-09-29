@@ -61,8 +61,13 @@ export default async function PublicInspectorLinkPage({
   );
 
   return (
-    <div className="mx-auto max-w-2xl p-4">
-      <InspectorView truckName={truck.name} rangeDays={RANGE_DAYS} report={report} />
-    </div>
+    <main className="app-report min-h-dvh px-5 py-10">
+      <div className="mx-auto max-w-[1000px]">
+        <p className="app-eyebrow mb-3">Solo Truck · Read-only report</p>
+        <div className="rounded-[18px] border border-[#dce4de] bg-white p-[22px] shadow-[0_5px_18px_#17352a08] print:border-0 print:p-0 print:shadow-none">
+          <InspectorView truckName={truck.name} rangeDays={RANGE_DAYS} report={report} />
+        </div>
+      </div>
+    </main>
   );
 }

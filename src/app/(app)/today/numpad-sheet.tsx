@@ -37,13 +37,13 @@ export function NumpadSheet({
     <div
       role="dialog"
       aria-label={title}
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 sm:items-center"
+      className="app-sheet-backdrop"
     >
-      <div className="w-full max-w-sm rounded-t-2xl bg-card p-4 sm:rounded-2xl">
-        <p className="text-center text-sm text-ink-soft">{title}</p>
-        <p className="my-4 text-center text-4xl font-semibold text-ink">
+      <div className="app-sheet">
+        <p className="app-eyebrow text-center">{title}</p>
+        <p className="my-5 text-center text-6xl font-extrabold tracking-[-.05em]">
           {value || '0'}
-          <span className="text-xl text-ink-soft">{unit}</span>
+          <span className="text-2xl text-[#6b7972]">{unit}</span>
         </p>
         <div className="grid grid-cols-3 gap-2">
           {KEYS.map((key) => (
@@ -51,7 +51,7 @@ export function NumpadSheet({
               key={key}
               type="button"
               onClick={() => pressKey(key)}
-              className="rounded-lg bg-steel py-4 text-xl font-medium text-ink active:bg-steel-deep"
+              className="app-key"
             >
               {key}
             </button>

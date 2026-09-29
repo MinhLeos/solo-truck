@@ -11,7 +11,7 @@ export function FormMessage({
   children: ReactNode;
 }) {
   return (
-    <p role="alert" className={`text-sm ${status === 'error' ? 'text-flame-deep' : 'text-pass'}`}>
+    <p role="alert" className={`text-sm ${status === 'error' ? 'text-[#a94435]' : 'text-[#287144]'}`}>
       {children}
     </p>
   );

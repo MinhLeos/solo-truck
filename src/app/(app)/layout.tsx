@@ -30,17 +30,18 @@ export default async function AppLayout({
   const banner = billingBannerFor(sub, new Date());
 
   return (
-    <div className="flex min-h-dvh flex-col bg-steel">
+    <div className="app-frame">
       <InstallPrompt />
-      <header className="flex items-center justify-between border-b border-steel-deep bg-card px-4 py-3">
-        <span className="font-semibold text-ink">{truck.name}</span>
+      <header className="app-header">
+        <div>
+          <span className="app-eyebrow">Solo Truck</span>
+          <strong>{truck.name}</strong>
+        </div>
       </header>
       <BillingBanner banner={banner} />
       <SyncStatus />
-      <main className="flex flex-1 flex-col px-4 py-4 pb-20">{children}</main>
-      <div className="fixed inset-x-0 bottom-0">
-        <BottomNav />
-      </div>
+      <main className="app-content">{children}</main>
+      <BottomNav />
     </div>
   );
 }

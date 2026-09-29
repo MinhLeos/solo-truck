@@ -13,13 +13,13 @@ export function DocumentForm() {
   const [state, formAction, pending] = useActionState(uploadDocument, initialState);
 
   return (
-    <form action={formAction} className="flex flex-col gap-3">
-      <label className="flex flex-col gap-1 text-sm text-ink">
+    <form action={formAction} className="flex flex-col gap-4">
+      <label className="flex flex-col gap-[7px] text-xs font-extrabold text-[#53645b]">
         Type
         <select
           name="kind"
           required
-          className="w-full rounded-md border border-steel-deep bg-card px-3 py-2 text-sm text-ink"
+          className="w-full rounded-[10px] border border-[#cad7cf] bg-[#fbfcfb] px-[13px] py-3 text-sm font-normal text-[#18231f]"
         >
           {DOCUMENT_KINDS.map((kind) => (
             <option key={kind.value} value={kind.value}>
@@ -29,14 +29,14 @@ export function DocumentForm() {
         </select>
       </label>
       <Input type="date" name="expiresAt" label="Expires (optional)" />
-      <label className="flex flex-col gap-1 text-sm text-ink">
+      <label className="flex flex-col gap-[7px] text-xs font-extrabold text-[#53645b]">
         File (photo or PDF)
         <input
           type="file"
           name="file"
           accept="image/*,application/pdf"
           required
-          className="text-sm text-ink-soft"
+          className="rounded-[10px] border border-dashed border-[#cad7cf] bg-[#fbfcfb] p-3 text-sm font-normal text-[#6b7972]"
         />
       </label>
       {state.status === 'error' && <FormMessage status="error">{state.message}</FormMessage>}

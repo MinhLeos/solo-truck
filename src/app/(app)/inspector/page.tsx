@@ -44,29 +44,31 @@ export default async function InspectorPage({
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex gap-2 text-sm print:hidden">
+      <div className="flex gap-2 print:hidden">
         <Link
           href="/inspector?range=30"
-          className={rangeDays === 30 ? 'font-semibold text-ink' : 'text-ink-soft'}
+          className={`rounded-[10px] px-4 py-2.5 text-[.82rem] font-extrabold ${rangeDays === 30 ? 'bg-[#1d6b45] text-white' : 'bg-[#e9efeb] text-[#31503f]'}`}
         >
           30 days
         </Link>
         <Link
           href="/inspector?range=90"
-          className={rangeDays === 90 ? 'font-semibold text-ink' : 'text-ink-soft'}
+          className={`rounded-[10px] px-4 py-2.5 text-[.82rem] font-extrabold ${rangeDays === 90 ? 'bg-[#1d6b45] text-white' : 'bg-[#e9efeb] text-[#31503f]'}`}
         >
           90 days
         </Link>
       </div>
 
-      <InspectorView truckName={truck.name} rangeDays={rangeDays} report={report} />
+      <Card>
+        <InspectorView truckName={truck.name} rangeDays={rangeDays} report={report} />
+      </Card>
 
-      <Card className="flex flex-col gap-2 print:hidden">
-        <p className="text-sm font-medium text-ink">Share a read-only link with an inspector</p>
-        <p className="text-xs text-ink-soft">Link expires in 24h. You can revoke it anytime.</p>
+      <Card className="flex flex-col gap-3 print:hidden">
+        <h3 className="text-base font-bold">Share a read-only link with an inspector</h3>
+        <p className="text-sm text-[#6b7972]">Link expires in 24h. You can revoke it anytime.</p>
         {activeLinks.map((link) => (
-          <div key={link.id} className="flex items-center justify-between gap-2 text-xs">
-            <code className="truncate text-ink-soft">{`${appUrl}/i/${link.token}`}</code>
+          <div key={link.id} className="flex items-center justify-between gap-2 rounded-[10px] border border-[#dce4de] bg-[#fbfcfb] py-1 pl-3 pr-1 text-xs">
+            <code className="truncate text-[#557164]">{`${appUrl}/i/${link.token}`}</code>
             <form action={revokeInspectorLink.bind(null, link.id)}>
               <Button type="submit" variant="ghost">
                 Revoke
@@ -75,7 +77,7 @@ export default async function InspectorPage({
           </div>
         ))}
         <form action={generateInspectorLink}>
-          <Button type="submit" variant="secondary">
+          <Button type="submit">
             Generate new link
           </Button>
         </form>

@@ -46,7 +46,7 @@ export function SupersedeForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-2 flex flex-col gap-2 border-t border-steel-deep pt-2">
+    <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-3 border-t border-[#dce4de] pt-4">
       <div className="flex gap-2">
         <Input
           type="number"

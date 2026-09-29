@@ -124,10 +124,10 @@ export function TodayClient({
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex items-center justify-between">
-        <h1 className="text-lg font-semibold text-ink">Today</h1>
+      <div className="page-intro flex items-end justify-between gap-4">
+        <h1>Today</h1>
         {streak > 0 && (
-          <span className="text-sm font-semibold text-flame">
+          <span className="status-pill warn mb-2.5 text-sm">
             🔥 {streak} day{streak === 1 ? '' : 's'}
           </span>
         )}

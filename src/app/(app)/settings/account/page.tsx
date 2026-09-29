@@ -14,9 +14,9 @@ export default async function AccountSettingsPage() {
 
   return (
     <div className="flex flex-col gap-4">
-      <div>
-        <h1 className="text-lg font-semibold text-ink">Account</h1>
-        <p className="text-sm text-ink-soft">
+      <div className="page-intro">
+        <h1>Account</h1>
+        <p>
           Signed in as {user?.email}
           {providers.length > 0 && ` · via ${providers.join(', ')}`}
         </p>
@@ -25,13 +25,13 @@ export default async function AccountSettingsPage() {
       <Card>
         {hasPassword ? (
           <>
-            <p className="mb-3 font-medium text-ink">Change password</p>
+            <h3 className="mb-4 text-base font-bold">Change password</h3>
             <ChangePasswordForm />
           </>
         ) : (
           <>
-            <p className="mb-1 font-medium text-ink">Set a password</p>
-            <p className="mb-3 text-sm text-ink-soft">
+            <h3 className="mb-1 text-base font-bold">Set a password</h3>
+            <p className="mb-4 text-sm text-[#6b7972]">
               You currently sign in with Google only. Add a password to also be able to
               sign in with email.
             </p>

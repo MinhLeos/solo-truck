@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ChevronRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 const LINKS = [
@@ -11,13 +12,18 @@ const LINKS = [
 export default function SettingsPage() {
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-lg font-semibold text-ink">Settings</h1>
-      <div className="flex flex-col gap-2">
+      <div className="page-intro">
+        <h1>Settings</h1>
+      </div>
+      <div className="flex flex-col gap-3">
         {LINKS.map((link) => (
           <Link key={link.href} href={link.href}>
-            <Card className="flex flex-col">
-              <span className="font-medium text-ink">{link.label}</span>
-              <span className="text-sm text-ink-soft">{link.description}</span>
+            <Card className="data-row hover:border-[#b9d3c2]">
+              <div>
+                <h3>{link.label}</h3>
+                <p>{link.description}</p>
+              </div>
+              <ChevronRight size={18} className="shrink-0 text-[#839089]" aria-hidden />
             </Card>
           </Link>
         ))}

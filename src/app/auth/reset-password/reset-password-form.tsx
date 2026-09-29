@@ -1,9 +1,8 @@
 'use client';
 
 import { useActionState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { FormMessage } from '@/components/ui/form-message';
+import styles from './reset-password.module.css';
 import { updatePassword, type ResetPasswordState } from './actions';
 
 const initialState: ResetPasswordState = { status: 'idle' };
@@ -15,9 +14,10 @@ export function ResetPasswordForm() {
   );
 
   return (
-    <form action={formAction} className="mt-6 flex flex-col gap-3">
-      <Input
-        label="New password"
+    <form action={formAction} className={styles.form}>
+      <label htmlFor="new-password">New password</label>
+      <input
+        id="new-password"
         type="password"
         name="password"
         required
@@ -28,9 +28,10 @@ export function ResetPasswordForm() {
       {state.status === 'error' && (
         <FormMessage status="error">{state.message}</FormMessage>
       )}
-      <Button type="submit" disabled={pending}>
+      <button className={styles.submitButton} type="submit" disabled={pending}>
         {pending ? 'Updating…' : 'Update password'}
-      </Button>
+        {!pending && <span aria-hidden="true">→</span>}
+      </button>
     </form>
   );
 }

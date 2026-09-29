@@ -1,6 +1,8 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
+import Link from 'next/link';
 import { Wizard } from './wizard';
+import styles from './setup.module.css';
 
 export default async function SetupPage() {
   const supabase = await createClient();
@@ -15,14 +17,19 @@ export default async function SetupPage() {
   if (truck) redirect('/today');
 
   return (
-    <div className="flex flex-1 flex-col items-center justify-center bg-steel px-6 py-10">
-      <div className="w-full max-w-sm">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">
-          Set up your truck
-        </h1>
-        <p className="mt-2 text-ink-soft">Takes about 5 minutes — you can change everything later.</p>
+    <main className={styles.page}>
+      <div className={styles.shell}>
+        <header className={styles.header}>
+          <Link className={styles.logo} href="/">Solo Truck</Link>
+        </header>
+
+        <section className={styles.intro}>
+          <h1>Set up your truck</h1>
+          <p>Takes about 5 minutes — you can change everything later.</p>
+        </section>
+
         <Wizard />
       </div>
-    </div>
+    </main>
   );
 }

@@ -1,0 +1,4 @@
+import { AppShell, AppButton, PageIntro, SectionCard, StatusPill } from "@/components/app-shell"
+const equipment=[['Walk-in cooler','≤ 41°F','38°F','In range'],['Prep cooler','≤ 41°F','No log yet today',''],['Hot hold','≥ 135°F','142°F','In range']]
+export default function Today(){return <AppShell active="Today"><PageIntro eyebrow="SHIFT LOG" title="Today"><span>Keep the record moving. Log each unit once per shift.</span></PageIntro><div className="list-stack">{equipment.map(([name,threshold,value,status])=><SectionCard key={name}><div className="data-row" style={{border:0,padding:0}}><div><h3>{name}</h3><p>{threshold}</p></div><div className="row-actions"><div><div className="big-value">{value}</div><p>{status||'Tap to log'}</p></div><AppButton>{status?'Update':'Log temp'}</AppButton></div></div></SectionCard>)}</div></AppShell>}
+``

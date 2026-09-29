@@ -3,6 +3,14 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { startCheckoutAction, openPortalAction } from './actions';
 
+const STATUS_TONE: Record<string, string> = {
+  trialing: 'warn',
+  active: 'good',
+  past_due: 'warn',
+  cancelled: 'neutral',
+  expired: 'neutral',
+};
+
 const STATUS_LABEL: Record<string, string> = {
   trialing: 'Free trial',
   active: 'Active',
@@ -28,32 +36,34 @@ export default async function BillingSettingsPage() {
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-lg font-semibold text-ink">Billing</h1>
+      <div className="page-intro">
+        <h1>Billing</h1>
+      </div>
 
-      <Card className="flex flex-col gap-2">
-        <p className="font-medium text-ink">{STATUS_LABEL[status] ?? status}</p>
+      <Card className="flex flex-col items-start gap-3">
+        <span className={`status-pill ${STATUS_TONE[status] ?? 'neutral'}`}>{STATUS_LABEL[status] ?? status}</span>
         {status === 'trialing' && subscription?.trial_ends_at && (
-          <p className="text-sm text-ink-soft">
+          <p className="text-lg font-bold tracking-[-.02em]">
             Trial ends {new Date(subscription.trial_ends_at).toLocaleDateString()}.
           </p>
         )}
         {status === 'active' && subscription?.current_period_end && (
-          <p className="text-sm text-ink-soft">
+          <p className="text-lg font-bold tracking-[-.02em]">
             Renews {new Date(subscription.current_period_end).toLocaleDateString()}.
           </p>
         )}
         {status === 'cancelled' && subscription?.current_period_end && (
-          <p className="text-sm text-ink-soft">
+          <p className="text-lg font-bold tracking-[-.02em]">
             Access ends {new Date(subscription.current_period_end).toLocaleDateString()}.
           </p>
         )}
         {status === 'past_due' && (
-          <p className="text-sm text-ink-soft">Update your payment method to avoid losing access.</p>
+          <p className="text-lg font-bold tracking-[-.02em]">Update your payment method to avoid losing access.</p>
         )}
       </Card>
 
       {!canManage && (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-3">
           <form action={startCheckoutAction.bind(null, 'monthly')}>
             <Button type="submit" className="w-full">
               Subscribe — $24/month

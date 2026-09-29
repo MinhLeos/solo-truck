@@ -14,19 +14,19 @@ export default async function StaffSettingsPage() {
 
   return (
     <div className="flex flex-col gap-4">
-      <div>
-        <h1 className="text-lg font-semibold text-ink">Staff</h1>
-        <p className="text-sm text-ink-soft">
+      <div className="page-intro">
+        <h1>Staff</h1>
+        <p className="!rounded-[10px] !bg-[#fff0c9] !px-3.5 !py-2.5 !text-sm !font-semibold !text-[#866c1c] inline-block">
           PINs are for attribution only — not a login or security mechanism.
         </p>
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-3">
         {(staff ?? []).map((member) => (
-          <Card key={member.id} className="flex items-center justify-between">
+          <Card key={member.id} className="data-row">
             <div>
-              <p className="font-medium text-ink">{member.name}</p>
-              <p className="text-xs text-ink-soft">PIN {member.pin}</p>
+              <h3>{member.name}</h3>
+              <p className="font-mono">PIN {member.pin}</p>
             </div>
             <form action={removeStaff.bind(null, member.id)}>
               <Button type="submit" variant="ghost">
@@ -36,11 +36,13 @@ export default async function StaffSettingsPage() {
           </Card>
         ))}
         {(staff ?? []).length === 0 && (
-          <p className="text-sm text-ink-soft">No staff added yet — logs won&apos;t ask for a PIN.</p>
+          <p className="text-sm text-[#6b7972]">No staff added yet — logs won&apos;t ask for a PIN.</p>
         )}
       </div>
 
-      <StaffForm />
+      <Card className="mt-2">
+        <StaffForm />
+      </Card>
     </div>
   );
 }

@@ -47,7 +47,7 @@ export function InstallPrompt() {
   if (dismissed || (!deferredEvent && !showIosHint)) return null;
 
   return (
-    <div className="flex items-center justify-between gap-3 bg-ink px-4 py-2 text-sm text-white">
+    <div className="install-strip print:hidden">
       {showIosHint ? (
         <span>Install this app: tap Share, then &quot;Add to Home Screen&quot;.</span>
       ) : (
